@@ -3195,10 +3195,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mAppSwitchPressAction = Action.fromSettings(resolver,
                     LineageSettings.System.KEY_APP_SWITCH_ACTION,
                     mAppSwitchPressAction);
-            mAppSwitchLongPressAction = Action.fromSettings(resolver,
-                    LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
-                    mAppSwitchLongPressAction);
         }
+        mAppSwitchLongPressAction = Action.fromSettings(resolver,
+                LineageSettings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
+                mAppSwitchLongPressAction);
 
         mEdgeLongSwipeAction = Action.fromSettings(resolver,
                 LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION,
