@@ -84,7 +84,9 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
     }
 
     @Override // Binder interface
-    public void onShowingStateChanged(boolean showing) {
+    public void onShowingStateChanged(boolean showing, int userId) {
+        if (userId != mCurrentUserId) return;
+
         mIsShowing = showing;
 
         mCallback.onShowingChanged();
@@ -99,7 +101,7 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
         mCurrentUserId = userId;
     }
 
-    private synchronized int getCurrentUser() {
+    public synchronized int getCurrentUser() {
         return mCurrentUserId;
     }
 
