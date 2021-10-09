@@ -1139,6 +1139,12 @@
     <dimen name="udfps_burn_in_offset_x">7px</dimen>
     <dimen name="udfps_burn_in_offset_y">20px</dimen>
 
+    <!-- Maximum horizontal offset of statusbar for burn-in protection -->
+    <dimen name="status_bar_offset_max_x">10dp</dimen>
+
+    <!-- Maximum vertical offset of statusbar for burn-in protection -->
+    <dimen name="status_bar_offset_max_y">4dp</dimen>
+
     <!-- The absolute side margins of quick settings -->
     <dimen name="quick_settings_bottom_margin_media">8dp</dimen>
     <dimen name="nav_content_padding">0dp</dimen>
