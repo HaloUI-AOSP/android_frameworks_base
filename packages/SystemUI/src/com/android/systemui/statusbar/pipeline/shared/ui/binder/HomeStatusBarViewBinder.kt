@@ -390,6 +390,12 @@ constructor(
                                 activeClock.setIsActiveClock(true)
                             }
 
+                            val allowSelectedClock = finalVisibility.visibility == View.VISIBLE
+
+                            leftClock.setVisibleByModernization(allowSelectedClock && newActiveClock === leftClock)
+                            centerClock.setVisibleByModernization(allowSelectedClock && newActiveClock === centerClock)
+                            rightClock.setVisibleByModernization(allowSelectedClock && newActiveClock === rightClock)
+
                             // Show / hide only the active clock according to finalVisibility
                             when (activeClock) {
                                 leftClock -> {
