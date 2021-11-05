@@ -54,6 +54,9 @@ public class ClockController {
         mRightClock = statusBar.findViewById(R.id.clock_right);
 
         mActiveClock = mLeftClock;
+        mLeftClock.setIsActiveClock(true);
+        mCenterClock.setIsActiveClock(false);
+        mRightClock.setIsActiveClock(false);
 
         Uri iconHideList = Settings.Secure.getUriFor(StatusBarIconController.ICON_HIDE_LIST);
         Uri statusBarClock = LineageSettings.System.getUriFor(
@@ -93,9 +96,11 @@ public class ClockController {
 
     private void updateActiveClock() {
         mContext.getMainExecutor().execute(() -> {
+            mActiveClock.setIsActiveClock(false);
             mActiveClock.setVisibility(View.GONE);
             removeDarkReceiver();
             mActiveClock = getClock();
+            mActiveClock.setIsActiveClock(true);
             mActiveClock.setVisibility(View.VISIBLE);
             addDarkReceiver();
 
