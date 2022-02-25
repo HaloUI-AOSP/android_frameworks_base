@@ -1012,6 +1012,18 @@ public class PackageInstaller {
                 throw e.rethrowFromSystemServer();
             }
         }
+
+        /**
+         * @return Session's {@link SessionParams#installFlags}.
+         * @hide
+         */
+        public int getInstallFlags() {
+            try {
+                return mSession.getInstallFlags();
+            } catch (RemoteException e) {
+                throw e.rethrowFromSystemServer();
+            }
+        }
     }
 
     /**
