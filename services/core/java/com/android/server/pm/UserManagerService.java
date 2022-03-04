@@ -173,6 +173,8 @@ public class UserManagerService extends IUserManager.Stub {
     private static final String TAG_ENTRY = "entry";
     private static final String TAG_VALUE = "value";
     private static final String TAG_SEED_ACCOUNT_OPTIONS = "seedAccountOptions";
+    private static final String TAG_IGNORE_PREPARE_STORAGE_ERRORS =
+            "ignorePrepareStorageErrors";
     private static final String ATTR_KEY = "key";
     private static final String ATTR_VALUE_TYPE = "type";
     private static final String ATTR_MULTIPLE = "m";
@@ -262,6 +264,20 @@ public class UserManagerService extends IUserManager.Stub {
         PersistableBundle seedAccountOptions;
         // Whether to perist the seed account information to be available after a boot
         boolean persistSeedData;
+
+        /**
+         * {@code true} if the system should ignore errors when preparing the
+         * storage directories for this user. This is {@code false} for all new
+         * users; it will only be {@code true} for users that already existed
+         * on-disk from an older version of Android.
+         */
+        private boolean mIgnorePrepareStorageErrors;
+        boolean getIgnorePrepareStorageErrors() {
+            return mIgnorePrepareStorageErrors;
+        }
+        void setIgnorePrepareStorageErrors() {
+            mIgnorePrepareStorageErrors = true;
+        }
 
         void clearSeedAccountData() {
             seedAccountName = null;
@@ -2091,6 +2107,10 @@ public class UserManagerService extends IUserManager.Stub {
             serializer.endTag(null, TAG_SEED_ACCOUNT_OPTIONS);
         }
 
+        serializer.startTag(/* namespace */ null, TAG_IGNORE_PREPARE_STORAGE_ERRORS);
+        serializer.text(String.valueOf(userData.getIgnorePrepareStorageErrors()));
+        serializer.endTag(/* namespace */ null, TAG_IGNORE_PREPARE_STORAGE_ERRORS);
+
         serializer.endTag(null, TAG_USER);
 
         serializer.endDocument();
@@ -2197,6 +2217,7 @@ public class UserManagerService extends IUserManager.Stub {
         Bundle baseRestrictions = null;
         Bundle localRestrictions = null;
         Bundle globalRestrictions = null;
+        boolean ignorePrepareStorageErrors = true; // default is true for old users
 
         XmlPullParser parser = Xml.newPullParser();
         parser.setInput(is, StandardCharsets.UTF_8.name());
@@ -2270,6 +2291,11 @@ public class UserManagerService extends IUserManager.Stub {
                 } else if (TAG_SEED_ACCOUNT_OPTIONS.equals(tag)) {
                     seedAccountOptions = PersistableBundle.restoreFromXml(parser);
                     persistSeedData = true;
+                } else if (TAG_IGNORE_PREPARE_STORAGE_ERRORS.equals(tag)) {
+                    type = parser.next();
+                    if (type == XmlPullParser.TEXT) {
+                        ignorePrepareStorageErrors = Boolean.parseBoolean(parser.getText());
+                    }
                 }
             }
         }
@@ -2294,6 +2320,9 @@ public class UserManagerService extends IUserManager.Stub {
         userData.seedAccountType = seedAccountType;
         userData.persistSeedData = persistSeedData;
         userData.seedAccountOptions = seedAccountOptions;
+        if (ignorePrepareStorageErrors) {
+            userData.setIgnorePrepareStorageErrors();
+        }
 
         synchronized (mRestrictionsLock) {
             if (baseRestrictions != null) {
@@ -3458,6 +3487,9 @@ public class UserManagerService extends IUserManager.Stub {
                             pw.println();
                         }
                     }
+
+                    pw.println("    Ignore errors preparing storage: "
+                            + userData.getIgnorePrepareStorageErrors());
                 }
             }
             pw.println();
@@ -3722,6 +3754,14 @@ public class UserManagerService extends IUserManager.Stub {
                 return StorageManager.isUserKeyUnlocked(userId);
             }
             return state == UserState.STATE_RUNNING_UNLOCKED;
+        }
+
+        @Override
+        public boolean shouldIgnorePrepareStorageErrors(int userId) {
+            synchronized (mUsersLock) {
+                UserData userData = mUsers.get(userId);
+                return userData != null && userData.getIgnorePrepareStorageErrors();
+            }
         }
     }
 

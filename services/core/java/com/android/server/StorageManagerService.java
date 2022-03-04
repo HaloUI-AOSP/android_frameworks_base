@@ -69,6 +69,7 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.os.UserManagerInternal;
 import android.os.storage.DiskInfo;
 import android.os.storage.IObbActionListener;
 import android.os.storage.IStorageEventListener;
@@ -3023,6 +3024,14 @@ class StorageManagerService extends IStorageManager.Stub
             mCryptConnector.execute("cryptfs", "prepare_user_storage", escapeNull(volumeUuid),
                     userId, serialNumber, flags);
         } catch (NativeDaemonConnectorException e) {
+            // Very unfortunately, these errors need to be ignored for broken
+            // users that already existed on-disk from older Android versions.
+            UserManagerInternal umInternal = LocalServices.getService(UserManagerInternal.class);
+            if (umInternal.shouldIgnorePrepareStorageErrors(userId)) {
+                Slog.wtf(TAG, "ignoring error preparing storage for existing user " + userId
+                        + "; device may be insecure!");
+                return;
+            }
             throw e.rethrowAsParcelableException();
         }
     }
