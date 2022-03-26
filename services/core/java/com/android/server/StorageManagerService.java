@@ -88,6 +88,7 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.ArrayMap;
 import android.util.AtomicFile;
+import android.util.EventLog;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Slog;
@@ -3024,6 +3025,7 @@ class StorageManagerService extends IStorageManager.Stub
             mCryptConnector.execute("cryptfs", "prepare_user_storage", escapeNull(volumeUuid),
                     userId, serialNumber, flags);
         } catch (NativeDaemonConnectorException e) {
+            EventLog.writeEvent(0x534e4554, "224585613", -1, "");
             // Very unfortunately, these errors need to be ignored for broken
             // users that already existed on-disk from older Android versions.
             UserManagerInternal umInternal = LocalServices.getService(UserManagerInternal.class);
