@@ -17,6 +17,7 @@
 
 package android.app.admin;
 
+import android.accounts.Account;
 import android.app.admin.NetworkEvent;
 import android.app.IApplicationThread;
 import android.app.IServiceConnection;
@@ -79,6 +80,8 @@ interface IDevicePolicyManager {
     boolean isProfileActivePasswordSufficientForParent(int userHandle);
     int getCurrentFailedPasswordAttempts(int userHandle, boolean parent);
     int getProfileWithMinimumFailedPasswordsForWipe(int userHandle, boolean parent);
+
+    void finalizeWorkProfileProvisioning(in UserHandle managedProfileUser, in Account migratedAccount);
 
     void setMaximumFailedPasswordsForWipe(in ComponentName admin, int num, boolean parent);
     int getMaximumFailedPasswordsForWipe(in ComponentName admin, int userHandle, boolean parent);
