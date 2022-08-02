@@ -2829,6 +2829,11 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
         return info.applicationInfo.uid;
     }
 
+    int getPid() {
+        return app != null ? app.getPid() : 0;
+    }
+
+
     void setShowWhenLocked(boolean showWhenLocked) {
         mShowWhenLocked = showWhenLocked;
     }
