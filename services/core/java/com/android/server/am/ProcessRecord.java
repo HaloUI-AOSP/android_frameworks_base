@@ -455,6 +455,10 @@ final class ProcessRecord {
         stringName = null;
     }
 
+    public int getPid() {
+        return pid;
+    }
+
     public void makeActive(IApplicationThread _thread, ProcessStatsService tracker) {
         if (thread == null) {
             final ProcessState origBase = baseProcessTracker;
