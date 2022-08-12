@@ -911,6 +911,21 @@ public class BuzzBeepBlinkTest extends NotificationTestCase {
     }
 
     @Test
+    public void testA11yCrossUserEventNotSent() throws Exception {
+        final Notification n = new Builder(getContext(), "test")
+                .setSmallIcon(android.R.drawable.sym_def_app_icon).build();
+        int userId = mUser.getIdentifier() + 1;
+        StatusBarNotification sbn = new StatusBarNotification(mPkg, mPkg, 0, mTag, mUid,
+                mPid, n, UserHandle.of(userId), null, System.currentTimeMillis());
+        NotificationRecord r = new NotificationRecord(getContext(), sbn,
+                new NotificationChannel("test", "test", IMPORTANCE_HIGH));
+
+        mService.buzzBeepBlinkLocked(r);
+
+        verify(mAccessibilityService, never()).sendAccessibilityEvent(any(), anyInt());
+    }
+
+    @Test
     public void testA11yMinInitialPost() throws Exception {
         NotificationRecord r = getQuietNotification();
         r.setImportance(IMPORTANCE_MIN, "");
@@ -934,6 +949,174 @@ public class BuzzBeepBlinkTest extends NotificationTestCase {
         verify(mAccessibilityService, times(1)).sendAccessibilityEvent(any(), anyInt());
     }
 
+<<<<<<< HEAD:services/tests/notification/src/com/android/server/notification/BuzzBeepBlinkTest.java
+=======
+    @Test
+    public void testA11yCrossUserEventNotSent() throws Exception {
+        final Notification n = new Builder(getContext(), "test")
+                .setSmallIcon(android.R.drawable.sym_def_app_icon).build();
+        int userId = mUser.getIdentifier() + 1;
+        StatusBarNotification sbn = new StatusBarNotification(mPkg, mPkg, 0, mTag, mUid,
+                mPid, n, UserHandle.of(userId), null, System.currentTimeMillis());
+        NotificationRecord r = new NotificationRecord(getContext(), sbn,
+                new NotificationChannel("test", "test", IMPORTANCE_HIGH));
+
+        mService.buzzBeepBlinkLocked(r);
+
+        verify(mAccessibilityService, never()).sendAccessibilityEvent(any(), anyInt());
+    }
+
+    @Test
+    public void testLightsScreenOn() {
+        mService.mScreenOn = true;
+        NotificationRecord r = getLightsNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsInCall() {
+        mService.mInCall = true;
+        NotificationRecord r = getLightsNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsSilentUpdate() {
+        NotificationRecord r = getLightsOnceNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyLights();
+        assertTrue(r.isInterruptive());
+
+        r = getLightsOnceNotification();
+        r.isUpdate = true;
+        mService.buzzBeepBlinkLocked(r);
+        // checks that lights happened once, i.e. this new call didn't trigger them again
+        verifyLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsUnimportant() {
+        NotificationRecord r = getLightsNotification();
+        r.setImportance(IMPORTANCE_LOW, "testing");
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsNoLights() {
+        NotificationRecord r = getQuietNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsNoLightOnDevice() {
+        mService.mHasLight = false;
+        NotificationRecord r = getLightsNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsLightsOffGlobally() {
+        mService.mNotificationPulseEnabled = false;
+        NotificationRecord r = getLightsNotification();
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testLightsDndIntercepted() {
+        NotificationRecord r = getLightsNotification();
+        r.setSuppressedVisualEffects(SUPPRESSED_EFFECT_LIGHTS);
+        mService.buzzBeepBlinkLocked(r);
+        verifyNeverLights();
+        assertFalse(r.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertSummaryNoLightsChild() {
+        NotificationRecord child = getLightsNotificationRecord("a", GROUP_ALERT_SUMMARY);
+
+        mService.buzzBeepBlinkLocked(child);
+
+        verifyNeverLights();
+        assertFalse(child.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertSummaryLightsSummary() {
+        NotificationRecord summary = getLightsNotificationRecord("a", GROUP_ALERT_SUMMARY);
+        summary.getNotification().flags |= Notification.FLAG_GROUP_SUMMARY;
+
+        mService.buzzBeepBlinkLocked(summary);
+
+        verifyLights();
+        // summaries should never count for interruptiveness counts
+        assertFalse(summary.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertSummaryLightsNonGroupChild() {
+        NotificationRecord nonGroup = getLightsNotificationRecord(null, GROUP_ALERT_SUMMARY);
+
+        mService.buzzBeepBlinkLocked(nonGroup);
+
+        verifyLights();
+        assertTrue(nonGroup.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertChildNoLightsSummary() {
+        NotificationRecord summary = getLightsNotificationRecord("a", GROUP_ALERT_CHILDREN);
+        summary.getNotification().flags |= Notification.FLAG_GROUP_SUMMARY;
+
+        mService.buzzBeepBlinkLocked(summary);
+
+        verifyNeverLights();
+        assertFalse(summary.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertChildLightsChild() {
+        NotificationRecord child = getLightsNotificationRecord("a", GROUP_ALERT_CHILDREN);
+
+        mService.buzzBeepBlinkLocked(child);
+
+        verifyLights();
+        assertTrue(child.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertChildLightsNonGroupSummary() {
+        NotificationRecord nonGroup = getLightsNotificationRecord(null, GROUP_ALERT_CHILDREN);
+
+        mService.buzzBeepBlinkLocked(nonGroup);
+
+        verifyLights();
+        assertTrue(nonGroup.isInterruptive());
+    }
+
+    @Test
+    public void testGroupAlertAllLightsGroup() {
+        NotificationRecord group = getLightsNotificationRecord("a", GROUP_ALERT_ALL);
+
+        mService.buzzBeepBlinkLocked(group);
+
+        verifyLights();
+        assertTrue(group.isInterruptive());
+    }
+
+>>>>>>> 6a42e12de4cf (Do not send AccessibilityEvent if notification is for different user.):services/tests/uiservicestests/src/com/android/server/notification/BuzzBeepBlinkTest.java
     static class VibrateRepeatMatcher implements ArgumentMatcher<VibrationEffect> {
         private final int mRepeatIndex;
 
