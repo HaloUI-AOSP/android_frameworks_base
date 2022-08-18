@@ -40,6 +40,7 @@ import com.android.internal.telephony.ITelephony;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.IccCardConstants.State;
+import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 
 
 /**
@@ -75,7 +76,8 @@ public class KeyguardSimPukView extends KeyguardPinBasedInputView {
                     // mCallback can be null if onSimStateChanged callback is called when keyguard
                     // isn't active.
                     if (mCallback != null) {
-                        mCallback.dismiss(true, KeyguardUpdateMonitor.getCurrentUser());
+                        mCallback.dismiss(true, KeyguardUpdateMonitor.getCurrentUser(),
+                            SecurityMode.SimPuk);
                     }
                     break;
                 }
@@ -359,7 +361,8 @@ public class KeyguardSimPukView extends KeyguardPinBasedInputView {
                             if (result == PhoneConstants.PIN_RESULT_SUCCESS) {
                                 KeyguardUpdateMonitor.getInstance(getContext())
                                         .reportSimUnlocked(mSubId);
-                                mCallback.dismiss(true, KeyguardUpdateMonitor.getCurrentUser());
+                                mCallback.dismiss(true, KeyguardUpdateMonitor.getCurrentUser(),
+                                   SecurityMode.SimPuk);
                             } else {
                                 if (result == PhoneConstants.PIN_PASSWORD_INCORRECT) {
                                     if (attemptsRemaining <= 2) {
@@ -401,6 +404,11 @@ public class KeyguardSimPukView extends KeyguardPinBasedInputView {
     @Override
     public boolean startDisappearAnimation(Runnable finishRunnable) {
         return false;
+    }
+
+    @Override
+    public SecurityMode getSecurityMode() {
+        return SecurityMode.SimPuk;
     }
 }
 
