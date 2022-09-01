@@ -9,4 +9,9 @@
 
     <!-- GameSpace -->
     <java-symbol type="string" name="gamespace_new_game_added" />
+
+    <!-- PropImitationHooks -->
+    <java-symbol type="array" name="config_certifiedBuildProperties" />
+    <java-symbol type="string" name="config_stockFingerprint" />
+    <java-symbol type="string" name="config_netflixSpoofModel" />
 </resources>
