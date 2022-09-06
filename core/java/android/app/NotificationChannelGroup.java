@@ -73,7 +73,11 @@ public final class NotificationChannelGroup implements Parcelable {
         } else {
             mId = null;
         }
-        mName = TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
+        if (in.readByte() != 0) {
+            mName = getTrimmedString(in.readString());
+        } else {
+            mName = "";
+        }
         in.readParcelableList(mChannels, NotificationChannel.class.getClassLoader());
     }
 
@@ -92,7 +96,12 @@ public final class NotificationChannelGroup implements Parcelable {
         } else {
             dest.writeByte((byte) 0);
         }
-        TextUtils.writeToParcel(mName.toString(), dest, flags);
+        if (mName != null) {
+            dest.writeByte((byte) 1);
+            dest.writeString(mName.toString());
+        } else {
+            dest.writeByte((byte) 0);
+        }
         dest.writeParcelableList(mChannels, flags);
     }
 
