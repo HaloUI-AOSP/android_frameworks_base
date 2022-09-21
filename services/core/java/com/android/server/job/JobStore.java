@@ -606,6 +606,10 @@ public final class JobStore {
                 }
             } catch (XmlPullParserException | IOException e) {
                 Slog.wtf(TAG, "Error jobstore xml.", e);
+            } catch (Exception e) {
+                // Crashing at this point would result in a boot loop, so live with a general
+                // Exception for system stability's sake.
+                Slog.wtf(TAG, "Unexpected exception", e);
             } finally {
                 if (mPersistInfo.countAllJobsLoaded < 0) { // Only set them once.
                     mPersistInfo.countAllJobsLoaded = numJobs;
@@ -732,6 +736,15 @@ public final class JobStore {
             } catch (NumberFormatException e) {
                 Slog.d(TAG, "Error reading constraints, skipping.");
                 return null;
+            } catch (XmlPullParserException e) {
+                Slog.d(TAG, "Error Parser Exception.", e);
+                return null;
+            } catch (IOException e) {
+                Slog.d(TAG, "Error I/O Exception.", e);
+                return null;
+            } catch (IllegalArgumentException e) {
+                Slog.e(TAG, "Constraints contained invalid data", e);
+                return null;
             }
             parser.next(); // Consume </constraints>
 
@@ -827,8 +840,14 @@ public final class JobStore {
                 return null;
             }
 
-            PersistableBundle extras = PersistableBundle.restoreFromXml(parser);
-            jobBuilder.setExtras(extras);
+            final PersistableBundle extras;
+            try {
+                extras = PersistableBundle.restoreFromXml(parser);
+                jobBuilder.setExtras(extras);
+            } catch (IllegalArgumentException e) {
+                Slog.e(TAG, "Persisted extras contained invalid data", e);
+                return null;
+            }
             parser.nextTag(); // Consume </extras>
 
             // Migrate sync jobs forward from earlier, incomplete representation
@@ -861,7 +880,8 @@ public final class JobStore {
             return new JobInfo.Builder(jobId, cname);
         }
 
-        private void buildConstraintsFromXml(JobInfo.Builder jobBuilder, XmlPullParser parser) {
+        private void buildConstraintsFromXml(JobInfo.Builder jobBuilder, XmlPullParser parser)
+                throws XmlPullParserException, IOException {
             String val = parser.getAttributeValue(null, "connectivity");
             if (val != null) {
                 jobBuilder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
