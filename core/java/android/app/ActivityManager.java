@@ -3768,6 +3768,9 @@ public class ActivityManager {
      * broadcast will be sent, so that any of its registered alarms can
      * be stopped, notifications removed, etc.
      *
+     * <p class="note">Third party applications can only use this API to kill their own processes.
+     * </p>
+     *
      * <p>You must hold the permission
      * {@link android.Manifest.permission#FORCE_STOP_PACKAGES} to be able to
      * call this method.
