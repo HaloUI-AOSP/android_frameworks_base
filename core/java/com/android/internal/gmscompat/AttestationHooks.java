@@ -18,6 +18,7 @@ package com.android.internal.gmscompat;
 
 import android.app.Application;
 import android.os.Build;
+import android.content.Context;
 import android.os.SystemProperties;
 import android.util.Log;
 
@@ -77,14 +78,22 @@ public final class AttestationHooks {
         setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
     }
 
-    public static void initApplicationBeforeOnCreate(Application app) {
-        if (PACKAGE_GMS.equals(app.getPackageName()) &&
-                PROCESS_UNSTABLE.equals(Application.getProcessName())) {
+    public static void initApplicationBeforeOnCreate(Context context) {
+        final String packageName = context.getPackageName();
+        final String processName = Application.getProcessName();
+
+        if (TextUtils.isEmpty(packageName) || TextUtils.isEmpty(processName)) {
+            Log.e(TAG, "Null package or process name");
+            return;
+        }
+
+        if (PACKAGE_GMS.equals(packageName) &&
+                PROCESS_UNSTABLE.equals(processName())) {
             sIsGms = true;
             spoofBuildGms();
         }
 
-        if (PACKAGE_FINSKY.equals(app.getPackageName())) {
+        if (PACKAGE_FINSKY.equals(packageName)) {
             sIsFinsky = true;
         }
     }
