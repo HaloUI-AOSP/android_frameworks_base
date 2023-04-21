@@ -140,6 +140,12 @@ public final class ShortcutInfo implements Parcelable {
     public static final int CLONE_REMOVE_FOR_LAUNCHER = CLONE_REMOVE_ICON | CLONE_REMOVE_INTENT
             | CLONE_REMOVE_RES_NAMES;
 
+    /**
+     * The maximum length of Shortcut ID. IDs will be truncated at this limit.
+     * @hide
+     */
+    public static final int MAX_ID_LENGTH = 1000;
+
     /** @hide */
     public static final int CLONE_REMOVE_FOR_LAUNCHER_APPROVAL = CLONE_REMOVE_INTENT
             | CLONE_REMOVE_RES_NAMES;
@@ -242,8 +248,7 @@ public final class ShortcutInfo implements Parcelable {
 
     private ShortcutInfo(Builder b) {
         mUserId = b.mContext.getUserId();
-
-        mId = Preconditions.checkStringNotEmpty(b.mId, "Shortcut ID must be provided");
+        mId = getSafeId(Preconditions.checkStringNotEmpty(b.mId, "Shortcut ID must be provided"));
 
         // Note we can't do other null checks here because SM.updateShortcuts() takes partial
         // information.
@@ -323,6 +328,14 @@ public final class ShortcutInfo implements Parcelable {
             }
         }
         return ret;
+    }
+
+    @NonNull
+    private static String getSafeId(@NonNull String id) {
+        if (id.length() > MAX_ID_LENGTH) {
+            return id.substring(0, MAX_ID_LENGTH);
+        }
+        return id;
     }
 
     /**
@@ -1662,7 +1675,8 @@ public final class ShortcutInfo implements Parcelable {
         final ClassLoader cl = getClass().getClassLoader();
 
         mUserId = source.readInt();
-        mId = source.readString();
+        mId = getSafeId(Preconditions.checkStringNotEmpty(source.readString(),
+                "Shortcut ID must be provided"));
         mPackageName = source.readString();
         mActivity = source.readParcelable(cl);
         mFlags = source.readInt();
