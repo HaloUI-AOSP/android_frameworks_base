@@ -39,6 +39,8 @@ public final class AttestationHooks {
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
+    private static final String PACKAGE_SAMSUNG = "com.samsung";
+    private static final String PACKAGE_SEC = "com.sec";
 
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY =
             ComponentName.unflattenFromString(
@@ -131,6 +133,12 @@ public final class AttestationHooks {
             case PROCESS_UNSTABLE:
                 spoofBuildGms();
                 return;
+        }
+
+        if (packageName.startsWith(PACKAGE_SAMSUNG) ||
+              packageName.startsWith(PACKAGE_SEC)) {
+            setBuildField("BRAND", "google");
+            setBuildField("MANUFACTURER", "google");
         }
     }
 
