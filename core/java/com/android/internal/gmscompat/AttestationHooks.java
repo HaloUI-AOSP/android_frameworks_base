@@ -16,10 +16,16 @@
 
 package com.android.internal.gmscompat;
 
+import android.app.ActivityTaskManager;
 import android.app.Application;
-import android.os.Build;
+import android.app.TaskStackListener;
+import android.content.ComponentName;
 import android.content.Context;
+import android.os.Binder;
+import android.os.Build;
+import android.os.Process;
 import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.lang.reflect.Field;
@@ -28,12 +34,19 @@ import java.util.Arrays;
 /** @hide */
 public final class AttestationHooks {
     private static final String TAG = "GmsCompat/Attestation";
+    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
+
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
 
+    private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY =
+            ComponentName.unflattenFromString(
+                    "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
+
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
+    private static volatile String sProcessName;
 
     private AttestationHooks() { }
 
@@ -65,11 +78,39 @@ public final class AttestationHooks {
     }
 
     private static void spoofBuildGms() {
-        // Alter model name and fingerprint to avoid hardware attestation enforcement
-        setBuildField("DEVICE", "bullhead");
-        setBuildField("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
-        setBuildField("MODEL", "Nexus 5X");
-        setBuildField("PRODUCT", "bullhead");
+        final boolean was = isGmsAddAccountActivityOnTop();
+        final TaskStackListener taskStackListener =
+                new TaskStackListener() {
+                    @Override
+                    public void onTaskStackChanged() {
+                        final boolean is = isGmsAddAccountActivityOnTop();
+                        if (is ^ was) {
+                            // process will restart automatically later
+                            dlog(
+                                    "GmsAddAccountActivityOnTop is:"
+                                            + is
+                                            + " was:"
+                                            + was
+                                            + ", killing myself!");
+                            Process.killProcess(Process.myPid());
+                        }
+                    }
+                };
+        if (!was) {
+            // Alter model name and fingerprint to avoid hardware attestation enforcement
+            setBuildField("DEVICE", "bullhead");
+            setBuildField("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+            setBuildField("MODEL", "Nexus 5X");
+            setBuildField("PRODUCT", "bullhead");
+        } else {
+            dlog("Skip spoofing build for GMS, because GmsAddAccountActivityOnTop");
+        }
+
+        try {
+            ActivityTaskManager.getService().registerTaskStackListener(taskStackListener);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to register task stack listener!", e);
+        }
     }
 
     public static void initApplicationBeforeOnCreate(Context context) {
@@ -82,7 +123,8 @@ public final class AttestationHooks {
         }
 
         if (PACKAGE_GMS.equals(packageName) &&
-                PROCESS_UNSTABLE.equals(processName())) {
+                PROCESS_UNSTABLE.equals(processName)) {
+            sProcessName = processName;
             sIsGms = true;
             spoofBuildGms();
         }
@@ -92,9 +134,34 @@ public final class AttestationHooks {
         }
     }
 
+    public static boolean shouldBypassTaskPermission(Context context) {
+        // GMS doesn't have MANAGE_ACTIVITY_TASKS permission
+        final int callingUid = Binder.getCallingUid();
+        final int gmsUid;
+        try {
+            gmsUid = context.getPackageManager().getApplicationInfo(PACKAGE_GMS, 0).uid;
+        } catch (Exception e) {
+            return false;
+        }
+        return gmsUid == callingUid;
+    }
+
     private static boolean isCallerSafetyNet() {
         return sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
+    }
+
+    private static boolean isGmsAddAccountActivityOnTop() {
+        try {
+            final ActivityTaskManager.RootTaskInfo focusedTask =
+                    ActivityTaskManager.getService().getFocusedRootTaskInfo();
+            return focusedTask != null
+                    && focusedTask.topActivity != null
+                    && focusedTask.topActivity.equals(GMS_ADD_ACCOUNT_ACTIVITY);
+        } catch (Exception e) {
+            Log.e(TAG, "Unable to get top activity!", e);
+        }
+        return false;
     }
 
     public static void onEngineGetCertificateChain() {
@@ -103,5 +170,9 @@ public final class AttestationHooks {
             Log.i(TAG, "Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
             throw new UnsupportedOperationException();
         }
+    }
+
+    private static void dlog(String message) {
+        if (DEBUG) Log.d(TAG, "[" + sProcessName + "] " + message);
     }
 }
