@@ -2930,6 +2930,11 @@ public class NotificationManagerService extends SystemService {
                 boolean granted) throws RemoteException {
             Preconditions.checkNotNull(listener);
             checkCallerIsSystemOrShell();
+            if (granted && listener.flattenToString().length()
+                    > NotificationManager.MAX_SERVICE_COMPONENT_NAME_LENGTH) {
+                throw new IllegalArgumentException(
+                        "Component name too long: " + listener.flattenToString());
+            }
             final long identity = Binder.clearCallingIdentity();
             try {
                 if (!mActivityManager.isLowRamDevice()) {
