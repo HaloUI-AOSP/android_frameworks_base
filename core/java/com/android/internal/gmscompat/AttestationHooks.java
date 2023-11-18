@@ -40,15 +40,26 @@ public final class AttestationHooks {
     private static void setBuildField(String key, String value) {
         try {
             // Unlock
-            Field field = Build.class.getDeclaredField(key);
+            Class clazz = Build.class;
+            if (key.startsWith("VERSION:")) {
+                clazz = Build.VERSION.class;
+                key = key.substring(8);
+            }
+            Field field = clazz.getDeclaredField(key);
             field.setAccessible(true);
 
             // Edit
-            field.set(null, value);
+            if (field.getType().equals(Long.TYPE)) {
+                field.set(null, Long.parseLong(value));
+            } else if (field.getType().equals(Integer.TYPE)) {
+                field.set(null, Integer.parseInt(value));
+            } else {
+                field.set(null, value);
+            }
 
             // Lock
             field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
+        } catch (Exception e) {
             Log.e(TAG, "Failed to spoof Build." + key, e);
         }
     }
