@@ -53,29 +53,12 @@ public final class AttestationHooks {
         }
     }
 
-    private static void setVersionField(String key, Integer value) {
-        try {
-            // Unlock
-            Field field = Build.VERSION.class.getDeclaredField(key);
-            field.setAccessible(true);
-
-            // Edit
-            field.set(null, value);
-
-            // Lock
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            Log.e(TAG, "Failed to spoof Build.VERSION." + key, e);
-        }
-    }
-
     private static void spoofBuildGms() {
         // Alter model name and fingerprint to avoid hardware attestation enforcement
         setBuildField("DEVICE", "bullhead");
         setBuildField("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
         setBuildField("MODEL", "Nexus 5X");
         setBuildField("PRODUCT", "bullhead");
-        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
     }
 
     public static void initApplicationBeforeOnCreate(Context context) {
