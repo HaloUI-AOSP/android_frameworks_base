@@ -49,6 +49,7 @@ cc_library_static {
         "com_android_server_VibratorService.cpp",
         "com_android_server_PersistentDataBlockService.cpp",
         "com_android_server_GraphicsStatsService.cpp",
+        "com_android_server_pm_PackageManagerService.cpp",
         "onload.cpp",
     ],
 
@@ -66,6 +67,9 @@ cc_library_static {
             srcs: [
                 "com_android_server_ArcVideoService.cpp",
             ],
+        },
+        debuggable: {
+            cflags: ["-DANDROID_DEBUGGABLE"],
         }
     }
 }
