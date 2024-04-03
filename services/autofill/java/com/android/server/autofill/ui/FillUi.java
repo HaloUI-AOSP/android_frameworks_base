@@ -49,6 +49,7 @@ import android.widget.RemoteViews;
 
 import com.android.internal.R;
 import com.android.server.UiThread;
+import com.android.server.autofill.Helper;
 import libcore.util.Objects;
 
 import java.io.PrintWriter;
@@ -80,6 +81,7 @@ final class FillUi {
             new AutofillWindowPresenter();
 
     private final @NonNull Context mContext;
+    private final @NonNull Context mUserContext;
 
     private final @NonNull AnchoredWindow mWindow;
 
@@ -98,11 +100,15 @@ final class FillUi {
 
     private boolean mDestroyed;
 
+
+    // System has all permissions, see b/228957088
+    @SuppressWarnings("AndroidFrameworkRequiresPermission")
     FillUi(@NonNull Context context, @NonNull FillResponse response,
             @NonNull AutofillId focusedViewId, @NonNull @Nullable String filterText,
             @NonNull OverlayControl overlayControl, @NonNull Callback callback) {
         mContext = context;
         mCallback = callback;
+        mUserContext = Helper.getUserContext(mContext);
 
         final LayoutInflater inflater = LayoutInflater.from(context);
         final ViewGroup decor = (ViewGroup) inflater.inflate(
@@ -125,7 +131,7 @@ final class FillUi {
 
             final View content;
             try {
-                content = response.getPresentation().apply(context, decor, interceptionHandler);
+                content = response.getPresentation().apply(mUserContext, decor, interceptionHandler);
                 decor.addView(content);
             } catch (RuntimeException e) {
                 callback.onCanceled();
@@ -159,7 +165,7 @@ final class FillUi {
                     final View view;
                     try {
                         if (sVerbose) Slog.v(TAG, "setting remote view for " + focusedViewId);
-                        view = presentation.apply(context, null, interceptionHandler);
+                        view = presentation.apply(mUserContext, null, interceptionHandler);
                     } catch (RuntimeException e) {
                         Slog.e(TAG, "Error inflating remote views", e);
                         continue;
@@ -462,6 +468,8 @@ final class FillUi {
         pw.print(prefix); pw.print("mContentHeight: "); pw.println(mContentHeight);
         pw.print(prefix); pw.print("mDestroyed: "); pw.println(mDestroyed);
         pw.print(prefix); pw.print("mWindow: ");
+        pw.print(prefix); pw.print("mContext: "); pw.println(mContext);
+        pw.print(prefix); pw.print("mUserContext: "); pw.println(mUserContext);
         if (mWindow == null) {
             pw.println("N/A");
         } else {

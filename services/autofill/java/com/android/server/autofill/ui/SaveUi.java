@@ -128,6 +128,8 @@ final class SaveUi {
 
     private boolean mDestroyed;
 
+    // System has all permissions, see b/228957088
+    @SuppressWarnings("AndroidFrameworkRequiresPermission")
     SaveUi(@NonNull Context context, @NonNull PendingUi pendingUi,
            @NonNull CharSequence serviceLabel, @NonNull Drawable serviceIcon,
            @Nullable String servicePackageName, @NonNull String packageName,
