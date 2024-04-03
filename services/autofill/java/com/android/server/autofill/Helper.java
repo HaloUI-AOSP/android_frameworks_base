@@ -16,14 +16,24 @@
 
 package com.android.server.autofill;
 
+import static android.Manifest.permission.INTERACT_ACROSS_USERS;
+
+import static com.android.server.autofill.Helper.sDebug;
+
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.annotation.RequiresPermission;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
 import android.app.assist.AssistStructure;
 import android.app.assist.AssistStructure.ViewNode;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Icon;
 import android.metrics.LogMaker;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.service.autofill.Dataset;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -32,6 +42,7 @@ import android.view.WindowManager;
 import android.view.autofill.AutofillId;
 import android.view.autofill.AutofillValue;
 import android.widget.RemoteViews;
+
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.ArrayUtils;
@@ -95,6 +106,32 @@ public final class Helper {
         });
 
         return permissionsOk.get();
+    }
+
+    /**
+     * Creates the context as the foreground user
+     *
+     * <p>Returns the current context as the current foreground user
+     */
+    @RequiresPermission(INTERACT_ACROSS_USERS)
+    public static Context getUserContext(Context context) {
+        int userId = ActivityManager.getCurrentUser();
+        String packageName = context.getPackageName();
+        try {
+            Context c = context.createPackageContextAsUser(packageName, 0, UserHandle.of(userId));
+            if (sDebug) {
+                Slog.d(
+                        TAG,
+                        "Current User: "
+                                + userId
+                                + ", context created as: "
+                                + c.getContentResolver().getUserId());
+            }
+            return c;
+        } catch (PackageManager.NameNotFoundException e) {
+            Slog.e(TAG, "Create context as " + userId + " failed", e);
+            return context;
+        }
     }
 
     /**
