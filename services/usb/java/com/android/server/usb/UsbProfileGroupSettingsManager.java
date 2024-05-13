@@ -16,6 +16,8 @@
 
 package com.android.server.usb;
 
+import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
+
 import static com.android.internal.app.IntentForwarderActivity.FORWARD_INTENT_TO_MANAGED_PROFILE;
 
 import android.annotation.NonNull;
@@ -40,6 +42,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.util.AtomicFile;
 import android.util.Log;
 import android.util.Slog;
@@ -1060,8 +1063,26 @@ class UsbProfileGroupSettingsManager {
             return;
         }
 
+        if (shouldRestrictOverlayActivities()) {
+            return;
+        }
+
         // Start activity with registered intent
         resolveActivity(intent, matches, defaultActivity, device, null);
+    }
+
+    private boolean shouldRestrictOverlayActivities() {
+        if (Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                USER_SETUP_COMPLETE,
+                /* defaultValue= */ 1,
+                UserHandle.CURRENT.getIdentifier())
+                == 0) {
+            Slog.d(TAG, "restricting usb overlay activities as setup is not complete");
+            return true;
+        }
+
+        return false;
     }
 
     public void deviceAttachedForFixedHandler(UsbDevice device, ComponentName component) {
