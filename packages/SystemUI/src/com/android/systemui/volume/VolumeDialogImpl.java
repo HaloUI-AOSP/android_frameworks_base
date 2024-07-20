@@ -464,8 +464,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         mVolumePanelOnLeft = volumePanelOnLeft;
                         mHandler.post(mControllerCallbackH::onConfigurationChanged);
                     }
-                    mShowAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(),
-                        Settings.System.SHOW_APP_VOLUME,
+                    mShowAppVolume = LineageSettings.System.getIntForUser(
+                        mContext.getContentResolver(),
+                        LineageSettings.System.SHOW_APP_VOLUME,
                         0, UserHandle.USER_CURRENT) == 1;
                 }
             };
@@ -473,7 +474,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                     LineageSettings.Secure.getUriFor(LineageSettings.Secure.VOLUME_PANEL_ON_LEFT),
                     false, settingsObserver);
             mContext.getContentResolver().registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME),
+                    LineageSettings.System.getUriFor(LineageSettings.System.SHOW_APP_VOLUME),
                     false, settingsObserver);
             settingsObserver.onChange(true);
         }
