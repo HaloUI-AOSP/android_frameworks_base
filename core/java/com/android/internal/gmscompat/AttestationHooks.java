@@ -117,20 +117,20 @@ public final class AttestationHooks {
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
 
+
         if (TextUtils.isEmpty(packageName) || TextUtils.isEmpty(processName)) {
             Log.e(TAG, "Null package or process name");
             return;
         }
 
-        if (PACKAGE_GMS.equals(packageName) &&
-                PROCESS_UNSTABLE.equals(processName)) {
-            sProcessName = processName;
-            sIsGms = true;
-            spoofBuildGms();
-        }
+        sProcessName = processName;
+        sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_UNSTABLE);
+        sIsFinsky = packageName.equals(PACKAGE_FINSKY);
 
-        if (PACKAGE_FINSKY.equals(packageName)) {
-            sIsFinsky = true;
+        switch (processName) {
+            case PROCESS_UNSTABLE:
+                spoofBuildGms();
+                return;
         }
     }
 
