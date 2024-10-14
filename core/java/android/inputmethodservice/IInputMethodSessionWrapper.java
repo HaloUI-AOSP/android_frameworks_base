@@ -21,6 +21,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.InputChannel;
@@ -38,10 +39,12 @@ import com.android.internal.os.HandlerCaller;
 import com.android.internal.os.SomeArgs;
 import com.android.internal.view.IInputMethodSession;
 
+import java.util.Objects;
+
 class IInputMethodSessionWrapper extends IInputMethodSession.Stub
         implements HandlerCaller.Callback {
     private static final String TAG = "InputMethodWrapper";
-    
+
     private static final int DO_FINISH_INPUT = 60;
     private static final int DO_DISPLAY_COMPLETIONS = 65;
     private static final int DO_UPDATE_EXTRACTED_TEXT = 67;
@@ -52,6 +55,8 @@ class IInputMethodSessionWrapper extends IInputMethodSession.Stub
     private static final int DO_TOGGLE_SOFT_INPUT = 105;
     private static final int DO_FINISH_SESSION = 110;
     private static final int DO_VIEW_CLICKED = 115;
+    private final Context mContext;
+
 
     HandlerCaller mCaller;
     InputMethodSession mInputMethodSession;
@@ -60,6 +65,7 @@ class IInputMethodSessionWrapper extends IInputMethodSession.Stub
 
     public IInputMethodSessionWrapper(Context context,
             InputMethodSession inputMethodSession, InputChannel channel) {
+        mContext = context;
         mCaller = new HandlerCaller(context, null,
                 this, true /*asyncHandler*/);
         mInputMethodSession = inputMethodSession;
@@ -211,6 +217,8 @@ class IInputMethodSessionWrapper extends IInputMethodSession.Stub
 
     private final class ImeInputEventReceiver extends InputEventReceiver
             implements InputMethodSession.EventCallback {
+        // Time after which a KeyEvent is invalid
+        private static final long KEY_EVENT_ALLOW_PERIOD_MS = 100L;
         private final SparseArray<InputEvent> mPendingEvents = new SparseArray<InputEvent>();
 
         public ImeInputEventReceiver(InputChannel inputChannel, Looper looper) {
@@ -225,10 +233,23 @@ class IInputMethodSessionWrapper extends IInputMethodSession.Stub
                 return;
             }
 
+            KeyEvent keyEvent = null;
+            if (event != null && event instanceof KeyEvent) {
+                keyEvent = (KeyEvent) event;
+                if (hasKeyModifiers(keyEvent)) {
+                    final long age = SystemClock.uptimeMillis() - keyEvent.getEventTime();
+                    if (age >= KEY_EVENT_ALLOW_PERIOD_MS) {
+                        Log.w(TAG, "Unverified or Invalid KeyEvent injected into IME. Dropping "
+                                + keyEvent);
+                        finishInputEvent(event, false /* handled */);
+                        return;
+                    }
+                }
+            }
+
             final int seq = event.getSequenceNumber();
             mPendingEvents.put(seq, event);
-            if (event instanceof KeyEvent) {
-                KeyEvent keyEvent = (KeyEvent)event;
+            if (keyEvent != null) {
                 mInputMethodSession.dispatchKeyEvent(seq, keyEvent, this);
             } else {
                 MotionEvent motionEvent = (MotionEvent)event;
@@ -248,6 +269,16 @@ class IInputMethodSessionWrapper extends IInputMethodSession.Stub
                 mPendingEvents.removeAt(index);
                 finishInputEvent(event, handled);
             }
+        }
+
+        private boolean hasKeyModifiers(KeyEvent event) {
+            if (event.hasNoModifiers()) {
+                return false;
+            }
+            return event.isCtrlPressed()
+                    || event.isAltPressed()
+                    || event.isFunctionPressed()
+                    || event.isMetaPressed();
         }
     }
 }
