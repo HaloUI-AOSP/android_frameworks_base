@@ -68,6 +68,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
+import com.android.server.uri.UriGrantsManagerInternal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -176,6 +177,7 @@ public class PreferencesHelper implements RankingConfig {
     private final ZenModeHelper mZenModeHelper;
     private final NotificationChannelLogger mNotificationChannelLogger;
     private final AppOpsManager mAppOps;
+    private final UriGrantsManagerInternal mUgmInternal;
 
     private SparseBooleanArray mBadgingEnabled;
     private SparseBooleanArray mBubblesEnabled;
@@ -194,6 +196,7 @@ public class PreferencesHelper implements RankingConfig {
     public PreferencesHelper(Context context, PackageManager pm, RankingHandler rankingHandler,
             ZenModeHelper zenHelper, NotificationChannelLogger notificationChannelLogger,
             AppOpsManager appOpsManager,
+            UriGrantsManagerInternal ugmInternal,
             SysUiStatsEvent.BuilderFactory statsEventBuilderFactory) {
         mContext = context;
         mZenModeHelper = zenHelper;
@@ -202,6 +205,7 @@ public class PreferencesHelper implements RankingConfig {
         mNotificationChannelLogger = notificationChannelLogger;
         mAppOps = appOpsManager;
         mStatsEventBuilderFactory = statsEventBuilderFactory;
+        mUgmInternal = ugmInternal;
 
         updateBadgingEnabled();
         updateBubblesEnabled();
@@ -963,6 +967,12 @@ public class PreferencesHelper implements RankingConfig {
                         : NotificationChannel.DEFAULT_ALLOW_BUBBLE);
             }
             clearLockedFieldsLocked(channel);
+
+            // Verify that the app has permission to read the sound Uri
+            // Only check for new channels, as regular apps can only set sound
+            // before creating. See: {@link NotificationChannel#setSound}
+            PermissionHelper.grantUriPermission(mUgmInternal, channel.getSound(), uid);
+
             channel.setImportanceLockedByOEM(r.oemLockedImportance);
             if (!channel.isImportanceLockedByOEM()) {
                 if (r.oemLockedChannels.contains(channel.getId())) {
