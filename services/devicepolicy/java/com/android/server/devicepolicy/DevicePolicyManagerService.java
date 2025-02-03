@@ -6846,7 +6846,8 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
                 throw new IllegalArgumentException("Not active admin: " + who);
             }
 
-            if (isAdb()) {
+            boolean isAdb = isAdb();
+            if (isAdb) {
                 // Log profile owner provisioning was started using adb.
                 MetricsLogger.action(mContext, PROVISIONING_ENTRY_POINT_ADB, LOG_TAG_PROFILE_OWNER);
             }
@@ -6862,6 +6863,17 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
                             UserRestrictionsUtils.getDefaultEnabledForManagedProfiles());
                     ensureUnknownSourcesRestrictionForProfileOwnerLocked(userHandle, admin,
                             true /* newOwner */);
+                    if (isAdb) {
+                        // DISALLOW_DEBUGGING_FEATURES is being added to newly-created
+                        // work profile by default due to b/382064697 . This would have
+                        //  impacted certain CTS test flows when they interact with the
+                        // work profile via ADB (for example installing an app into the
+                        // work profile). Remove DISALLOW_DEBUGGING_FEATURES here to
+                        // reduce the potential impact.
+                        admin.ensureUserRestrictions().putBoolean(
+                            UserManager.DISALLOW_DEBUGGING_FEATURES, false);
+                        saveUserRestrictionsLocked(userHandle);
+                    }
                 }
             } finally {
                 mInjector.binderRestoreCallingIdentity(id);
