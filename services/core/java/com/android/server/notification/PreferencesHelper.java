@@ -48,7 +48,6 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
-import com.android.server.uri.UriGrantsManagerInternal;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -135,7 +134,6 @@ public class PreferencesHelper implements RankingConfig {
     private final PackageManager mPm;
     private final RankingHandler mRankingHandler;
     private final ZenModeHelper mZenModeHelper;
-    private final UriGrantsManagerInternal mUgmInternal;
 
     private SparseBooleanArray mBadgingEnabled;
     private boolean mBubblesEnabled = DEFAULT_ALLOW_BUBBLE;
@@ -143,12 +141,11 @@ public class PreferencesHelper implements RankingConfig {
     private boolean mHideSilentStatusBarIcons = DEFAULT_HIDE_SILENT_STATUS_BAR_ICONS;
 
     public PreferencesHelper(Context context, PackageManager pm, RankingHandler rankingHandler,
-            ZenModeHelper zenHelper, UriGrantsManagerInternal ugmInternal) {
+            ZenModeHelper zenHelper) {
         mContext = context;
         mZenModeHelper = zenHelper;
         mRankingHandler = rankingHandler;
         mPm = pm;
-        mUgmInternal = ugmInternal;
 
         updateBadgingEnabled();
         updateBubblesEnabled();
@@ -748,12 +745,6 @@ public class PreferencesHelper implements RankingConfig {
                 channel.setLockscreenVisibility(r.visibility);
             }
             clearLockedFieldsLocked(channel);
-
-            // Verify that the app has permission to read the sound Uri
-            // Only check for new channels, as regular apps can only set sound
-            // before creating. See: {@link NotificationChannel#setSound}
-            PermissionHelper.grantUriPermission(mUgmInternal, channel.getSound(), uid);
-
             channel.setImportanceLockedByOEM(r.oemLockedImportance);
             if (!channel.isImportanceLockedByOEM()) {
                 if (r.futureOemLockedChannels.remove(channel.getId())) {
