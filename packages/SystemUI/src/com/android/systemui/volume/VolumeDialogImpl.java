@@ -382,6 +382,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     // Optional actions for soundDose
     private Optional<List<CsdWarningAction>>
             mCsdWarningNotificationActions = Optional.of(Collections.emptyList());
+    private boolean mShowAppVolume;
 
     public VolumeDialogImpl(
             Context context,
@@ -453,7 +454,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         }
 
         if (!mIsTv) {
-            ContentObserver volumePanelOnLeftObserver = new ContentObserver(null) {
+            ContentObserver settingsObserver = new ContentObserver(null) {
                 @Override
                 public void onChange(boolean selfChange) {
                     final boolean volumePanelOnLeft = LineageSettings.Secure.getInt(
@@ -463,12 +464,18 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         mVolumePanelOnLeft = volumePanelOnLeft;
                         mHandler.post(mControllerCallbackH::onConfigurationChanged);
                     }
+                    mShowAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.SHOW_APP_VOLUME,
+                        0, UserHandle.USER_CURRENT) == 1;
                 }
             };
             mContext.getContentResolver().registerContentObserver(
                     LineageSettings.Secure.getUriFor(LineageSettings.Secure.VOLUME_PANEL_ON_LEFT),
-                    false, volumePanelOnLeftObserver);
-            volumePanelOnLeftObserver.onChange(true);
+                    false, settingsObserver);
+            mContext.getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME),
+                    false, settingsObserver);
+            settingsObserver.onChange(true);
         }
 
         initDimens();
@@ -1569,10 +1576,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
     private void initAppVolumes() {
         clearAppVolumes();
-        boolean showAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.SHOW_APP_VOLUME,
-            0, UserHandle.USER_CURRENT) == 1;
-        if (!showAppVolume || mAppVolumeView == null) {
+        if (!mShowAppVolume || mAppVolumeView == null) {
             return;
         }
         boolean appActive = false;
