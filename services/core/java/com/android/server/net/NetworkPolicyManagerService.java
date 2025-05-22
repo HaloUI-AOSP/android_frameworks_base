@@ -3457,6 +3457,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     new long[] { allowedTransportsPacked });
         }
 
+        // We only care about allow/reject metered background from here onwards.
+        oldPolicy &= POLICY_ALLOW_METERED_BACKGROUND | POLICY_REJECT_METERED_BACKGROUND;
+        policy &= POLICY_ALLOW_METERED_BACKGROUND | POLICY_REJECT_METERED_BACKGROUND;
+
         final boolean notifyApp;
         if (!isUidValidForAllowlistRulesUL(uid)) {
             notifyApp = false;
@@ -3874,7 +3878,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             } finally {
                 Binder.restoreCallingIdentity(token);
             }
-            if (policy == POLICY_REJECT_METERED_BACKGROUND) {
+            if ((policy & POLICY_REJECT_METERED_BACKGROUND) != 0) {
                 // App is restricted.
                 return RESTRICT_BACKGROUND_STATUS_ENABLED;
             }
