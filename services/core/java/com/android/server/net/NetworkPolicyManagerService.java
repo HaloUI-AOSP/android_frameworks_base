@@ -3457,6 +3457,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     new long[] { allowedTransportsPacked });
         }
 
+        // We only care about allow/reject metered background from here onwards.
+        oldPolicy &= POLICY_ALLOW_METERED_BACKGROUND | POLICY_REJECT_METERED_BACKGROUND;
+        policy &= POLICY_ALLOW_METERED_BACKGROUND | POLICY_REJECT_METERED_BACKGROUND;
+
         final boolean notifyApp;
         if (!isUidValidForAllowlistRulesUL(uid)) {
             notifyApp = false;
