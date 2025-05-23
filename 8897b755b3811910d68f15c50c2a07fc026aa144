@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76ff800b_957aee56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2025-05-23T21:27:28Z",
+      "side": 1,
+      "message": "This commit requires another change: 050cfc6d-Allow-core-uids-to-register-receiver-as-android\n\nAlthough, 050cfc6d uses \"isCore\" which is not so easily backported.",
+      "revId": "8897b755b3811910d68f15c50c2a07fc026aa144",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
