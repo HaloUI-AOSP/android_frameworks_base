@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fbef495_7aaf1acc",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-25T12:00:37Z",
+      "side": 1,
+      "message": "this doesn\u0027t work in essence.\nYou need a map of userId -\u003e Callback and track that.\n\nMap\u003cInt, (Boolean) -\u003e Unit\u003e should be enough.\nEach user should have a single callback set and you should track that.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ac65a63_bff2f9df",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-25T12:00:37Z",
+      "side": 1,
+      "message": "so here I think you don\u0027t need any of that, simply use user handle all when you get a change find the matching callback in the map with current user id",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f624e26_1c2931d9",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-25T12:00:37Z",
+      "side": 1,
+      "message": "when registering a callback get current userId via selectedUserInteractor.selectedUser",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 75
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99656848_e7ee08ee",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-25T12:00:37Z",
+      "side": 1,
+      "message": "ditto here, just pass selectedUserInteractor.selectedUser.\n\nyou don\u0027t even need the Unit",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 69
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
