@@ -332,11 +332,11 @@ Table::insertField(ProtoOutputStream* proto, const std::string& name, const std:
             proto->write(found, toLongLong(value));
             break;
         case FIELD_COUNT_SINGLE | FIELD_TYPE_BOOL:
-            if (strcmp(toLowerStr(value).c_str(), "true") == 0 || strcmp(value.c_str(), "1") == 0) {
+            if (strcasecmp(value.c_str() , "true") == 0 || strcmp(value.c_str(), "1") == 0) {
                 proto->write(found, true);
                 break;
             }
-            if (strcmp(toLowerStr(value).c_str(), "false") == 0 || strcmp(value.c_str(), "0") == 0) {
+            if (strcasecmp(value.c_str(), "false") == 0 || strcmp(value.c_str(), "0") == 0) {
                 proto->write(found, false);
                 break;
             }
