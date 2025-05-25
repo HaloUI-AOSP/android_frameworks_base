@@ -513,8 +513,8 @@ class ShaderProgram {
     GLuint base_texture_unit_;
 
     // The current source and target coordinates to render from/to.
-    float* source_coords_;
-    float* target_coords_;
+    float source_coords_[8];
+    float target_coords_[8];
 
     // True, if the program has control over both source and target coordinates.
     bool manage_coordinates_;

@@ -75,8 +75,6 @@ ShaderProgram::ShaderProgram(GLEnv* gl_env, const std::string& fragment_shader)
     program_(0),
     gl_env_(gl_env),
     base_texture_unit_(GL_TEXTURE0),
-    source_coords_(NULL),
-    target_coords_(NULL),
     manage_coordinates_(false),
     tile_x_count_(1),
     tile_y_count_(1),
@@ -99,8 +97,6 @@ ShaderProgram::ShaderProgram(GLEnv* gl_env,
     program_(0),
     gl_env_(gl_env),
     base_texture_unit_(GL_TEXTURE0),
-    source_coords_(NULL),
-    target_coords_(NULL),
     manage_coordinates_(false),
     tile_x_count_(1),
     tile_y_count_(1),
@@ -114,10 +110,6 @@ ShaderProgram::ShaderProgram(GLEnv* gl_env,
 }
 
 ShaderProgram::~ShaderProgram() {
-  // Delete our vertex data
-  delete[] source_coords_;
-  delete[] target_coords_;
-
   // Delete any owned attribute data
   VertexAttribMap::const_iterator iter;
   for (iter = attrib_values_.begin(); iter != attrib_values_.end(); ++iter) {
@@ -128,11 +120,6 @@ ShaderProgram::~ShaderProgram() {
 }
 
 void ShaderProgram::SetDefaultCoords() {
-  if (!source_coords_)
-    source_coords_ = new float[8];
-  if (!target_coords_)
-    target_coords_ = new float[8];
-
   source_coords_[0] = 0.0f;
   source_coords_[1] = 0.0f;
   source_coords_[2] = 1.0f;
