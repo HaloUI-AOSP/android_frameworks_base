@@ -20,6 +20,7 @@
 #include <map>
 #include <stack>
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include <android/util/ProtoOutputStream.h>
@@ -28,7 +29,7 @@ using namespace android::util;
 
 typedef std::vector<std::string> header_t;
 typedef std::vector<std::string> record_t;
-typedef std::string (*trans_func) (const std::string&);
+typedef std::string (*trans_func) (const std::string_view&);
 
 const std::string DEFAULT_WHITESPACE = " \t";
 const std::string DEFAULT_NEWLINE = "\r\n";
@@ -41,7 +42,7 @@ const std::string PARENTHESES_DELIMITER = "()";
 bool isValidChar(char c);
 
 // trim the string with the given charset
-std::string trim(const std::string& s, const std::string& charset);
+std::string_view trim(const std::string_view& s, const std::string_view& charset);
 
 /**
  * When a text has a table format like this

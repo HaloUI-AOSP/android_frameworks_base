@@ -30,7 +30,7 @@ bool isValidChar(char c) {
         || (v == (uint8_t)'_');
 }
 
-std::string trim(const std::string& s, const std::string& charset) {
+std::string_view trim(const std::string_view& s, const std::string_view& charset) {
     const auto head = s.find_first_not_of(charset);
     if (head == std::string::npos) return "";
 
@@ -38,18 +38,14 @@ std::string trim(const std::string& s, const std::string& charset) {
     return s.substr(head, tail - head + 1);
 }
 
-static inline std::string toLowerStr(const std::string& s) {
+static inline std::string toLowerStr(const std::string_view& s) {
     std::string res(s);
     std::transform(res.begin(), res.end(), res.begin(), ::tolower);
     return res;
 }
 
-static inline std::string trimDefault(const std::string& s) {
+static inline std::string_view trimDefault(const std::string_view& s) {
     return trim(s, DEFAULT_WHITESPACE);
-}
-
-static inline std::string trimHeader(const std::string& s) {
-    return toLowerStr(trimDefault(s));
 }
 
 static inline bool isNumber(const std::string& s) {
@@ -59,7 +55,7 @@ static inline bool isNumber(const std::string& s) {
 }
 
 // This is similiar to Split in android-base/file.h, but it won't add empty string
-static void split(const std::string& line, std::vector<std::string>& words,
+static void split(const std::string_view& line, std::vector<std::string>& words,
         const trans_func& func, const std::string& delimiters) {
     words.clear();  // clear the buffer before split
 
@@ -80,15 +76,13 @@ static void split(const std::string& line, std::vector<std::string>& words,
 
 header_t parseHeader(const std::string& line, const std::string& delimiters) {
     header_t header;
-    trans_func f = &trimHeader;
-    split(line, header, f, delimiters);
+    split(line, header, [](const auto& s) { return toLowerStr(trimDefault(s)); }, delimiters);
     return header;
 }
 
 record_t parseRecord(const std::string& line, const std::string& delimiters) {
     record_t record;
-    trans_func f = &trimDefault;
-    split(line, record, f, delimiters);
+    split(line, record, [](const auto& s) { return std::string{trimDefault(s)}; }, delimiters);
     return record;
 }
 
@@ -136,7 +130,7 @@ record_t parseRecordByColumns(const std::string& line, const std::vector<int>& i
             return record;
         }
         while (idx < lineSize && delimiters.find(line[idx++]) == std::string::npos);
-        record.push_back(trimDefault(line.substr(lastIndex, idx - lastIndex)));
+        record.emplace_back(trimDefault(line.substr(lastIndex, idx - lastIndex)));
         lastBeginning = lastIndex;
         lastIndex = idx;
     }
@@ -148,7 +142,7 @@ record_t parseRecordByColumns(const std::string& line, const std::vector<int>& i
             record.pop_back();
             beginning = lastBeginning;
         }
-        record.push_back(trimDefault(line.substr(beginning, lineSize - beginning)));
+        record.emplace_back(trimDefault(line.substr(beginning, lineSize - beginning)));
     }
     return record;
 }
@@ -253,8 +247,7 @@ bool Reader::readLine(std::string* line) {
     size_t len = 0;
     ssize_t read = getline(&mBuffer, &len, mFile);
     if (read != -1) {
-        std::string s(mBuffer);
-        line->assign(trim(s, DEFAULT_NEWLINE));
+        line->assign(trim(mBuffer, DEFAULT_NEWLINE));
         return true;
     }
     if (!feof(mFile)) {
