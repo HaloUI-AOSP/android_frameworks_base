@@ -237,14 +237,14 @@ double toDouble(const std::string& s) {
 Reader::Reader(const int fd)
 {
     mFile = fdopen(fd, "r");
-    mBuffer = new char[1024];
+    mBuffer = nullptr;
     mStatus = mFile == nullptr ? "Invalid fd " + std::to_string(fd) : "";
 }
 
 Reader::~Reader()
 {
     if (mFile != nullptr) fclose(mFile);
-    delete[] mBuffer;
+    free(mBuffer);
 }
 
 bool Reader::readLine(std::string* line) {
