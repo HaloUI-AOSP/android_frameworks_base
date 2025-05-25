@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbeb2f95_729d0cd7",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-05-25T13:25:09Z",
+      "side": 1,
+      "message": "Nit: it\u0027s -\u003e its",
+      "range": {
+        "startLine": 3092,
+        "startChar": 51,
+        "endLine": 3092,
+        "endChar": 55
+      },
+      "revId": "1ff922c0d1ef483f3eeb3aa022117c9cd3420d7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39618695_bfcb7f0f",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3103,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-05-25T13:25:09Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 3103,
+        "startChar": 51,
+        "endLine": 3103,
+        "endChar": 55
+      },
+      "revId": "1ff922c0d1ef483f3eeb3aa022117c9cd3420d7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
