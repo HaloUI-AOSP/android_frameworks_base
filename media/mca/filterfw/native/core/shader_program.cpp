@@ -30,7 +30,7 @@
 namespace android {
 namespace filterfw {
 
-static const char* s_default_vertex_shader_source_ =
+static const char s_default_vertex_shader_source_[] =
   "attribute vec4 a_position;\n"
   "attribute vec2 a_texcoord;\n"
   "varying vec2 v_texcoord;\n"
