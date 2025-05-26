@@ -25,6 +25,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.ServiceSpecificException;
 import android.service.quicksettings.Tile;
 import android.util.Log;
 
@@ -123,7 +124,7 @@ public class PowerShareTile extends QSTileImpl<BooleanState>
         if (mBatteryController.isPowerSave()) {
             try {
                 mPowerShare.setEnabled(false);
-            } catch (RemoteException ex) {
+            } catch (RemoteException | ServiceSpecificException ex) {
                 ex.printStackTrace();
             }
         }
@@ -134,7 +135,7 @@ public class PowerShareTile extends QSTileImpl<BooleanState>
             } else {
                 mNotificationManager.cancel(NOTIFICATION_ID);
             }
-        } catch (RemoteException ex) {
+        } catch (RemoteException | ServiceSpecificException ex) {
             ex.printStackTrace();
         }
     }
