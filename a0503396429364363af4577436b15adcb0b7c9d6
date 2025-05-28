@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81d20a3e_2f95de84",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-05-28T19:32:16Z",
+      "side": 1,
+      "message": "Yes, true. I thought about not using a list of callbacks, but I thought it would be too unconventional to just have one, and it\u0027s not like lists are heavy. I can change it though. I see how it would be confusing.\n\nGiven the \"one user\" thing, and if I get rid of the list, that should address the comments about adding and removing callbacks, right?\n\nThat leaves the one about UserHandle.ALL which I\u0027ll reply to.",
+      "parentUuid": "60888dab_afc1c843",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ac65a63_bff2f9df",
         "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "writtenOn": "2025-05-25T12:00:37Z",
       "side": 1,
       "message": "so here I think you don\u0027t need any of that, simply use user handle all when you get a change find the matching callback in the map with current user id",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ba7d94a_702c749c",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-05-28T19:32:16Z",
+      "side": 1,
+      "message": "I think we\u0027d still need to collect from the interactor, set currentUserId, and react. But yes, this could switch to `UserHandle.ALL` and then the registration and unregistration doesn\u0027t need to happen here - that is what you meant, right?",
+      "parentUuid": "9ac65a63_bff2f9df",
       "range": {
         "startLine": 91,
         "startChar": 0,
