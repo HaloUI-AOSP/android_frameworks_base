@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60888dab_afc1c843",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-05-28T18:51:25Z",
+      "side": 1,
+      "message": "If that\u0027s true then why do we even need a list of callbacks?\nGiven the view is a singleton so an unique callback would suffice.\n\nMy assumption was that the view would be alive in more than one instance (per user) so I got a bit confused...",
+      "parentUuid": "cbb741c5_9890f07a",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ac65a63_bff2f9df",
         "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
         "patchSetId": 1
