@@ -120,6 +120,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "298028d3_be8cb527",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-06-05T20:50:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1073d0e_94ddbb32",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ac65a63_bff2f9df",
@@ -191,6 +215,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d11a5d4a_7307f34b",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-06-05T20:50:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "868a70e3_c2641f2a",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 9
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f624e26_1c2931d9",
@@ -214,6 +262,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78894717_83c75a9d",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-06-05T20:50:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1f624e26_1c2931d9",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 75
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99656848_e7ee08ee",
@@ -227,6 +299,30 @@
       "writtenOn": "2025-05-25T12:00:37Z",
       "side": 1,
       "message": "ditto here, just pass selectedUserInteractor.selectedUser.\n\nyou don\u0027t even need the Unit",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 69
+      },
+      "revId": "a0503396429364363af4577436b15adcb0b7c9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5caabf5_1fae4a75",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2025-06-05T20:50:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99656848_e7ee08ee",
       "range": {
         "startLine": 113,
         "startChar": 0,
