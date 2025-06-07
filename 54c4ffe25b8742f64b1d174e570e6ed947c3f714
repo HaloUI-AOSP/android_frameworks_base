@@ -22,6 +22,30 @@
       },
       "revId": "54c4ffe25b8742f64b1d174e570e6ed947c3f714",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45cdcba7_bb91a96e",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3083,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-06-07T10:49:09Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "937342df_7dfa2ea8",
+      "range": {
+        "startLine": 3083,
+        "startChar": 51,
+        "endLine": 3083,
+        "endChar": 55
+      },
+      "revId": "54c4ffe25b8742f64b1d174e570e6ed947c3f714",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
