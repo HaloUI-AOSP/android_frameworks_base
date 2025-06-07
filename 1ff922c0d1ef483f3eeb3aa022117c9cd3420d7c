@@ -48,6 +48,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87bc4f43_4d34e94c",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3092,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-06-07T10:48:55Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "e62e3777_78819abd",
+      "range": {
+        "startLine": 3092,
+        "startChar": 51,
+        "endLine": 3092,
+        "endChar": 55
+      },
+      "revId": "1ff922c0d1ef483f3eeb3aa022117c9cd3420d7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39618695_bfcb7f0f",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "```suggestion\n        // If user is a profile, use preference of its parent profile.\n```",
       "parentUuid": "39618695_bfcb7f0f",
+      "range": {
+        "startLine": 3103,
+        "startChar": 51,
+        "endLine": 3103,
+        "endChar": 55
+      },
+      "revId": "1ff922c0d1ef483f3eeb3aa022117c9cd3420d7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5618f2_47acad6e",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 3103,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-06-07T10:48:55Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "105400f3_ac7aec15",
       "range": {
         "startLine": 3103,
         "startChar": 51,
