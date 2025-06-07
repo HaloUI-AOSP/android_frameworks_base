@@ -22,6 +22,30 @@
       },
       "revId": "9dd1f028c3d19074be9dd52d2107de4f28a3510b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ac39d0_7726a96b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-06-07T21:05:18Z",
+      "side": 0,
+      "message": "Someone else will have to do this, I\u0027m not the author or have the time for it",
+      "parentUuid": "ca8dfe15_f349bd64",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 5
+      },
+      "revId": "9dd1f028c3d19074be9dd52d2107de4f28a3510b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
