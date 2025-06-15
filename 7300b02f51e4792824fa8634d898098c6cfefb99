@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "386a5343_c896c86d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31655
+      },
+      "writtenOn": "2025-06-15T07:45:40Z",
+      "side": 1,
+      "message": "Fixes long swipe gesture freezing the phone when done on an app that doesnt support predictive back gestures.",
+      "revId": "7300b02f51e4792824fa8634d898098c6cfefb99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
