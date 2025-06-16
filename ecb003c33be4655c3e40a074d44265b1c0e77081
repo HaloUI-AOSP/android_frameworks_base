@@ -16,6 +16,23 @@
       "message": "This change has been extensively tested ib the 18.1 branch on many devices since Jan-2025 and no issues were reported.\n\nBack in January, the L4M project (https://lineage.microg.org/) made a one-off build for all 18.1 devices (https://github.com/lineageos4microg/docker-lineage-cicd/issues/738) adding a short script (https://xdaforums.com/t/lineageos-for-microg.3700997/page-173#post-89932389) that cherry-picks this change from my repo (https://github.com/Lanchon/lineageos-18.1-android_frameworks_base/commit/f3f5c2063007de9a8b746a8788f3bcab6b6ac261). The resulting builds are archived (https://web.archive.org/web/20240527093848/https://download.lineage.microg.org/archive/).\n\nBefore the L4M builds, I built and tested the patch myself in 18.1 on the LG G2 AT\u0026T (d800).\n\nIt would be beneficial for old devices if this change could be merged to the 18.1 branch. Gapps are ever growing and overwhelm these devices, with microG being the only recourse saving them from landfill. Builds for non-official devices keep on happening from time to time based on LOS official repos.\n\nThank you.",
       "revId": "ecb003c33be4655c3e40a074d44265b1c0e77081",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86763a56_89e8fde1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35414
+      },
+      "writtenOn": "2025-06-16T20:34:33Z",
+      "side": 1,
+      "message": "fantastic!! thank you guys!",
+      "revId": "ecb003c33be4655c3e40a074d44265b1c0e77081",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
