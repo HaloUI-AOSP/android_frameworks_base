@@ -328,8 +328,16 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         if (!keyguardManager.isKeyguardLocked() ||
                 LineageSettings.Secure.getInt(mContext.getContentResolver(),
                 LineageSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN, 1) == 1) {
-            mHandler.obtainMessage(message, eventId, 0, expandable).sendToTarget();
+            sendTileMessage(message, eventId, expandable);
+        } else {
+            mActivityStarter.postQSRunnableDismissingKeyguard(
+                () -> sendTileMessage(message, eventId, expandable)
+            );
         }
+    }
+
+    private void sendTileMessage(int message, int eventId, @Nullable Expandable expandable) {
+        mHandler.obtainMessage(message, eventId, 0, expandable).sendToTarget();
     }
 
     public LogMaker populate(LogMaker logMaker) {
