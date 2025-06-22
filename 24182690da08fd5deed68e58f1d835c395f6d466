@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c865b718_5515f8f6",
+        "filename": "packages/SystemUI/res/values/styles.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 31655
+      },
+      "writtenOn": "2025-06-22T15:31:58Z",
+      "side": 1,
+      "message": "just use TextAppearance.StatusBar.Default imo",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "24182690da08fd5deed68e58f1d835c395f6d466",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
