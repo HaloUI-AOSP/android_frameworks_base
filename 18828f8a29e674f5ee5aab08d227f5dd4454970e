@@ -22,6 +22,30 @@
       },
       "revId": "18828f8a29e674f5ee5aab08d227f5dd4454970e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b9a059d_4510165c",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-06-22T16:42:35Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_lineage-sdk/+/434617",
+      "parentUuid": "6ae9422f_8d69bbc9",
+      "range": {
+        "startLine": 725,
+        "startChar": 0,
+        "endLine": 725,
+        "endChar": 2
+      },
+      "revId": "18828f8a29e674f5ee5aab08d227f5dd4454970e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
