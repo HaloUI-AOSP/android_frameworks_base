@@ -52,7 +52,9 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     public static final String TILE_SPEC = "aod";
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
+    @Nullable
+    private Icon mIcon = null;
+
     private final BatteryController mBatteryController;
 
     private final UserSettingObserver mSetting;
@@ -145,6 +147,9 @@ public class AODTile extends QSTileImpl<BooleanState> implements
     protected void handleUpdateState(BooleanState state, Object arg) {
         final int value = arg instanceof Integer ? (Integer) arg : mSetting.getValue();
         final boolean enable = value != 0;
+        if (mIcon == null) {
+            mIcon = maybeLoadResourceIcon(R.drawable.ic_qs_aod);
+        }
         state.icon = mIcon;
         state.value = enable;
         state.label = mContext.getString(R.string.quick_settings_aod_label);
