@@ -53,7 +53,8 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
 
     public static final String TILE_SPEC = "caffeine";
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_caffeine);
+    @Nullable
+    private Icon mIcon = null;
 
     private final PowerManager.WakeLock mWakeLock;
     private int mSecondsRemaining;
@@ -216,6 +217,9 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
         state.value = mWakeLock.isHeld();
+        if (mIcon == null) {
+            mIcon = maybeLoadResourceIcon(R.drawable.ic_qs_caffeine);
+        }
         state.icon = mIcon;
         state.label = mContext.getString(R.string.quick_settings_caffeine_label);
         state.hasLongClickEffect = false;
