@@ -29,6 +29,7 @@ import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.NotificationManager.IMPORTANCE_MAX;
 import static android.app.NotificationManager.IMPORTANCE_NONE;
 import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
+import static android.os.Process.INVALID_UID;
 import static android.util.StatsLog.ANNOTATION_ID_IS_UID;
 import static android.content.ContentResolver.SCHEME_ANDROID_RESOURCE;
 import static android.content.ContentResolver.SCHEME_CONTENT;
@@ -46,7 +47,6 @@ import static com.android.os.AtomsProto.PackageNotificationChannelPreferences.UI
 import static com.android.server.notification.PreferencesHelper.DEFAULT_BUBBLE_PREFERENCE;
 import static com.android.server.notification.PreferencesHelper.NOTIFICATION_CHANNEL_COUNT_LIMIT;
 import static com.android.server.notification.PreferencesHelper.NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT;
-import static com.android.server.notification.PreferencesHelper.UNKNOWN_UID;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -1926,6 +1926,9 @@ public class PreferencesHelperTest extends UiServiceTestCase {
 
     @Test
     public void testRecordDefaults() throws Exception {
+        // create package preferences
+        mHelper.setValidBubbleSent(PKG_N_MR1, UID_N_MR1);
+
         assertEquals(NotificationManager.IMPORTANCE_UNSPECIFIED, mHelper.getImportance(PKG_N_MR1,
                 UID_N_MR1));
         assertEquals(true, mHelper.canShowBadge(PKG_N_MR1, UID_N_MR1));
@@ -2711,7 +2714,7 @@ public class PreferencesHelperTest extends UiServiceTestCase {
     @Test
     public void testBubblePrefence_noSAWCheckForUnknownUid() throws Exception {
         final String xml = "<ranking version=\"1\">\n"
-                + "<package name=\"" + PKG_O + "\" uid=\"" + UNKNOWN_UID + "\">\n"
+                + "<package name=\"" + PKG_O + "\" uid=\"" + INVALID_UID + "\">\n
                 + "<channel id=\"someId\" name=\"hi\""
                 + " importance=\"3\"/>"
                 + "</package>"
@@ -3287,7 +3290,8 @@ public class PreferencesHelperTest extends UiServiceTestCase {
         String channelId = "channelId";
         int user0Importance = 3;
         int user10Importance = 4;
-        when(mPm.getPackageUidAsUser(eq(pkg), anyInt())).thenReturn(UserHandle.USER_NULL);
+        when(mPm.getPackageUidAsUser(eq(pkg), anyInt())).thenThrow(
+                new PackageManager.NameNotFoundException("Package pkg not found"));
 
         // both users have the same package, but different notification settings
         final String xmlUser0 = "<ranking version=\"1\">\n"
@@ -3319,8 +3323,8 @@ public class PreferencesHelperTest extends UiServiceTestCase {
         String[] pkgList = new String[] {pkg};
         int[] uidList0 = new int[] {UserHandle.PER_USER_RANGE};
         int[] uidList10 = new int[] {UserHandle.PER_USER_RANGE + 1};
-        when(mPm.getPackageUidAsUser(pkg, 0)).thenReturn(uidList0[0]);
-        when(mPm.getPackageUidAsUser(pkg, 10)).thenReturn(uidList10[0]);
+        doReturn(uidList0[0]).when(mPm).getPackageUidAsUser(pkg, 0);
+        doReturn(uidList10[0]).when(mPm).getPackageUidAsUser(pkg, 10);
         ApplicationInfo info = new ApplicationInfo();
         info.targetSdkVersion = Build.VERSION_CODES.Q;
         when(mPm.getApplicationInfoAsUser(eq(pkg), anyInt(), anyInt())).thenReturn(info);
@@ -3920,7 +3924,7 @@ public class PreferencesHelperTest extends UiServiceTestCase {
     @Test
     public void testInvalidMessageSent() {
         // create package preferences
-        mHelper.canShowBadge(PKG_P, UID_P);
+        mHelper.setShowBadge(PKG_P, UID_P, true);
 
         // check default value
         assertFalse(mHelper.isInInvalidMsgState(PKG_P, UID_P));
@@ -3934,7 +3938,7 @@ public class PreferencesHelperTest extends UiServiceTestCase {
     @Test
     public void testValidMessageSent() {
         // create package preferences
-        mHelper.canShowBadge(PKG_P, UID_P);
+        mHelper.setShowBadge(PKG_P, UID_P, true);
 
         // get into the bad state
         mHelper.setInvalidMessageSent(PKG_P, UID_P);
@@ -3949,7 +3953,7 @@ public class PreferencesHelperTest extends UiServiceTestCase {
     @Test
     public void testUserDemotedInvalidMsgApp() {
         // create package preferences
-        mHelper.canShowBadge(PKG_P, UID_P);
+        mHelper.setShowBadge(PKG_P, UID_P, true);
 
         // demotion means nothing before msg notif sent
         mHelper.setInvalidMsgAppDemoted(PKG_P, UID_P, true);
