@@ -326,6 +326,8 @@ public class NotificationManagerService extends SystemService {
 
     static final int VIBRATE_PATTERN_MAXLEN = 8 * 2 + 1; // up to eight bumps
 
+    static final int INVALID_UID = -1;
+
     static final int DEFAULT_STREAM_TYPE = AudioManager.STREAM_NOTIFICATION;
 
     static final boolean ENABLE_BLOCKED_TOASTS = true;
@@ -2916,7 +2918,7 @@ public class NotificationManagerService extends SystemService {
                 String targetPkg, String channelId) {
             if (canNotifyAsPackage(callingPkg, targetPkg, userId)
                     || isCallingUidSystem()) {
-                int targetUid = -1;
+                int targetUid = INVALID_UID;
                 try {
                     targetUid = mPackageManagerClient.getPackageUidAsUser(targetPkg, userId);
                 } catch (NameNotFoundException e) {
@@ -3090,7 +3092,7 @@ public class NotificationManagerService extends SystemService {
                 String callingPkg, String targetPkg, int userId) {
             if (canNotifyAsPackage(callingPkg, targetPkg, userId)
                 || isCallingUidSystem()) {
-                int targetUid = -1;
+                int targetUid = INVALID_UID;
                 try {
                     targetUid = mPackageManagerClient.getPackageUidAsUser(targetPkg, userId);
                 } catch (NameNotFoundException e) {
@@ -4422,11 +4424,10 @@ public class NotificationManagerService extends SystemService {
             int uid = 0;
             long identity = Binder.clearCallingIdentity();
             try {
-                uid = mPackageManager.getPackageUid(pkg, 0, user.getIdentifier());
+                return mPackageManager.getPackageUid(pkg, 0, user.getIdentifier());
             } finally {
                 Binder.restoreCallingIdentity(identity);
             }
-            return uid;
         }
 
         @Override
@@ -5394,7 +5395,7 @@ public class NotificationManagerService extends SystemService {
             return callingUid;
         }
 
-        int targetUid = -1;
+        int targetUid = INVALID_UID;
         try {
             targetUid = mPackageManagerClient.getPackageUidAsUser(targetPkg, userId);
         } catch (NameNotFoundException e) {
@@ -8925,15 +8926,22 @@ public class NotificationManagerService extends SystemService {
             List<UserInfo> users = mUm.getUsers();
             mNonBlockableDefaultApps = new ArrayMap<>();
             for (int i = 0; i < NON_BLOCKABLE_DEFAULT_ROLES.length; i++) {
+                String role = NON_BLOCKABLE_DEFAULT_ROLES[i];
                 final ArrayMap<Integer, ArraySet<String>> userToApprovedList = new ArrayMap<>();
-                mNonBlockableDefaultApps.put(NON_BLOCKABLE_DEFAULT_ROLES[i], userToApprovedList);
+                mNonBlockableDefaultApps.put(role, userToApprovedList);
                 for (int j = 0; j < users.size(); j++) {
-                    Integer userId = users.get(j).getUserHandle().getIdentifier();
+                    int userId = users.get(j).getUserHandle().getIdentifier();
                     ArraySet<String> approvedForUserId = new ArraySet<>(mRm.getRoleHoldersAsUser(
-                            NON_BLOCKABLE_DEFAULT_ROLES[i], UserHandle.of(userId)));
+                            role, UserHandle.of(userId)));
                     ArraySet<Pair<String, Integer>> approvedAppUids = new ArraySet<>();
                     for (String pkg : approvedForUserId) {
-                        approvedAppUids.add(new Pair(pkg, getUidForPackage(pkg, userId)));
+                        int uid = getUidForPackage(pkg, userId);
+                        if (uid != INVALID_UID) {
+                            approvedAppUids.add(new Pair<>(pkg, uid));
+                        } else {
+                            Slog.e(TAG, "init: Invalid package for role " + role
+                                    + " (user " + userId + "): " + pkg);
+                        }
                     }
                     userToApprovedList.put(userId, approvedForUserId);
                     mPreferencesHelper.updateDefaultApps(userId, null, approvedAppUids);
@@ -8988,8 +8996,13 @@ public class NotificationManagerService extends SystemService {
             }
             for (String nowApproved : roleHolders) {
                 if (!previouslyApproved.contains(nowApproved)) {
-                    toAdd.add(new Pair(nowApproved,
-                            getUidForPackage(nowApproved, user.getIdentifier())));
+                    int uid = getUidForPackage(nowApproved, user.getIdentifier());
+                    if (uid != INVALID_UID) {
+                        toAdd.add(new Pair<>(nowApproved, uid));
+                    } else {
+                        Slog.e(TAG, "onRoleHoldersChanged: Invalid package for role " + roleName
+                                + " (user " + user.getIdentifier() + "): " + nowApproved);
+                    }
                 }
             }
 
@@ -9010,7 +9023,7 @@ public class NotificationManagerService extends SystemService {
             } catch (RemoteException e) {
                 Slog.e(TAG, "role manager has bad default " + pkg + " " + userId);
             }
-            return -1;
+            return INVALID_UID;
         }
     }
 
