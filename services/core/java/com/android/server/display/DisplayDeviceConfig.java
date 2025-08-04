@@ -643,6 +643,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
  *          </luxThresholds>
  *     </idleScreenRefreshRateTimeout>
  *     <supportsVrr>true</supportsVrr>
+ *     <defaultToMaxResolution>false</defaultToMaxResolution>
  *
  *     <dozeBrightnessSensorValueToBrightness>
  *         <item>-1</item> <!-- 0: OFF -->
@@ -922,6 +923,8 @@ public class DisplayDeviceConfig {
     private float mBrightnessCapForWearBedtimeMode;
 
     private boolean mVrrSupportEnabled;
+
+    private boolean mDefaultToMaxResolution;
 
     @Nullable
     private float[] mDozeBrightnessSensorValueToBrightness;
@@ -1682,6 +1685,14 @@ public class DisplayDeviceConfig {
     }
 
     /**
+     * Returns true if the device should default to max resolution
+     * when no user preference is set.
+     */
+    public boolean defaultToMaxResolution() {
+        return mDefaultToMaxResolution;
+    }
+
+    /**
      * While the device is dozing, a designated light sensor is used to determine the brightness.
      * @return The mapping between doze brightness sensor values and brightness values. The value
      * -1 means that the current brightness should be kept.
@@ -1797,6 +1808,7 @@ public class DisplayDeviceConfig {
                 ? mEvenDimmerBrightnessData.toString() : "null")
                 + "\n"
                 + "mVrrSupported= " + mVrrSupportEnabled + "\n"
+                + "mDefaultToMaxResolution= " + mDefaultToMaxResolution + "\n"
                 + "mDozeBrightnessSensorValueToBrightness= "
                 + Arrays.toString(mDozeBrightnessSensorValueToBrightness) + "\n"
                 + "mDefaultDozeBrightness= " + mDefaultDozeBrightness + "\n"
@@ -1896,6 +1908,7 @@ public class DisplayDeviceConfig {
                 loadBrightnessCapForWearBedtimeMode(config);
                 loadIdleScreenRefreshRateTimeoutConfigs(config);
                 mVrrSupportEnabled = config.getSupportsVrr();
+                mDefaultToMaxResolution = config.getDefaultToMaxResolution();
                 loadDozeBrightness(config);
             } else {
                 Slog.w(TAG, "DisplayDeviceConfig file is null");
