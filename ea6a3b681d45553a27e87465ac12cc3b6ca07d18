@@ -16,6 +16,23 @@
       "message": "Can you make this configurable? While some sony devices have 4K resolution, we don\u0027t want this to be default.",
       "revId": "ea6a3b681d45553a27e87465ac12cc3b6ca07d18",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d88e8ec_0a38400e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-05T17:49:00Z",
+      "side": 1,
+      "message": "May i know why you don\u0027t want max resolution to be default for some devices?",
+      "revId": "ea6a3b681d45553a27e87465ac12cc3b6ca07d18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
