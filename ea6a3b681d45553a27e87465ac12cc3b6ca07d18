@@ -33,6 +33,24 @@
       "message": "May i know why you don\u0027t want max resolution to be default for some devices?",
       "revId": "ea6a3b681d45553a27e87465ac12cc3b6ca07d18",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ec44954_2ba091f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31578
+      },
+      "writtenOn": "2025-08-06T02:41:47Z",
+      "side": 1,
+      "message": "Because it will cause lag in come cases (the resolution is too high).",
+      "parentUuid": "8d88e8ec_0a38400e",
+      "revId": "ea6a3b681d45553a27e87465ac12cc3b6ca07d18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
