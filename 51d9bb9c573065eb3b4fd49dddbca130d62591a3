@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe064895_c204e227",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-08-16T20:37:43Z",
+      "side": 1,
+      "message": "I struggle with this - needs guarded from HDMI or ATV devices somehow...",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
