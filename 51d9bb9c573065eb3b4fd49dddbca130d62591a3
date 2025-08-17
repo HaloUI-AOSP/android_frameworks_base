@@ -33,6 +33,23 @@
       "message": "We shouldn\u0027t change default AOSP behaviour regarding resolution. As far as I understand this is opt-out instead of opt-in, which is a no-go",
       "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8e7758_c8440511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29715
+      },
+      "writtenOn": "2025-08-17T06:05:45Z",
+      "side": 1,
+      "message": "It caused boot fail on a clean install on my sdm660 devices, which have only one resolution.\n\nI got this is logs :\n\nE AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method \u0027com.android.server.display.DensityMapping$Entry com.android.server.display.DensityMapping.getDefaultEntry()\u0027 on a null object reference\n\nThis should not be the default behaviour IMHO.",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
