@@ -16,6 +16,23 @@
       "message": "I struggle with this - needs guarded from HDMI or ATV devices somehow...",
       "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c29c2b_cd8da81c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-08-17T03:01:29Z",
+      "side": 1,
+      "message": "We shouldn\u0027t change default AOSP behaviour regarding resolution. As far as I understand this is opt-out instead of opt-in, which is a no-go",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
