@@ -50,6 +50,60 @@
       "message": "It caused boot fail on a clean install on my sdm660 devices, which have only one resolution.\n\nI got this is logs :\n\nE AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method \u0027com.android.server.display.DensityMapping$Entry com.android.server.display.DensityMapping.getDefaultEntry()\u0027 on a null object reference\n\nThis should not be the default behaviour IMHO.",
       "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc104e7_bb8d3c99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-18T09:23:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe064895_c204e227",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd269cd_6d04d7a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-18T09:23:19Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "9a8e7758_c8440511",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5242407_c92f64df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2025-08-18T09:23:19Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "75c29c2b_cd8da81c",
+      "revId": "51d9bb9c573065eb3b4fd49dddbca130d62591a3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
