@@ -91,6 +91,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.app.tracing.coroutines.launchTraced as launch
 import com.android.compose.modifiers.padding
@@ -98,6 +99,7 @@ import com.android.compose.modifiers.sliderPercentage
 import com.android.compose.modifiers.thenIf
 import com.android.compose.theme.LocalAndroidColorScheme
 import com.android.compose.ui.graphics.drawInOverlay
+import com.android.compose.ui.graphics.painter.rememberDrawablePainter
 import com.android.systemui.biometrics.Utils.toBitmap
 import com.android.systemui.brightness.shared.model.GammaBrightness
 import com.android.systemui.brightness.ui.compose.AnimationSpecs.IconAppearSpec
@@ -375,7 +377,7 @@ fun BrightnessSlider(
 
         if (hasAutoBrightness && showAutoBrightness) {
             Spacer(modifier = Modifier.width(10.dp))
-            drawAutoBrightnessButton(autoMode = autoMode, onIconClick = onIconClick)
+            drawAutoBrightnessButton(context, autoMode = autoMode, onIconClick = onIconClick)
         }
     }
 
@@ -413,6 +415,7 @@ private fun readShowAutoBrightness(cr: ContentResolver): Boolean =
 
 @Composable
 private fun drawAutoBrightnessButton(
+    context: Context,
     autoMode: Boolean,
     onIconClick: suspend () -> Unit,
 ) {
@@ -431,6 +434,16 @@ private fun drawAutoBrightnessButton(
             MaterialTheme.colorScheme.onSurface
         }
     )
+    val drawable = remember(autoMode) {
+        ContextCompat.getDrawable(
+            context,
+            if (autoMode) {
+                R.drawable.ic_qs_brightness_auto_on
+            } else {
+                R.drawable.ic_qs_brightness_auto_off
+            }
+        )
+    }
 
     IconButton(
         onClick = { coroutineScope.launch { onIconClick() } },
@@ -440,7 +453,7 @@ private fun drawAutoBrightnessButton(
             .background(backgroundColor)
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_qs_brightness_auto),
+            painter = rememberDrawablePainter(drawable),
             contentDescription = "Auto brightness",
             tint = iconTint
         )
