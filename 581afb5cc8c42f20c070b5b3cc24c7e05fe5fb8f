@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb683c9_b29ac9e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28935
+      },
+      "writtenOn": "2025-08-23T14:04:33Z",
+      "side": 1,
+      "message": "This prevents resetting the atomic integer \"mIsPlayingStartedChargingFeedback\" to be reset to false at the end of the function.\nCan we either not merge this, or insert the final line before this return as well?",
+      "revId": "581afb5cc8c42f20c070b5b3cc24c7e05fe5fb8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
