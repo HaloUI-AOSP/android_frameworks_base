@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e86e38a_e916a458",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 34512
+      },
+      "writtenOn": "2025-08-25T10:16:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af20d78d_c5f09674",
+      "revId": "400ba745aaadeb772ffcec65eead580377e6c63d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "def08580_27a8ebce",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-23T12:56:44Z",
       "side": 1,
       "message": "Also this one?",
+      "revId": "400ba745aaadeb772ffcec65eead580377e6c63d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b31325_9bad853e",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 34512
+      },
+      "writtenOn": "2025-08-25T10:16:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "def08580_27a8ebce",
       "revId": "400ba745aaadeb772ffcec65eead580377e6c63d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
