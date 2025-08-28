@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcce422e_e2e5cddf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-08-28T13:02:38Z",
+      "side": 1,
+      "message": "Note: this remains unsquashed because it\u0027s still not tested or merged on 22.2",
+      "revId": "66ff4f8334c61e3e173e26746cfcf5d14e5159ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
