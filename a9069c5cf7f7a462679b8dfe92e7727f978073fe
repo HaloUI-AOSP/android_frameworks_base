@@ -16,6 +16,24 @@
       "message": "Don\u0027t we want to drop this? Assuming all shipping devices that could have migrated?",
       "revId": "a9069c5cf7f7a462679b8dfe92e7727f978073fe",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22ce0eb3_0c2b96eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-09-04T15:13:31Z",
+      "side": 1,
+      "message": "Any device can switch from HIDL to AIDL at any moment, so I don\u0027t see why we should drop this",
+      "parentUuid": "f6cbc56a_18a2dbe4",
+      "revId": "a9069c5cf7f7a462679b8dfe92e7727f978073fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
