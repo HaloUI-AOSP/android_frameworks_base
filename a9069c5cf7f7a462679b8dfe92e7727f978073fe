@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6cbc56a_18a2dbe4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-09-04T14:46:26Z",
+      "side": 1,
+      "message": "Don\u0027t we want to drop this? Assuming all shipping devices that could have migrated?",
+      "revId": "a9069c5cf7f7a462679b8dfe92e7727f978073fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
