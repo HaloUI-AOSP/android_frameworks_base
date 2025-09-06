@@ -16,6 +16,24 @@
       "message": "@howardson2001@gmail.com tested this on 8150 devices with HEVC, worked.\nI tested it on lge-sm8250 (hevc is also broken there), HEVC entries is hidden.",
       "revId": "1e2c8bb5cc1cd396caf00f23298eecd4a8c22788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "096c9e60_714c8086",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34693
+      },
+      "writtenOn": "2025-09-06T21:42:27Z",
+      "side": 1,
+      "message": "you can proceed now that the commit works.",
+      "parentUuid": "8f98e4a9_d5e6b559",
+      "revId": "1e2c8bb5cc1cd396caf00f23298eecd4a8c22788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
