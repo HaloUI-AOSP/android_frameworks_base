@@ -34,6 +34,29 @@
       "parentUuid": "8f98e4a9_d5e6b559",
       "revId": "1e2c8bb5cc1cd396caf00f23298eecd4a8c22788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c930e8_698f023d",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionDialogDelegate.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-09-06T21:51:30Z",
+      "side": 1,
+      "message": "This check should come first",
+      "range": {
+        "startLine": 254,
+        "startChar": 43,
+        "endLine": 254,
+        "endChar": 61
+      },
+      "revId": "1e2c8bb5cc1cd396caf00f23298eecd4a8c22788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
