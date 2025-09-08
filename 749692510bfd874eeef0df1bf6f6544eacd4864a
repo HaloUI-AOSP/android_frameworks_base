@@ -50,6 +50,24 @@
       "message": "also would you mind putting me as author, since i found the bug?\ni\u0027d still like to collect some more contributions",
       "revId": "749692510bfd874eeef0df1bf6f6544eacd4864a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72aff476_6558454a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-09-08T05:55:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec0a595_cf3548df",
+      "revId": "749692510bfd874eeef0df1bf6f6544eacd4864a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
