@@ -50,6 +50,7 @@ import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
 import static android.view.WindowManager.LayoutParams.LAST_SUB_WINDOW;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_COMPATIBLE_WINDOW;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_APPLICATION_STARTING;
 import static android.view.WindowManager.LayoutParams.TYPE_DOCK_DIVIDER;
@@ -1939,7 +1940,8 @@ public class WindowManagerService extends IWindowManager.Stub
         boolean hasStatusBarPermission =
                 mContext.checkCallingOrSelfPermission(android.Manifest.permission.STATUS_BAR)
                         == PackageManager.PERMISSION_GRANTED;
-
+        final int pid = Binder.getCallingPid();
+        final int uid = Binder.getCallingUid();
         long origId = Binder.clearCallingIdentity();
         final int displayId;
         synchronized(mWindowMap) {
@@ -1958,6 +1960,8 @@ public class WindowManagerService extends IWindowManager.Stub
             int flagChanges = 0;
             if (attrs != null) {
                 mPolicy.adjustWindowParamsLw(attrs);
+                attrs.privateFlags = sanitizePrivateFlags(attrs.privateFlags,
+                        win.mAttrs.privateFlags, win.getName(), uid, pid);
                 // if they don't have the permission, mask out the status bar bits
                 if (seq == win.mSeq) {
                     int systemUiVisibility = attrs.systemUiVisibility
@@ -7760,5 +7764,30 @@ public class WindowManagerService extends IWindowManager.Stub
         mRoot.forAllWindows((w) -> {
             w.setForceHideNonSystemOverlayWindowIfNeeded(hideSystemAlertWindows);
         }, false /* traverseTopToBottom */);
+    }
+    private boolean hasFlags(int flags, int mask) {
+        return (flags & mask) != 0;
+    }
+
+    private boolean hasPermission(String permission, int callingPid, int callingUid) {
+        return mContext.checkPermission(permission, callingPid, callingUid)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
+     * Ensure the caller has the right permissions to be able to set the requested private flags.
+     */
+    private int sanitizePrivateFlags(int newPrivateFlags, int oldPrivateFlags, String windowName,
+            int callingUid, int callingPid) {
+        final int addedPrivateFlags = ~oldPrivateFlags & newPrivateFlags;
+        int sanitizedFlags = newPrivateFlags;
+        if (hasFlags(addedPrivateFlags, PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY)
+                && !hasPermission(android.Manifest.permission.INTERNAL_SYSTEM_WINDOW,
+                    callingUid, callingPid)) {
+            Slog.w(TAG, "Removing PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY from '" + windowName
+                    + "' because it doesn't have INTERNAL_SYSTEM_WINDOW permission");
+            sanitizedFlags &= ~(PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY);
+        }
+        return sanitizedFlags;
     }
 }
