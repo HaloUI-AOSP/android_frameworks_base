@@ -2950,7 +2950,7 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
                         SplitTransitionUtils.handleMalformedEnterTransition(info,
                                 (taskInfo) -> getStageOfTask(taskInfo));
                 if (wct != null) {
-                    mTransitions.startTransition(TRANSIT_CLOSE, wct, null);
+                        mSplitTransitions.mTransitions.startTransition(TRANSIT_CLOSE, wct, null);
                 }
                 return false;
             }
