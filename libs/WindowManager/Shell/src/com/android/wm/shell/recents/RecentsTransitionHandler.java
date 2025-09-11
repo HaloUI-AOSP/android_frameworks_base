@@ -215,6 +215,7 @@ public class RecentsTransitionHandler implements Transitions.TransitionHandler,
 
         final WindowContainerTransaction wct = new WindowContainerTransaction();
         wct.sendPendingIntent(intent, fillIn, options);
+        wct.setAnimationDelegate(appThread.asBinder());
 
         // Find the mixed handler which should handle this request (if we are in a state where a
         // mixed handler is needed).  This is slightly convoluted because starting the transition
@@ -301,7 +302,7 @@ public class RecentsTransitionHandler implements Transitions.TransitionHandler,
                     "RecentsTransitionHandler.startAnimation: failed to start animation");
             return false;
         }
-        Transitions.setRunningRemoteTransitionDelegate(animApp);
+        Transitions.setRunningRemoteTransitionDelegate(transition);
         return true;
     }
 
