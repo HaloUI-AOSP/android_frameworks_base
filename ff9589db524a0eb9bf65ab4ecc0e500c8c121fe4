@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd9db0f8_18ab453e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarViewController.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2025-09-12T10:52:03Z",
+      "side": 1,
+      "message": "Is it correct to implement this functionality here? I didn\u0027t want to expose the whole view, but i\u0027m not sure whether this is the right place.",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 2
+      },
+      "revId": "ff9589db524a0eb9bf65ab4ecc0e500c8c121fe4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
