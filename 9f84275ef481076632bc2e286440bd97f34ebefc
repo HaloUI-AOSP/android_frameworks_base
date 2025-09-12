@@ -16,6 +16,23 @@
       "message": "will need 23 pick as well",
       "revId": "9f84275ef481076632bc2e286440bd97f34ebefc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fccfd569_24f9511c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-09-12T06:44:17Z",
+      "side": 1,
+      "message": "to rephrase, pls pick to 23 and we\u0027ll merge here then.",
+      "revId": "9f84275ef481076632bc2e286440bd97f34ebefc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
