@@ -671,7 +671,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
 
         @Override
         public void onStrongAuthStateChanged(int userId) {
-            if (mLockPatternUtils.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
+            if (mUpdateMonitor.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
                 doKeyguardLocked(null);
             }
         }
@@ -1547,7 +1547,7 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
 
         // if another app is disabling us, don't show unless we're in lockdown mode
         if (!mExternallyEnabled
-                && !mLockPatternUtils.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
+            && !mUpdateMonitor.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
             if (DEBUG) Log.d(TAG, "doKeyguard: not showing because externally disabled");
 
             mNeedToReshowWhenReenabled = true;
