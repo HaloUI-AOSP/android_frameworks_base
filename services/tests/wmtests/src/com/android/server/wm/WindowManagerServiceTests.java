@@ -507,7 +507,7 @@ public class WindowManagerServiceTests extends WindowTestsBase {
             int expectedChangedPrivateFlags, int expectedFlagsValue,
             int expectedPrivateFlagsValue, boolean internalSystemWindowGranted,
             boolean manageActivityTasksGranted) {
-        final WindowState win = newWindowBuilder("appWin", TYPE_BASE_APPLICATION).build();
+        final WindowState win = createWindow(null, TYPE_BASE_APPLICATION, "appWin");
         win.mRelayoutCalled = !firstRelayout;
         mWm.mWindowMap.put(win.mClient.asBinder(), win);
         spyOn(mDisplayContent.mDwpcHelper);
