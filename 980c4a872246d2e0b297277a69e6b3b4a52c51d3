@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d275ca_183db3d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2025-10-12T18:36:22Z",
+      "side": 1,
+      "message": "the commit message does not make a lot of sense, the mentioned commit did not remove anything of what is added here.",
+      "revId": "980c4a872246d2e0b297277a69e6b3b4a52c51d3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
