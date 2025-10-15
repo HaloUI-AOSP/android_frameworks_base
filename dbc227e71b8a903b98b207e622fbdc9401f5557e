@@ -33,6 +33,23 @@
       "message": "I don\u0027t see any issues with these on UDFPS device.",
       "revId": "dbc227e71b8a903b98b207e622fbdc9401f5557e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d981e9_0d57d3e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2025-10-15T11:19:18Z",
+      "side": 1,
+      "message": "I also didn\u0027t notice problems after a few days on my device with udfps.",
+      "revId": "dbc227e71b8a903b98b207e622fbdc9401f5557e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
