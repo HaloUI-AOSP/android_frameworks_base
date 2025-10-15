@@ -16,6 +16,23 @@
       "message": "I did try this patch few days back and it was breaking fingerprint indicator for me",
       "revId": "dbc227e71b8a903b98b207e622fbdc9401f5557e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5be45cc_de0738a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-10-15T09:51:02Z",
+      "side": 1,
+      "message": "I don\u0027t see any issues with these on UDFPS device.",
+      "revId": "dbc227e71b8a903b98b207e622fbdc9401f5557e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
