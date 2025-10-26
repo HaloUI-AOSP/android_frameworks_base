@@ -390,6 +390,10 @@ public class DozeParameters implements
         return mResources.getBoolean(R.bool.doze_double_tap_reports_touch_coordinates);
     }
 
+    public boolean singleTapNeedsProximityCheck() {
+        return mResources.getBoolean(R.bool.doze_single_tap_proximity_check);
+    }
+
     /**
      * Whether the single tap sensor uses the proximity sensor for this device posture.
      */
