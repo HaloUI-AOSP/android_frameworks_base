@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4162448a_6ccd95e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29415
+      },
+      "writtenOn": "2025-10-27T11:41:06Z",
+      "side": 1,
+      "message": "Fixes assist button remapping on Nothing Phone (3a)",
+      "revId": "294acea05916d6474b5bc12e97f1f90ec2a9fa98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
