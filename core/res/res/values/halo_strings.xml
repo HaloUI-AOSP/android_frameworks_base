@@ -45,4 +45,7 @@
         <item>RSA.CERT_3:</item>
       -->
     </string-array>
+
+       <!-- API URL to fetch PIF from -->
+   <string name="config_pifUpdateUrl" translatable="false">https://raw.githubusercontent.com/PixelOS-AOSP/official_devices/refs/heads/sixteen/API/updater/CertifiedProps/certified_build_props.json</string>
 </resources>
