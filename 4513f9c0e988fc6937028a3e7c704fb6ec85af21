@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92f31ae_f69d2679",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35850
+      },
+      "writtenOn": "2025-11-03T20:59:04Z",
+      "side": 1,
+      "message": "Any review on this? This feature is vital for all OLED/AMOLED displays.",
+      "revId": "4513f9c0e988fc6937028a3e7c704fb6ec85af21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
