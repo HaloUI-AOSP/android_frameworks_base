@@ -75,6 +75,7 @@ import com.android.internal.inputmethod.IMultiClientInputMethod;
 import com.android.internal.inputmethod.IMultiClientInputMethodPrivilegedOperations;
 import com.android.internal.inputmethod.IMultiClientInputMethodSession;
 import com.android.internal.inputmethod.InputMethodInfoSafeList;
+import com.android.internal.inputmethod.InputMethodSubtypeSafeList;
 import com.android.internal.inputmethod.SoftInputShowHideReason;
 import com.android.internal.inputmethod.StartInputFlags;
 import com.android.internal.inputmethod.StartInputReason;
@@ -1457,11 +1458,10 @@ public final class MultiClientInputMethodManagerService {
         }
 
         @BinderThread
-        @Override
-        public List<InputMethodSubtype> getEnabledInputMethodSubtypeList(String imiId,
+        public InputMethodSubtypeSafeList getEnabledInputMethodSubtypeList(String imiId,
                 boolean allowsImplicitlySelectedSubtypes) {
             reportNotSupported();
-            return Collections.emptyList();
+            return InputMethodSubtypeSafeList.create(null);
         }
 
         @BinderThread
