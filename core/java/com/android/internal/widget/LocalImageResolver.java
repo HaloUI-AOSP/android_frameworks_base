@@ -27,6 +27,7 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 
 /**
  * A class to extract Bitmaps from a MessagingStyle message.
@@ -80,5 +81,27 @@ public class LocalImageResolver {
     private static int getPowerOfTwoForSampleRatio(double ratio) {
         int k = Integer.highestOneBit((int) Math.floor(ratio));
         return Math.max(1, k);
+    }
+
+    final String mimeType = info.getMimeType();
+    boolean isAllowedCodec = false;
+    if (mimeType != null) {
+        switch (mimeType.toLowerCase(Locale.US)) {
+            case "image/png":
+            case "image/jpeg":
+            case "image/webp":
+            case "image/gif":
+            case "image/bmp":
+            case "image/x-ico":
+            case "image/vnd.wap.wbmp":
+            case "image/heif":
+            case "image/heic":
+            case "image/avif":
+                isAllowedCodec = true;
+                break;
+        }
+    }
+    if (!isAllowedCodec) {
+        throw new RuntimeException("Image mime type (" + mimeType + ") is not allowed.");
     }
 }
