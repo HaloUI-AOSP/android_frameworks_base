@@ -39,6 +39,30 @@
       },
       "revId": "62ae6c192a492944a934ac3006bbaa0ff66b2c48",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85bad902_ef76d3d8",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionViewBinder.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-11-10T05:35:36Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "4c9766c5_2893e390",
+      "range": {
+        "startLine": 195,
+        "startChar": 12,
+        "endLine": 195,
+        "endChar": 18
+      },
+      "revId": "62ae6c192a492944a934ac3006bbaa0ff66b2c48",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
