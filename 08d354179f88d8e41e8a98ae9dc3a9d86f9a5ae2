@@ -16,6 +16,23 @@
       "message": "Picked from QPR1",
       "revId": "08d354179f88d8e41e8a98ae9dc3a9d86f9a5ae2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080337c3_e31148d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20370
+      },
+      "writtenOn": "2025-11-18T13:45:56Z",
+      "side": 1,
+      "message": "build is broken\n```\nframeworks/base/core/java/android/content/res/ResourcesImpl.java:498: error: cannot find symbol\n                                    mLocaleConfig.getDefaultLocale().toLanguageTag());\n                                    ^\n  symbol:   variable mLocaleConfig\n  location: class ResourcesImpl\nframeworks/base/core/java/android/content/res/ResourcesImpl.java:501: error: cannot find symbol\n                                            mLocaleConfig.getSupportedLocales());\n                                            ^\n  symbol:   variable mLocaleConfig\n  location: class ResourcesImpl\n```",
+      "revId": "08d354179f88d8e41e8a98ae9dc3a9d86f9a5ae2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
