@@ -23,7 +23,7 @@ import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_M
 import static android.view.WindowManager.LayoutParams.TYPE_STATUS_BAR_SUB_PANEL;
 import static android.view.WindowManager.ScreenshotSource.SCREENSHOT_GLOBAL_ACTIONS;
 import static android.view.WindowManager.TAKE_SCREENSHOT_FULLSCREEN;
-import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
+//import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
 
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.SOME_AUTH_REQUIRED_AFTER_USER_REQUEST;
 import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_NOT_REQUIRED;
@@ -1348,8 +1348,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mScreenshotHelper.takeScreenshot(type,
-                            SCREENSHOT_GLOBAL_ACTIONS, mHandler, null);
+                    //mScreenshotHelper.takeScreenshot(type,
+                    //        SCREENSHOT_GLOBAL_ACTIONS, mHandler, null);
                     mMetricsLogger.action(MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
                     mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_PRESS);
                 }
@@ -1363,7 +1363,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
         @Override
         public boolean onLongPress() {
-            takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION);
+            //takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION);
 
             return true;
         }
