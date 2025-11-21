@@ -36,7 +36,7 @@ object StatusBarChipsModernization {
     /** Is the refactor enabled */
     @JvmStatic
     inline val isEnabled
-        get() = Flags.statusBarChipsModernization() && Flags.statusBarRootModernization()
+        get() = false
 
     /**
      * Called to ensure code is only run when the flag is enabled. This protects users from the
