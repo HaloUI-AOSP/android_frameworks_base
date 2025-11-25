@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ee4b8b_d70a5aa4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-11-25T20:07:38Z",
+      "side": 1,
+      "message": "2 change-ids?",
+      "revId": "1b87e8edad51cb3dbc3fd957b7116b7b45fd26a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3be0e8_22dafe9e",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-11-25T20:07:38Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "1b87e8edad51cb3dbc3fd957b7116b7b45fd26a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
