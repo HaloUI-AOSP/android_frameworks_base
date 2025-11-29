@@ -19,6 +19,7 @@ package com.android.systemui.qs.composefragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
+import android.database.ContentObserver
 import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.PointF
@@ -59,6 +60,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -1441,33 +1443,63 @@ private fun MediaObject(
 }
 
 @Composable
-fun rememberSliderAtTop(): Boolean {
+fun rememberQsBrightnessSettings(): QsBrightnessSettings {
     val context = LocalContext.current
-    return remember {
-        val cr = context.contentResolver
-        try {
-             LineageSettings.Secure.getIntForUser(
-                cr,  LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION, 0, UserHandle.USER_CURRENT
-            ) == 0
-        } catch (_: Throwable) {
-            true
-        }
-    }
-}
+    val cr = remember { context.contentResolver }
 
-@Composable
-fun rememberShowSlider(): Int {
-    val context = LocalContext.current
-    return remember {
-        val cr = context.contentResolver
-        try {
-             LineageSettings.Secure.getIntForUser(
-                cr,  LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT
+    fun readCurrent(): QsBrightnessSettings {
+        val position = try {
+            LineageSettings.Secure.getIntForUser(
+                cr, LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION, 0,
+                UserHandle.USER_CURRENT
+            )
+        } catch (_: Throwable) {
+            0
+        }
+
+        val showSliderValue = try {
+            LineageSettings.Secure.getIntForUser(
+                cr, LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1,
+                UserHandle.USER_CURRENT
             )
         } catch (_: Throwable) {
             1
         }
+
+        return QsBrightnessSettings(
+            sliderAtTop = position == 0,
+            showSlider = showSliderValue,
+        )
     }
+
+    var state by remember {
+        mutableStateOf(readCurrent())
+    }
+
+    DisposableEffect(Unit) {
+        val observer = object : ContentObserver(null) {
+            override fun onChange(selfChange: Boolean) {
+                context.mainExecutor.execute {
+                    state = readCurrent()
+                }
+            }
+        }
+
+        cr.registerContentObserver(
+            LineageSettings.Secure.getUriFor(LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION),
+            false, observer, UserHandle.USER_ALL
+        )
+        cr.registerContentObserver(
+            LineageSettings.Secure.getUriFor(LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER),
+            false, observer, UserHandle.USER_ALL
+        )
+
+        onDispose {
+            cr.unregisterContentObserver(observer)
+        }
+    }
+
+    return state
 }
 
 @Composable
@@ -1478,8 +1510,9 @@ fun QuickQuickSettingsLayout(
     media: @Composable () -> Unit,
     mediaInRow: Boolean,
 ) {
-    val sliderAtTop = rememberSliderAtTop()
-    val showSlider = rememberShowSlider()
+    val brightnessSettings = rememberQsBrightnessSettings()
+    val sliderAtTop = brightnessSettings.sliderAtTop
+    val showSlider = brightnessSettings.showSlider
 
     Column(verticalArrangement = spacedBy(dimensionResource(R.dimen.qs_tile_margin_vertical))) {
         if (showSlider == 2 && sliderAtTop) {
@@ -1514,8 +1547,9 @@ fun QuickSettingsLayout(
     media: @Composable () -> Unit,
     mediaInRow: Boolean,
 ) {
-    val sliderAtTop = rememberSliderAtTop()
-    val showSlider = rememberShowSlider()
+    val brightnessSettings = rememberQsBrightnessSettings()
+    val sliderAtTop = brightnessSettings.sliderAtTop
+    val showSlider = brightnessSettings.showSlider
 
     Column(
         verticalArrangement = spacedBy(dimensionResource(R.dimen.qs_tile_margin_vertical)),
@@ -1593,3 +1627,8 @@ private fun AlwaysDarkMode(content: @Composable () -> Unit) {
         }
     }
 }
+
+data class QsBrightnessSettings(
+    val sliderAtTop: Boolean,
+    val showSlider: Int,
+)
