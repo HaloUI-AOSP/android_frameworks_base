@@ -16,6 +16,23 @@
       "message": "No, Google did this for a reason.\nhttps://github.com/LineageOS/android_frameworks_base/commit/6dcc435d50cbf7f123764defed84269cd8253fe6",
       "revId": "1157fe949e05d9ad08b93e7922f7eea17499c97c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "441196dd_95aa3511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-11-30T20:23:27Z",
+      "side": 1,
+      "message": "Read about the crash happening due to modern views. Need to think better solution then.\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/460400",
+      "revId": "1157fe949e05d9ad08b93e7922f7eea17499c97c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
