@@ -260,9 +260,7 @@ public class Clock extends TextView implements
 
         // Make sure we update to the current time
         updateClock();
-        if (!StatusBarRootModernization.isEnabled()) {
-            updateClockVisibility();
-        }
+        updateClockVisibility();
         updateShowSeconds();
     }
 
@@ -340,18 +338,14 @@ public class Clock extends TextView implements
 
     @Override
     public void setVisibility(int visibility) {
-        if (!StatusBarRootModernization.isEnabled()) {
-            if (visibility == View.VISIBLE && !shouldBeVisible()) {
-                return;
-            }
+        if (visibility == View.VISIBLE && !shouldBeVisible()) {
+            return;
         }
 
         super.setVisibility(visibility);
     }
 
     public void setClockVisibleByUser(boolean visible) {
-        StatusBarRootModernization.assertInLegacyMode();
-
         mClockVisibleByUser = visible;
         updateClockVisibility();
     }
@@ -364,12 +358,10 @@ public class Clock extends TextView implements
     }
 
     public boolean shouldBeVisible() {
-        return !mClockAutoHide && mClockVisibleByPolicy && mClockVisibleByUser;
+        return !mClockAutoHide && mClockVisibleByUser;
     }
 
     private void updateClockVisibility() {
-        StatusBarRootModernization.assertInLegacyMode();
-
         boolean visible = shouldBeVisible();
         int visibility = visible ? View.VISIBLE : View.GONE;
         super.setVisibility(visibility);
