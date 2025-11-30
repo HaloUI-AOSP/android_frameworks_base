@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ef88317_98ffd496",
+        "filename": "packages/SystemUI/src/com/android/systemui/brightness/ui/compose/BrightnessSlider.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-11-30T19:59:11Z",
+      "side": 1,
+      "message": "We should be using IconButton here, not the old views.",
+      "revId": "6c5f796c9f6730bd381c6df1f0353e0049234295",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
