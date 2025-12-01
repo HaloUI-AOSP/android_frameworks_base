@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f92f40d_dd8e60bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-01T15:30:42Z",
+      "side": 1,
+      "message": "SystemUI used to crash with following: updateShowClock -\u003e \nupdateClockVisibility -\u003e \nStatusBarRootModernization.assertInLegacyMode();",
+      "revId": "bde0536657aeb8167014098e847a1623c0afc30e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
