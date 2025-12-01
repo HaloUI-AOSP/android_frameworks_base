@@ -340,10 +340,8 @@ public class Clock extends TextView implements
 
     @Override
     public void setVisibility(int visibility) {
-        if (!StatusBarRootModernization.isEnabled()) {
-            if (visibility == View.VISIBLE && !shouldBeVisible()) {
-                return;
-            }
+        if (visibility == View.VISIBLE && !shouldBeVisible()) {
+            return;
         }
 
         super.setVisibility(visibility);
@@ -364,6 +362,10 @@ public class Clock extends TextView implements
     }
 
     public boolean shouldBeVisible() {
+        if (StatusBarRootModernization.isEnabled()) {
+            return !mClockAutoHide;
+        }
+
         return !mClockAutoHide && mClockVisibleByPolicy && mClockVisibleByUser;
     }
 
@@ -500,8 +502,16 @@ public class Clock extends TextView implements
                 ? runningTask.configuration.windowConfiguration.getActivityType()
                 : WindowConfiguration.ACTIVITY_TYPE_UNDEFINED;
         final boolean clockAutoHide = activityType == WindowConfiguration.ACTIVITY_TYPE_HOME;
-        if (mClockAutoHide != clockAutoHide) {
-            mClockAutoHide = clockAutoHide;
+
+        if (mClockAutoHide == clockAutoHide) {
+            return;
+        }
+
+        mClockAutoHide = clockAutoHide;
+
+        if (StatusBarRootModernization.isEnabled()) {
+            setVisibility(clockAutoHide ? View.GONE : View.VISIBLE);
+        } else {
             updateClockVisibility();
         }
     }
