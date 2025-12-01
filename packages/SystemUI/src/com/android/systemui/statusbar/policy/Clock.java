@@ -122,6 +122,7 @@ public class Clock extends TextView implements
     private Handler mSecondsHandler;
 
     private boolean mIsStatusBar;
+    private boolean mIsActiveClock = true;
 
     /**
      * Color to be set on this {@link TextView}, when wallpaperTextColor is <b>not</b> utilized.
@@ -340,13 +341,21 @@ public class Clock extends TextView implements
 
     @Override
     public void setVisibility(int visibility) {
-        if (!StatusBarRootModernization.isEnabled()) {
-            if (visibility == View.VISIBLE && !shouldBeVisible()) {
-                return;
-            }
+        // In a multi clock setup, only the active clock is allowed to become visible.
+        // Inactive clocks can still be hidden.
+        if (!mIsActiveClock && visibility == View.VISIBLE) {
+            return;
+        }
+
+        if (visibility == View.VISIBLE && !shouldBeVisible()) {
+            return;
         }
 
         super.setVisibility(visibility);
+    }
+
+    public void setIsActiveClock(boolean active) {
+        mIsActiveClock = active;
     }
 
     public void setClockVisibleByUser(boolean visible) {
@@ -364,6 +373,10 @@ public class Clock extends TextView implements
     }
 
     public boolean shouldBeVisible() {
+        if (StatusBarRootModernization.isEnabled()) {
+            return !mClockAutoHide;
+        }
+
         return !mClockAutoHide && mClockVisibleByPolicy && mClockVisibleByUser;
     }
 
@@ -500,8 +513,16 @@ public class Clock extends TextView implements
                 ? runningTask.configuration.windowConfiguration.getActivityType()
                 : WindowConfiguration.ACTIVITY_TYPE_UNDEFINED;
         final boolean clockAutoHide = activityType == WindowConfiguration.ACTIVITY_TYPE_HOME;
-        if (mClockAutoHide != clockAutoHide) {
-            mClockAutoHide = clockAutoHide;
+
+        if (mClockAutoHide == clockAutoHide) {
+            return;
+        }
+
+        mClockAutoHide = clockAutoHide;
+
+        if (StatusBarRootModernization.isEnabled()) {
+            setVisibility(clockAutoHide ? View.GONE : View.VISIBLE);
+        } else {
             updateClockVisibility();
         }
     }
