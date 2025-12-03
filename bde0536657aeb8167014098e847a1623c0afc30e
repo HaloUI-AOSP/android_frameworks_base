@@ -34,6 +34,24 @@
       "parentUuid": "0f92f40d_dd8e60bc",
       "revId": "bde0536657aeb8167014098e847a1623c0afc30e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a15dcc30_da2cf6c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35850
+      },
+      "writtenOn": "2025-12-03T10:53:24Z",
+      "side": 1,
+      "message": "Not a good way to \"fix\" this is my opinion. Need to find a way to do this without killing the assertion.",
+      "parentUuid": "9b92a74f_2370b612",
+      "revId": "bde0536657aeb8167014098e847a1623c0afc30e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
