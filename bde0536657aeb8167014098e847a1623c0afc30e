@@ -16,6 +16,24 @@
       "message": "SystemUI used to crash with following: updateShowClock -\u003e \nupdateClockVisibility -\u003e \nStatusBarRootModernization.assertInLegacyMode();",
       "revId": "bde0536657aeb8167014098e847a1623c0afc30e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b92a74f_2370b612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-03T10:51:29Z",
+      "side": 1,
+      "message": "This resolved the crash, but there\u0027s a funny regression. Clock can now appear twice or thrice, depending on the user selected position.",
+      "parentUuid": "0f92f40d_dd8e60bc",
+      "revId": "bde0536657aeb8167014098e847a1623c0afc30e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
