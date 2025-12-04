@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5f9fa0_df5f5fdd",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/LauncherProxyService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-04T16:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f84557_e6681386",
+      "range": {
+        "startLine": 400,
+        "startChar": 8,
+        "endLine": 400,
+        "endChar": 95
+      },
+      "revId": "24c4fa7d481d89e4d10196a2658dfdae16c2e100",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad26c18d_7e4b366d",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-12-04T11:35:08Z",
       "side": 1,
       "message": "```suggestion\n        private boolean sendEvent(int action, int code, int displayId) {\n            return sendEvent(action, code, displayId, 0, 0);\n```",
+      "range": {
+        "startLine": 412,
+        "startChar": 8,
+        "endLine": 413,
+        "endChar": 49
+      },
+      "revId": "24c4fa7d481d89e4d10196a2658dfdae16c2e100",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70da6a8d_37273d74",
+        "filename": "packages/SystemUI/src/com/android/systemui/recents/LauncherProxyService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-04T16:24:27Z",
+      "side": 1,
+      "message": "Okay, you did that in the fixup! commit.",
+      "parentUuid": "ad26c18d_7e4b366d",
       "range": {
         "startLine": 412,
         "startChar": 8,
