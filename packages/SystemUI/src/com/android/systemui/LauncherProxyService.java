@@ -380,15 +380,6 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
         }
 
         @Override
-        public void injectPress(int keyCode) throws RemoteException {
-            final int displayId = mContext.getDisplayId();
-            verifyCallerAndClearCallingIdentityPostMain("pressInjected", () -> {
-                sendEvent(KeyEvent.ACTION_DOWN, keyCode, displayId);
-                sendEvent(KeyEvent.ACTION_UP, keyCode, displayId);
-            });
-        }
-
-        @Override
         public void onImeSwitcherPressed() {
             // TODO(b/204901476) We're intentionally using the default display for now since
             // Launcher/Taskbar isn't display aware.
