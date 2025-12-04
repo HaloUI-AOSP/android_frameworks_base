@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddbcc46_37dc9034",
+        "filename": "packages/SettingsLib/SettingsTheme/src/com/android/settingslib/widget/SettingsBasePreferenceFragment.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:23:28Z",
+      "side": 1,
+      "message": "this already handles null, what causes the NPE?",
+      "revId": "b552dce77cfb7e71d69cd01cb801de0b2cf775df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
