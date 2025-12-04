@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e0992c_0c8bdaba",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AODTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "why not keep this section above value?",
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009c6da5_ff30412f",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AODTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 153,
+        "endChar": 42
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a2aaeaa_87b77a60",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/AmbientDisplayTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 139,
+        "endChar": 54
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfad106e_17d4701d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "why not keep it above label?",
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bc62c90_3c1bc7b5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 222,
+        "startChar": 12,
+        "endLine": 223,
+        "endChar": 47
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f611aa56_bb144642",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/HeadsUpTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 118,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 47
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd2da6f6_67c2afa5",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/PowerShareTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 197,
+        "startChar": 12,
+        "endLine": 198,
+        "endChar": 49
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc9149c0_06c483b4",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 168,
+        "startChar": 12,
+        "endLine": 169,
+        "endChar": 47
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93068dff_7825f62b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/ReadingModeTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 103,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 45
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db9dda28_5900ec00",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SyncTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2025-12-04T23:11:42Z",
+      "side": 1,
+      "message": "should fit into one line",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 98,
+        "endChar": 43
+      },
+      "revId": "26d6bc58d2082d1740f971b7efe174a9b36dd09a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
