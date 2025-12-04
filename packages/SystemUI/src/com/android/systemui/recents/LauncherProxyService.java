@@ -413,8 +413,8 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
                     .injectInputEvent(ev, InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
         }
 
-        private boolean sendEvent(int action, int code) {
-            return sendEvent(action, code, 0, 0);
+        private boolean sendEvent(int action, int code, int displayId) {
+            return sendEvent(action, code, displayId, 0, 0);
         }
 
         @Override
