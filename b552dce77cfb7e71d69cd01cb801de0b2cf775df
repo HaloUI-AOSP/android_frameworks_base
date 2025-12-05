@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6929e765_0456b28c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-05T03:03:52Z",
+      "side": 1,
+      "message": "setDivider(null) causes NPE too. See log here: https://review.lineageos.org/c/LineageOS/android_packages_apps_LineageParts/+/462018",
+      "revId": "b552dce77cfb7e71d69cd01cb801de0b2cf775df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ddbcc46_37dc9034",
