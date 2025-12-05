@@ -35,6 +35,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afb33b81_dff36005",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-05T07:59:57Z",
+      "side": 1,
+      "message": "Bruno\u0027s change is fine. This is NPE check what AOSP should have done before. I had few crashes in Settings app on lineage-23.0 in activities like Running Services.",
+      "revId": "b552dce77cfb7e71d69cd01cb801de0b2cf775df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ddbcc46_37dc9034",
