@@ -62,10 +62,10 @@ public class TunerActivity extends CollapsingToolbarBaseActivity implements
         setContentView(R.layout.tuner_activity);
 
         DynamicColors.applyToActivityIfAvailable(this);
-        setTheme(com.android.settingslib.widget.theme.R.style.Theme_SubSettingsBase);
 
         // Handle window insets for padding adjustments
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.content_frame), (view, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.content_frame),
+                (view, insets) -> {
             Insets systemInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 
             view.setPadding(
