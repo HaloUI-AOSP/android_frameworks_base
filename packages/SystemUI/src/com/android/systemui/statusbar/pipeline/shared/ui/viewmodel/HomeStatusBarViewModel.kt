@@ -583,14 +583,14 @@ constructor(
                     shouldStatusBarBeVisible &&
                         visibilityViaDisableFlags.isClockAllowed &&
                         !hideStartSideContentForHeadsUp
-                // Always use View.INVISIBLE here, so that animations work
-                VisibilityModel(showClock.toVisibleOrInvisible(), visibilityViaDisableFlags.animate)
+                // Always use View.GONE here, so that we do not get stray spaces
+                VisibilityModel(showClock.toVisibleOrGone(), visibilityViaDisableFlags.animate)
             }
             .distinctUntilChanged()
             .logDiffsForTable(
                 tableLogBuffer = tableLogger,
                 columnPrefix = COL_PREFIX_CLOCK,
-                initialValue = VisibilityModel(false.toVisibleOrInvisible(), false),
+                initialValue = VisibilityModel(false.toVisibleOrGone(), false),
             )
             .flowOn(bgDispatcher)
 
