@@ -99,7 +99,7 @@ constructor(
             // GONE because this shouldn't take space in the layout
             primaryChipView.hideInitially(state = View.GONE)
             systemInfoView.hideInitially()
-            clockView.hideInitially()
+            clockView.hideInitially(state = View.GONE)
             notificationIconsArea.hideInitially()
         }
 
