@@ -22,6 +22,30 @@
       },
       "revId": "db7853a2e3375c2e4605bf1030d3e0e3da7e8408",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47aa636e_40ca7916",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-07T23:17:38Z",
+      "side": 1,
+      "message": "Yea, this can be removed for sure:\n\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-23.1/packages/SettingsLib/CollapsingToolbarBaseActivity/src/com/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity.java#L74",
+      "parentUuid": "f3fb9f0f_3d3f21cb",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 85
+      },
+      "revId": "db7853a2e3375c2e4605bf1030d3e0e3da7e8408",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
