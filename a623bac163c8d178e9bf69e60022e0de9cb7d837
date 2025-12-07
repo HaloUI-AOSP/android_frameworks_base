@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "366bee4e_2b419c18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-07T05:01:56Z",
+      "side": 1,
+      "message": "Changes in CollapsedStatusBarFragment can be considered for removal since it is legacy mode.",
+      "revId": "a623bac163c8d178e9bf69e60022e0de9cb7d837",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
