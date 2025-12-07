@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df79b917_ed7c7c72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-07T11:47:36Z",
+      "side": 1,
+      "message": "To squash in 23.1 and allow to easily convert for M3E: https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/463673/",
+      "revId": "06d467c9e3275df273bcce4c8e273a25d90746fd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
