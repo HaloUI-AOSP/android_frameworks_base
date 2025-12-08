@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce1066d_580b711a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-08T00:09:05Z",
+      "side": 1,
+      "message": "For generic SettingLib fix, there\u0027s this already: https://github.com/Evolution-X/frameworks_base/commit/edae7707730eee7e2cdd2792409e64552a407a97",
+      "revId": "bc758a9268b72fbd2329d288d5978ce5b2ef0e2c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
