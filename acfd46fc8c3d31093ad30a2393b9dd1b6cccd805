@@ -71,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21f78b07_744d1d59",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.kt",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2025-12-08T18:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93df000c_d740ce3e",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 47
+      },
+      "revId": "acfd46fc8c3d31093ad30a2393b9dd1b6cccd805",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79ef32a4_177fddb1",
@@ -84,6 +108,30 @@
       "writtenOn": "2025-12-08T18:26:48Z",
       "side": 1,
       "message": "and here",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 63
+      },
+      "revId": "acfd46fc8c3d31093ad30a2393b9dd1b6cccd805",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc17c28_e28207d0",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.kt",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2025-12-08T18:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79ef32a4_177fddb1",
       "range": {
         "startLine": 56,
         "startChar": 18,
