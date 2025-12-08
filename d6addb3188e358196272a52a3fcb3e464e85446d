@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc5102a_182793dc",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-08T17:50:19Z",
+      "side": 1,
+      "message": "Rename to be more generic, since it\u0027s now related to statusbar and navbar.",
+      "revId": "d6addb3188e358196272a52a3fcb3e464e85446d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
