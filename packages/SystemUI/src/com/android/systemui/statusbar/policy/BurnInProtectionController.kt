@@ -22,14 +22,13 @@ import android.util.Log
 
 import com.android.internal.policy.SystemBarUtils
 
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.doze.util.zigzag
-import com.android.systemui.navigationbar.NavigationBarView
+import com.android.systemui.navigationbar.views.NavigationBarView
 import com.android.systemui.navigationbar.NavigationModeController
 import com.android.systemui.shared.system.QuickStepContract.isGesturalMode
-import com.android.systemui.statusbar.phone.PhoneStatusBarView
-import com.android.systemui.statusbar.policy.ConfigurationController
+import com.android.systemui.statusbar.phone.PhoneStatusBarViewController.PhoneStatusBarBurnInProtectionHandler
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener
 
 import javax.inject.Inject
@@ -63,17 +62,18 @@ class BurnInProtectionController @Inject constructor(
     private var navigationMode: Int = navigationModeController.addListener(this)
 
     private var navigationBarView: NavigationBarView? = null
-    private var phoneStatusBarView: PhoneStatusBarView? = null
+    private var statusBarBurnInProtectionHandler: PhoneStatusBarBurnInProtectionHandler? = null
 
     private var shiftJob: Job? = null
     private var shiftCounter = 0
 
-    private var maxStatusBarOffsetX = 0
+    private var statusBarStartOffsetsX = Pair(0, 0)
+    private var statusBarEndOffsetsX = Pair(0, 0)
     private var maxStatusBarOffsetY = 0
     private var maxNavBarOffsetX = 0
     private var maxNavBarOffsetY = 0
 
-    private var statusBarOffset = Offset.Zero
+    private var statusBarOffsets = Pair(Offset.Zero, Offset.Zero)
     private var navBarOffset = Offset.Zero
 
     init {
@@ -86,11 +86,21 @@ class BurnInProtectionController @Inject constructor(
 
     private fun loadResources()  {
         with(context.resources) {
-            maxStatusBarOffsetX = minOf(
-                getDimensionPixelSize(R.dimen.status_bar_padding_start),
-                getDimensionPixelSize(R.dimen.status_bar_padding_end),
-                getDimensionPixelSize(R.dimen.status_bar_offset_max_x)
-            ) / 2
+            statusBarStartOffsetsX = Pair(
+                -minOf(
+                    getDimensionPixelSize(R.dimen.status_bar_padding_start),
+                    getDimensionPixelSize(R.dimen.status_bar_offset_max_x)
+                ), getDimensionPixelSize(R.dimen.status_bar_offset_max_x)
+            )
+
+            statusBarEndOffsetsX = Pair(
+                -getDimensionPixelSize(R.dimen.status_bar_offset_max_x),
+                minOf(
+                    getDimensionPixelSize(R.dimen.status_bar_padding_end),
+                    getDimensionPixelSize(R.dimen.status_bar_offset_max_x)
+                )
+            )
+
             maxStatusBarOffsetY = minOf(
                 SystemBarUtils.getStatusBarHeight(context) -
                 getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height_default),
@@ -99,7 +109,9 @@ class BurnInProtectionController @Inject constructor(
         }
         calculateNavBarMaxOffset()
         logD {
-            "maxStatusBarOffsetX = $maxStatusBarOffsetX, maxStatusBarOffsetY = $maxStatusBarOffsetY"
+            "statusBarStartOffsetsX = $statusBarStartOffsetsX, " +
+            "statusBarEndOffsetsX = $statusBarEndOffsetsX, " +
+            "maxStatusBarOffsetY = $maxStatusBarOffsetY"
         }
     }
 
@@ -135,9 +147,13 @@ class BurnInProtectionController @Inject constructor(
         if (!shiftEnabled || (shiftJob?.isActive == true)) return
         shiftJob = coroutineScope.launch {
             while (isActive) {
-                val sbOffset = Offset(
-                    getBurnInOffset(maxStatusBarOffsetX),
-                    getBurnInOffset(maxStatusBarOffsetY)
+                val sbOffset = Pair(
+                    Offset(
+                        getBurnInOffset(statusBarStartOffsetsX),
+                        getBurnInOffset(maxStatusBarOffsetY)
+                    ), Offset(
+                        getBurnInOffset(statusBarEndOffsetsX), getBurnInOffset(maxStatusBarOffsetY)
+                    )
                 )
                 val nbOffset = Offset(
                     getBurnInOffset(maxNavBarOffsetX),
@@ -163,13 +179,21 @@ class BurnInProtectionController @Inject constructor(
         return mult * Math.round(zigzag(shiftCounter.toFloat(), amplitude, period))
     }
 
-    private fun updateViews(sbOffset: Offset, nbOffset: Offset) {
-        if (sbOffset != statusBarOffset) {
+    private fun getBurnInOffset(offsetLimits: Pair<Int, Int>): Int {
+        val amplitude = (offsetLimits.second - offsetLimits.first).toFloat()
+        val period = amplitude * 2
+        return Math.round(
+            zigzag(shiftCounter.toFloat(), amplitude, period) + offsetLimits.first
+        )
+    }
+
+    private fun updateViews(sbOffset: Pair<Offset, Offset>, nbOffset: Offset) {
+        if (sbOffset != statusBarOffsets) {
             logD {
                 "Translating statusbar"
             }
-            phoneStatusBarView?.offsetStatusBar(sbOffset)
-            statusBarOffset = sbOffset
+            statusBarBurnInProtectionHandler?.offsetStatusBar(sbOffset.first, sbOffset.second)
+            statusBarOffsets = sbOffset
         }
         if (nbOffset != navBarOffset) {
             logD {
@@ -187,7 +211,7 @@ class BurnInProtectionController @Inject constructor(
         }
         coroutineScope.launch {
             shiftJob?.cancelAndJoin()
-            updateViews(Offset.Zero, Offset.Zero)
+            updateViews(Pair(Offset.Zero, Offset.Zero), Offset.Zero)
             logD {
                 "Cancelled shift job"
             }
