@@ -16,6 +16,24 @@
       "message": "Restore my previous edits too.",
       "revId": "a37eb7ac52a1629194e97f56c444873ed83fdfa3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b8af318_e7435e24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2025-12-08T16:40:46Z",
+      "side": 1,
+      "message": "What edits?",
+      "parentUuid": "122e282e_23c1c885",
+      "revId": "a37eb7ac52a1629194e97f56c444873ed83fdfa3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
