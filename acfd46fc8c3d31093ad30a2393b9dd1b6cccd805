@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b6d24e_1d426603",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.kt",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-08T18:26:48Z",
+      "side": 1,
+      "message": "At this point I would also move it out of statusbar. Maybe plugins?",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "acfd46fc8c3d31093ad30a2393b9dd1b6cccd805",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93df000c_d740ce3e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.kt",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-08T18:26:48Z",
+      "side": 1,
+      "message": "forgot to update it here",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 47
+      },
+      "revId": "acfd46fc8c3d31093ad30a2393b9dd1b6cccd805",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ef32a4_177fddb1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BurnInProtectionController.kt",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-08T18:26:48Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 63
+      },
+      "revId": "acfd46fc8c3d31093ad30a2393b9dd1b6cccd805",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
