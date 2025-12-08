@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8faceb_d91427ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2025-12-08T18:56:36Z",
+      "side": 1,
+      "message": "This should be squashed into the original commit, and update original commit-msg co-author list.",
+      "revId": "d71bc0ec5d767f77accfed455602794f0e563eab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
