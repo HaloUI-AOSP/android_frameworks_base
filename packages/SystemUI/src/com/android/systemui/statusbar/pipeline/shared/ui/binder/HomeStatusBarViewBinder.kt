@@ -18,12 +18,17 @@ package com.android.systemui.statusbar.pipeline.shared.ui.binder
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.database.ContentObserver
+import android.net.Uri
+import android.os.UserHandle
+import android.provider.Settings
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.android.app.animation.Interpolators
+import com.android.systemui.Dependency
 import com.android.systemui.display.dagger.SystemUIDisplaySubcomponent.PerDisplaySingleton
 import com.android.systemui.lifecycle.repeatWhenAttached
 import com.android.systemui.res.R
@@ -46,10 +51,17 @@ import com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment
 import com.android.systemui.statusbar.phone.ongoingcall.StatusBarChipsModernization
 import com.android.systemui.statusbar.pipeline.shared.ui.model.VisibilityModel
 import com.android.systemui.statusbar.pipeline.shared.ui.viewmodel.HomeStatusBarViewModel
+import com.android.systemui.statusbar.policy.Clock
 import javax.inject.Inject
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
+
+import lineageos.providers.LineageSettings
 
 /**
  * Interface to assist with binding the [CollapsedStatusBarFragment] to [HomeStatusBarViewModel].
@@ -80,6 +92,17 @@ class HomeStatusBarViewBinderImpl
 constructor(
     private val viewStoreFactory: ConnectedDisplaysStatusBarNotificationIconViewStore.Factory
 ) : HomeStatusBarViewBinder {
+
+    private companion object {
+        private const val CLOCK_POSITION_RIGHT = 0
+        private const val CLOCK_POSITION_CENTER = 1
+        private const val CLOCK_POSITION_LEFT = 2
+    }
+
+    private data class ClockSelection(
+        val position: Int = CLOCK_POSITION_LEFT,
+    )
+
     override fun bind(
         displayId: Int,
         view: View,
@@ -91,20 +114,83 @@ constructor(
         // Set some top-level views to gone before we get started
         val primaryChipView: View = view.requireViewById(R.id.ongoing_activity_chip_primary)
         val systemInfoView = view.requireViewById<View>(R.id.status_bar_end_side_content)
-        val clockView = view.requireViewById<View>(R.id.clock)
         val notificationIconsArea = view.requireViewById<View>(R.id.notificationIcons)
+
+        val leftClock: Clock = view.requireViewById(R.id.clock)
+        val centerClock: Clock = view.findViewById(R.id.clock_center)
+        val rightClock: Clock = view.findViewById(R.id.clock_right)
 
         // CollapsedStatusBarFragment doesn't need this
         if (StatusBarRootModernization.isEnabled) {
             // GONE because this shouldn't take space in the layout
             primaryChipView.hideInitially(state = View.GONE)
             systemInfoView.hideInitially()
-            clockView.hideInitially()
+            leftClock.hideInitially(state = View.GONE)
+            centerClock.hideInitially(state = View.GONE)
+            rightClock.hideInitially(state = View.GONE)
             notificationIconsArea.hideInitially()
         }
 
         view.repeatWhenAttached {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
+
+                val context = view.context
+
+                // State flow for clock position and denylist
+                val clockSelection = MutableStateFlow(
+                    ClockSelection(
+                        position = LineageSettings.System.getIntForUser(
+                            context.contentResolver,
+                            LineageSettings.System.STATUS_BAR_CLOCK,
+                            CLOCK_POSITION_LEFT,
+                            UserHandle.USER_CURRENT
+                        ),
+                    )
+                )
+
+                val statusBarClockUri: Uri =
+                    LineageSettings.System.getUriFor(
+                        LineageSettings.System.STATUS_BAR_CLOCK
+                    )
+
+                val clockSettingsObserver =
+                    object : ContentObserver(null) {
+                        override fun onChange(selfChange: Boolean, uri: Uri?) {
+                            val current = clockSelection.value
+                            val newSelection =
+                                when (uri) {
+                                    statusBarClockUri -> {
+                                        val pos = LineageSettings.System.getIntForUser(
+                                            context.contentResolver,
+                                            LineageSettings.System.STATUS_BAR_CLOCK,
+                                            CLOCK_POSITION_LEFT,
+                                            UserHandle.USER_CURRENT
+                                        )
+                                        current.copy(position = pos)
+                                    }
+                                    else -> current
+                                }
+                            clockSelection.value = newSelection
+                        }
+                    }
+
+                context.contentResolver.registerContentObserver(
+                    statusBarClockUri,
+                    false,
+                    clockSettingsObserver,
+                    UserHandle.USER_ALL
+                )
+
+                clockSettingsObserver.onChange(false, statusBarClockUri)
+
+                // Ensure we unregister when lifecycle scope completes
+                val job = coroutineContext[Job]
+                job?.invokeOnCompletion {
+                    runCatching {
+                        context.contentResolver.unregisterContentObserver(clockSettingsObserver)
+                    }
+                }
+
                 val iconViewStore =
                     if (StatusBarConnectedDisplays.isEnabled) {
                         viewStoreFactory.create(displayId).also {
@@ -284,7 +370,78 @@ constructor(
                         }
                     }
 
-                    launch { viewModel.isClockVisible.collect { clockView.adjustVisibility(it) } }
+                    var activeClock: Clock = leftClock
+                    activeClock.setIsActiveClock(true)
+                    centerClock.setIsActiveClock(false)
+                    rightClock.setIsActiveClock(false)
+
+                    launch {
+                        combine(
+                            viewModel.isClockVisible,
+                            viewModel.hideStartSideContentForHeadsUp,
+                            clockSelection,
+                        ) { visibilityModel, hideForHun, selection ->
+                            Triple(visibilityModel, hideForHun, selection)
+                        }.collectLatest { (visibilityModel, hideForHun, selection) ->
+
+                            // We only want to hide left clock for HUN
+                            val hunBlocksClock =
+                                (selection.position == CLOCK_POSITION_LEFT) && hideForHun
+
+                            // Apply denylist on top of ViewModel visibility
+                            val finalVisibility =
+                                if (visibilityModel.visibility == View.VISIBLE &&
+                                    !hunBlocksClock
+                                ) {
+                                    visibilityModel
+                                } else {
+                                    visibilityModel.copy(visibility = View.GONE)
+                                }
+
+                            // Choose which concrete Clock view is active
+                            val newActiveClock: Clock =
+                                when (selection.position) {
+                                    CLOCK_POSITION_CENTER -> centerClock ?: leftClock
+                                    CLOCK_POSITION_RIGHT -> rightClock ?: leftClock
+                                    CLOCK_POSITION_LEFT -> leftClock
+                                    else -> leftClock
+                                }
+
+                            if (newActiveClock !== activeClock) {
+                                // Deactivate previous clock
+                                activeClock.setIsActiveClock(false)
+                                activeClock.visibility = View.GONE
+
+                                // Activate new one
+                                activeClock = newActiveClock
+                                activeClock.setIsActiveClock(true)
+                            }
+
+                            // Show / hide only the active clock according to finalVisibility
+                            when (activeClock) {
+                                leftClock -> {
+                                    leftClock.adjustVisibility(finalVisibility)
+                                    centerClock.visibility = View.GONE
+                                    rightClock.visibility = View.GONE
+                                }
+                                centerClock -> {
+                                    centerClock.adjustVisibility(finalVisibility)
+                                    leftClock.visibility = View.GONE
+                                    rightClock.visibility = View.GONE
+                                }
+                                rightClock -> {
+                                    rightClock.adjustVisibility(finalVisibility)
+                                    leftClock.visibility = View.GONE
+                                    centerClock.visibility = View.GONE
+                                }
+                                else -> {
+                                    leftClock.adjustVisibility(finalVisibility)
+                                    centerClock.visibility = View.GONE
+                                    rightClock.visibility = View.GONE
+                                }
+                            }
+                        }
+                    }
 
                     launch {
                         viewModel.isNotificationIconContainerVisible.collect {
