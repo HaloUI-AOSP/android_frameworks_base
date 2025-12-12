@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77ce20a8_7850e8ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-12T03:13:41Z",
+      "side": 1,
+      "message": "This reverts parts of original commit + adds dark receiver for center and right clock. Not sure if dark receiver is required to be applied on active clocks? I dont think it is expensive.",
+      "revId": "980a0f2550608c67ddd956cea4294270b48b99ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
