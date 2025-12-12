@@ -409,12 +409,15 @@ constructor(
                             if (newActiveClock !== activeClock) {
                                 // Deactivate previous clock
                                 activeClock.setIsActiveClock(false)
+                                activeClock.setVisibleByModernization(false)
                                 activeClock.visibility = View.GONE
 
                                 // Activate new one
                                 activeClock = newActiveClock
                                 activeClock.setIsActiveClock(true)
                             }
+
+                            activeClock.setVisibleByModernization(finalVisibility.visibility == View.VISIBLE)
 
                             // Show / hide only the active clock according to finalVisibility
                             when (activeClock) {
