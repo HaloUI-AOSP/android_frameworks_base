@@ -78,6 +78,7 @@ import com.android.systemui.statusbar.phone.ongoingcall.StatusBarChipsModernizat
 import com.android.systemui.statusbar.phone.ui.DarkIconManager
 import com.android.systemui.statusbar.phone.ui.StatusBarIconController
 import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithChargeStatus
+import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithPercent
 import com.android.systemui.statusbar.pipeline.battery.ui.composable.ShowPercentMode
 import com.android.systemui.statusbar.pipeline.battery.ui.composable.UnifiedBattery
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel.Companion.STATUS_BAR_BATTERY_HEIGHT
@@ -451,12 +452,20 @@ private fun addBatteryComposable(
                         rememberViewModel(traceName = "UnifiedBattery") {
                             statusBarViewModel.unifiedBatteryViewModel.create()
                         }
-                    UnifiedBattery(
-                        modifier =
-                            Modifier.sysUiResTagContainer().height(height).wrapContentWidth(),
-                        viewModel = viewModel,
-                        isDarkProvider = { statusBarViewModel.areaDark },
-                    )
+                    if (viewModel.isBatteryPercentSettingEnabled) {
+                        BatteryWithPercent(
+                            viewModelFactory = statusBarViewModel.batteryNextToPercentViewModel,
+                            isDarkProvider = { statusBarViewModel.areaDark },
+                            modifier = Modifier.sysUiResTagContainer().wrapContentWidth(),
+                        )
+                    } else {
+                        UnifiedBattery(
+                            modifier =
+                                Modifier.sysUiResTagContainer().height(height).wrapContentWidth(),
+                            viewModel = viewModel,
+                            isDarkProvider = { statusBarViewModel.areaDark },
+                        )
+                    }
                 }
             }
         }
@@ -498,12 +507,20 @@ private fun addSystemStatusIconsComposable(
                             rememberViewModel(traceName = "UnifiedBattery") {
                                 statusBarViewModel.unifiedBatteryViewModel.create()
                             }
-                        UnifiedBattery(
-                            viewModel = viewModel,
-                            isDarkProvider = { statusBarViewModel.areaDark },
-                            modifier =
-                                Modifier.sysUiResTagContainer().height(height).wrapContentWidth(),
-                        )
+                        if (viewModel.isBatteryPercentSettingEnabled) {
+                            BatteryWithPercent(
+                                viewModelFactory = statusBarViewModel.batteryNextToPercentViewModel,
+                                isDarkProvider = { statusBarViewModel.areaDark },
+                                modifier = Modifier.sysUiResTagContainer().wrapContentWidth(),
+                            )
+                        } else {
+                            UnifiedBattery(
+                                viewModel = viewModel,
+                                isDarkProvider = { statusBarViewModel.areaDark },
+                                modifier =
+                                    Modifier.sysUiResTagContainer().height(height).wrapContentWidth(),
+                            )
+                        }
                     }
                 }
             }
