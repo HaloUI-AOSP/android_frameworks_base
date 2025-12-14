@@ -74,8 +74,8 @@ sealed class BatteryViewModel(
     val isBatteryPercentSettingEnabled: Boolean by
         hydrator.hydratedStateOf(
             traceName = "isBatteryPercentSettingEnabled",
-            initialValue = interactor.isBatteryPercentSettingEnabled.value,
-            source = interactor.isBatteryPercentSettingEnabled,
+            initialValue = interactor.showPercentNextToIcon.value,
+            source = interactor.showPercentNextToIcon,
         )
 
     /** A [List<BatteryGlyph>] representation of the current [level] */
@@ -243,7 +243,7 @@ sealed class BatteryViewModel(
     constructor(interactor: BatteryInteractor, @Application context: Context) :
         BatteryViewModel(
             interactor = interactor,
-            shouldShowPercent = interactor.isBatteryPercentSettingEnabled,
+            shouldShowPercent = interactor.showPercentInsideIcon,
             context = context,
         ) {
 
@@ -263,7 +263,7 @@ sealed class BatteryViewModel(
         BatteryViewModel(
             interactor = interactor,
             shouldShowPercent =
-                combine(interactor.isCharging, interactor.isBatteryPercentSettingEnabled) {
+                combine(interactor.isCharging, interactor.showPercentNextToIcon) {
                     charging,
                     settingEnabled ->
                     charging || settingEnabled
