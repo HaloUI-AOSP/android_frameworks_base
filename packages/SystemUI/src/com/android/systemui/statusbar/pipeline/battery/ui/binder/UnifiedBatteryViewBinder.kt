@@ -33,6 +33,7 @@ import com.android.systemui.lifecycle.rememberViewModel
 import com.android.systemui.lifecycle.repeatWhenAttached
 import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
 import com.android.systemui.statusbar.pipeline.battery.ui.composable.UnifiedBattery
+import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithPercent
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel.Companion.STATUS_BAR_BATTERY_HEIGHT
 import kotlinx.coroutines.flow.Flow
@@ -61,16 +62,30 @@ object UnifiedBatteryViewBinder {
                                 }
                             val isDark by
                                 isAreaDark.collectAsStateWithLifecycle(IsAreaDark { true })
+
                             val height =
                                 with(LocalDensity.current) { STATUS_BAR_BATTERY_HEIGHT.toDp() }
-                            UnifiedBattery(
-                                modifier =
-                                    Modifier.height(height)
-                                        .wrapContentWidth()
-                                        .sysuiResTag(BatteryViewModel.TEST_TAG),
-                                viewModel = viewModel,
-                                isDarkProvider = { isDark },
-                            )
+
+                            if (viewModel.isBatteryPercentSettingEnabled) {
+                                BatteryWithPercent(
+                                    modifier =
+                                        Modifier
+                                            .wrapContentWidth()
+                                            .sysuiResTag(BatteryViewModel.TEST_TAG),
+                                    viewModel = viewModel,
+                                    isDarkProvider = { isDark },
+                                )
+                            } else {
+                                UnifiedBattery(
+                                    modifier =
+                                        Modifier
+                                            .height(height)
+                                            .wrapContentWidth()
+                                            .sysuiResTag(BatteryViewModel.TEST_TAG),
+                                    viewModel = viewModel,
+                                    isDarkProvider = { isDark },
+                                )
+                            }
                         }
                     }
                 }
