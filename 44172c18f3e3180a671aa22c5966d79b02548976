@@ -16,6 +16,24 @@
       "message": "TODO: Apply the same changes to packages/SystemUI/AndroidManifest.xml",
       "revId": "44172c18f3e3180a671aa22c5966d79b02548976",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c44a77d_1c707469",
+        "filename": "packages/SystemUI/AndroidManifest.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-16T23:48:41Z",
+      "side": 0,
+      "message": "What does this mean?",
+      "parentUuid": "1d21c766_1d4267fd",
+      "revId": "44172c18f3e3180a671aa22c5966d79b02548976",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
