@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "939af2b0_d71d1f49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-16T23:22:43Z",
+      "side": 1,
+      "message": "Needed for LineageParts BacklightTimeoutSeekBar",
+      "revId": "5d8038ba71f610e81eaefd8facec8d137808b2fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
