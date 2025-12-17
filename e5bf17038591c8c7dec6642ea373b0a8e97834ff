@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d5e7ef_436b132d",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T23:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07b0d677_72ba00cb",
+      "range": {
+        "startLine": 180,
+        "startChar": 28,
+        "endLine": 180,
+        "endChar": 41
+      },
+      "revId": "e5bf17038591c8c7dec6642ea373b0a8e97834ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24cd4f49_05c06d70",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-12-17T21:59:46Z",
       "side": 1,
       "message": "```suggestion\n                if (mWakeLock.isHeld()) {\n                    mWakeLock.release();\n                }\n```",
+      "range": {
+        "startLine": 194,
+        "startChar": 16,
+        "endLine": 195,
+        "endChar": 40
+      },
+      "revId": "e5bf17038591c8c7dec6642ea373b0a8e97834ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad1d4f2_c8513156",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T23:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24cd4f49_05c06d70",
       "range": {
         "startLine": 194,
         "startChar": 16,
@@ -70,6 +118,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f829ca_2cc4f746",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T23:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce1370f4_cab238bc",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 214,
+        "endChar": 77
+      },
+      "revId": "e5bf17038591c8c7dec6642ea373b0a8e97834ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b986bce5_565293d4",
@@ -83,6 +155,30 @@
       "writtenOn": "2025-12-17T21:59:46Z",
       "side": 1,
       "message": "```suggestion\n                if (mWakeLock.isHeld()) {\n                    mWakeLock.release();\n                }\n```",
+      "range": {
+        "startLine": 256,
+        "startChar": 16,
+        "endLine": 257,
+        "endChar": 40
+      },
+      "revId": "e5bf17038591c8c7dec6642ea373b0a8e97834ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57054bf3_b49466e1",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/CaffeineTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T23:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b986bce5_565293d4",
       "range": {
         "startLine": 256,
         "startChar": 16,
