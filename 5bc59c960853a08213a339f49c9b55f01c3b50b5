@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc999c1_24d9348b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36377
+      },
+      "writtenOn": "2025-12-17T08:47:42Z",
+      "side": 1,
+      "message": "If you choose \"inside the icon\" option, battery percentage will appear, but not on the lockscreen. And if you choose \u0027next to the icon\u0027, it appears next to the icon on the status bar, but on the lock screen, it appears inside the icon",
+      "revId": "5bc59c960853a08213a339f49c9b55f01c3b50b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
