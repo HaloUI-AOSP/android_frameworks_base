@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eacc61c_a88b141b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T12:01:15Z",
+      "side": 1,
+      "message": "This might need icon updates, idk if we want to block the chain for that or just fix it later",
+      "revId": "fa7e0957e63f225e5d2e6c78424718a3ebbb675b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
