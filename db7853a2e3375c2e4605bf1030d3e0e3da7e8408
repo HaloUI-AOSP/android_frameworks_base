@@ -46,6 +46,30 @@
       },
       "revId": "db7853a2e3375c2e4605bf1030d3e0e3da7e8408",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a2cc7a_53d6853c",
+        "filename": "packages/SystemUI/src/com/android/systemui/tuner/TunerActivity.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T01:53:09Z",
+      "side": 1,
+      "message": "Fixed in I6cf83f96611c6b888078a163cc473902d8d12ecee",
+      "parentUuid": "47aa636e_40ca7916",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 85
+      },
+      "revId": "db7853a2e3375c2e4605bf1030d3e0e3da7e8408",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
