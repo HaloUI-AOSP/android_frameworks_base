@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e18b24_5f33c8ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-17T00:37:07Z",
+      "side": 1,
+      "message": "Don\u0027t need this anymore since we set ro.debuggable\u003d0",
+      "revId": "51c421c7155766c9eebe65ec48b441308e9a2c98",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
