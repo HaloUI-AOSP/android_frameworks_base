@@ -16,6 +16,23 @@
       "message": "Looks ok on nicole and pro1x",
       "revId": "5c72102950950c8d5c9bbcbf0fa17583b4d169e0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd7c049f_e068db36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29242
+      },
+      "writtenOn": "2025-12-19T15:57:29Z",
+      "side": 1,
+      "message": "Can confirm on nicole as well.",
+      "revId": "5c72102950950c8d5c9bbcbf0fa17583b4d169e0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
