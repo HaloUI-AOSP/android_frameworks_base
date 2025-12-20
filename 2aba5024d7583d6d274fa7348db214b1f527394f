@@ -51,6 +51,24 @@
       "parentUuid": "1ef0ce5e_239f65c1",
       "revId": "2aba5024d7583d6d274fa7348db214b1f527394f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbc4284_ed7935e2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/battery/ui/composable/UnifiedBattery.kt",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-20T19:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b6008bc_b2f70453",
+      "revId": "2aba5024d7583d6d274fa7348db214b1f527394f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
