@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac6d0d8_f6b0b86f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-20T22:14:32Z",
+      "side": 1,
+      "message": "Updated for QS Panel to also follow battery percent customization (estimate also working in expanded mode)",
+      "revId": "c8a683cd7505108df69d918a8523dbffc3198555",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
