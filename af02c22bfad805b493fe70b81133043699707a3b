@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f9eb071_1e491de2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-20T21:12:08Z",
+      "side": 1,
+      "message": "Move this to SettingsProvider via def_disable_windows_blur?",
+      "revId": "af02c22bfad805b493fe70b81133043699707a3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
