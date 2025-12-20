@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5f1a424_a1b8d6d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-20T08:06:39Z",
+      "side": 1,
+      "message": "I might restored previous patchset by mistake, will fix later today",
+      "revId": "2aba5024d7583d6d274fa7348db214b1f527394f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
