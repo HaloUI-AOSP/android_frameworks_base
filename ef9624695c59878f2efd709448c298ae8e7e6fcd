@@ -16,6 +16,24 @@
       "message": "Can be squashed into previous change.",
       "revId": "ef9624695c59878f2efd709448c298ae8e7e6fcd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b724c3_decb8050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-20T14:04:17Z",
+      "side": 1,
+      "message": "You commented the same thing here https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/434414 but this change is not related to previous changes",
+      "parentUuid": "a257915e_f07ff5a1",
+      "revId": "ef9624695c59878f2efd709448c298ae8e7e6fcd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
