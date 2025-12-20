@@ -16,6 +16,23 @@
       "message": "I might restored previous patchset by mistake, will fix later today",
       "revId": "2aba5024d7583d6d274fa7348db214b1f527394f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef0ce5e_239f65c1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/battery/ui/composable/UnifiedBattery.kt",
+        "patchSetId": 6
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2025-12-20T18:35:34Z",
+      "side": 1,
+      "message": "Unrelated?",
+      "revId": "2aba5024d7583d6d274fa7348db214b1f527394f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
