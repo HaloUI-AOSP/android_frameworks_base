@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4a239f8_57896c7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-20T19:10:41Z",
+      "side": 1,
+      "message": "Simplified further. Will add changes for QS panel too in a while after testing.",
+      "revId": "caf04c1dc43607591c8c1a1b8c873269fb6b6515",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
