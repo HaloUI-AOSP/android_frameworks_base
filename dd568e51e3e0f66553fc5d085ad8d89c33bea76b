@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70dd67f6_b3214b0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-22T13:26:53Z",
+      "side": 1,
+      "message": "I don\u0027t see this issue anymore or I don\u0027t have the right steps to reproduce it",
+      "revId": "dd568e51e3e0f66553fc5d085ad8d89c33bea76b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
