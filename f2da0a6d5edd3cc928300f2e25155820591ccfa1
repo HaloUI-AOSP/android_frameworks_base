@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da7eba9_2ab8e9b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-23T12:58:58Z",
+      "side": 1,
+      "message": "triggerAnimationFailsafe was removed in 2024 and this code was removed in the hardware key rebinding commit while it should be removed here.",
+      "revId": "f2da0a6d5edd3cc928300f2e25155820591ccfa1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
