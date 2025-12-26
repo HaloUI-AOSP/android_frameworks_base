@@ -16,6 +16,24 @@
       "message": "for the next time we might want to use runCatching {}.getOrElse(DEFAULT) instead of try catch",
       "revId": "01cbea388474565d8fab7c46aaa4fbcb48c300fa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "020e0aaf_7ce25c30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-26T19:52:54Z",
+      "side": 1,
+      "message": "I can rebase one more time. 😉",
+      "parentUuid": "3fde048c_31ec4a24",
+      "revId": "01cbea388474565d8fab7c46aaa4fbcb48c300fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
