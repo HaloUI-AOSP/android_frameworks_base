@@ -39,6 +39,30 @@
       },
       "revId": "1f543d88d456ba7742bf54e83c26996d4178f112",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23cb74e1_7ee4025c",
+        "filename": "packages/SystemUI/src/com/android/systemui/brightness/ui/compose/BrightnessSlider.kt",
+        "patchSetId": 12
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-26T14:49:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a475d41_9a34c2a4",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 5
+      },
+      "revId": "1f543d88d456ba7742bf54e83c26996d4178f112",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
