@@ -16,6 +16,24 @@
       "message": "Ah yikes this sucks...\n\nhttps://gist.github.com/luca020400/fd70590ab532e1dfe582471e553fd5c4 should be something workable, afaik Icon should handle most of the \"work\" if animated is supported",
       "revId": "27f90d556e202bd58df4dadbf463e37fc149b6b2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51137f57_89bf2fc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-26T14:53:26Z",
+      "side": 1,
+      "message": "That wasn\u0027t entirely working:\n\n```\n12-26 00:59:31.433  2469  2469 E AndroidRuntime: FATAL EXCEPTION: main\n12-26 00:59:31.433  2469  2469 E AndroidRuntime: Process: com.android.systemui, PID: 2469\n12-26 00:59:31.433  2469  2469 E AndroidRuntime: java.lang.IllegalArgumentException: Only VectorDrawables and rasterized asset types are supported ex. PNG, JPG, WEBP\n12-26 00:59:31.433  2469  2469 E AndroidRuntime: \tat androidx.compose.ui.res.PainterResources_androidKt.painterResource(go/retraceme e44f48415b2ce952da85183f972275195a91a022137d386d70f7aaae6f4ae655:214)\n```\n\nNot sure if this is proper, but animated drawable is not used anymore.",
+      "parentUuid": "551853c9_f53b2531",
+      "revId": "27f90d556e202bd58df4dadbf463e37fc149b6b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
