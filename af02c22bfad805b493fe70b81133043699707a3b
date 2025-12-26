@@ -16,6 +16,24 @@
       "message": "Move this to SettingsProvider via def_disable_windows_blur?",
       "revId": "af02c22bfad805b493fe70b81133043699707a3b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47bae26_981c46a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-26T23:27:45Z",
+      "side": 1,
+      "message": "Like Luca said. Let\u0027s avoid adding a new system prop.",
+      "parentUuid": "8f9eb071_1e491de2",
+      "revId": "af02c22bfad805b493fe70b81133043699707a3b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
