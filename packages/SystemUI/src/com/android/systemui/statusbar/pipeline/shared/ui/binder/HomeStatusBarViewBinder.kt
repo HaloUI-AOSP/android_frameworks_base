@@ -20,6 +20,8 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.database.ContentObserver
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.os.UserHandle
 import android.provider.Settings
 import android.view.View
@@ -154,23 +156,20 @@ constructor(
                     )
 
                 val clockSettingsObserver =
-                    object : ContentObserver(null) {
+                    object : ContentObserver(Handler(Looper.getMainLooper())) {
                         override fun onChange(selfChange: Boolean, uri: Uri?) {
-                            val current = clockSelection.value
-                            val newSelection =
-                                when (uri) {
-                                    statusBarClockUri -> {
-                                        val pos = LineageSettings.System.getIntForUser(
+                            when (uri) {
+                                statusBarClockUri -> {
+                                    val pos =
+                                        LineageSettings.System.getIntForUser(
                                             context.contentResolver,
                                             LineageSettings.System.STATUS_BAR_CLOCK,
                                             CLOCK_POSITION_LEFT,
                                             UserHandle.USER_CURRENT
                                         )
-                                        current.copy(position = pos)
-                                    }
-                                    else -> current
+                                    clockSelection.value = clockSelection.value.copy(position = pos)
                                 }
-                            clockSelection.value = newSelection
+                            }
                         }
                     }
 
