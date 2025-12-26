@@ -34,6 +34,24 @@
       "parentUuid": "551853c9_f53b2531",
       "revId": "27f90d556e202bd58df4dadbf463e37fc149b6b2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0b770d_f8a93a5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-26T14:55:20Z",
+      "side": 1,
+      "message": "```\n    val painterRes \u003d if (autoMode) {\n        R.drawable.ic_qs_brightness_auto_on\n    } else {\n        R.drawable.ic_qs_brightness_auto_off\n    }\n\n\n            painter \u003d painterResource(painterRes),\n```",
+      "parentUuid": "51137f57_89bf2fc6",
+      "revId": "27f90d556e202bd58df4dadbf463e37fc149b6b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
