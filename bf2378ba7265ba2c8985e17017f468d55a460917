@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69004068_c12b82a8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-26T19:57:12Z",
+      "side": 1,
+      "message": "```suggestion\n            mContentObserver \u003d new ContentObserver(null) {\n                private Uri mAmPmUri \u003d ...;\n                private Uri mAutoHideUri \u003d ...;\n                @Override\n                public void onChange(boolean selfChange, Uri uri) {\n                    if (mAmPmUri.equals(uri)) {\n                        mAmPmStyle \u003d LineageSettings.System.getInt(\n                                mContext.getContentResolver(),\n                                LineageSettings.System.STATUS_BAR_AM_PM, AM_PM_STYLE_GONE);\n                        // Force refresh of dependent variables.\n                        mContentDescriptionFormatString \u003d \"\";\n                        mDateTimePatternGenerator \u003d null;\n                        mContext.getMainExecutor().execute(() -\u003e {\n                            updateClock(true);\n                        });\n                    } else if (mAutoHideUri.equals(uri)) {\n                        handleTaskStackListener(\n                                LineageSettings.System.getInt(mContext.getContentResolver(),\n                                        LineageSettings.System.STATUS_BAR_CLOCK_AUTO_HIDE, 0) !\u003d 0);\n                    }\n                }\n            };\n```",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "bf2378ba7265ba2c8985e17017f468d55a460917",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
