@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3270079c_e9a9bc79",
+        "filename": "packages/SystemUI/src/com/android/systemui/brightness/ui/compose/BrightnessSlider.kt",
+        "patchSetId": 16
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-26T14:53:32Z",
+      "side": 0,
+      "message": "this effectively kills the animated variant we added before, the extra if check was for that specific case\nif we don\u0027t care (I wouldn\u0027t care) I would simply not add the resources from the start",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 77
+      },
+      "revId": "970288785a06a89a923c1e5086a6f2032c39bc83",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
