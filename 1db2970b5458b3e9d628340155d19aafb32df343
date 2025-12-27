@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db5ea9e6_c71760c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T15:17:43Z",
+      "side": 1,
+      "message": "Pick from QPR2. Fixes theme issues in globalactions dialog.",
+      "revId": "1db2970b5458b3e9d628340155d19aafb32df343",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
