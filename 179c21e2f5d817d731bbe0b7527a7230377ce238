@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6f1134_e6aad8a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-12-27T18:17:59Z",
+      "side": 1,
+      "message": "MotCamera still ships but not MotCamera2, which was 4.4 and 4.9 only",
+      "revId": "179c21e2f5d817d731bbe0b7527a7230377ce238",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
