@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c237fcd2_1d000fcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-12-27T18:19:36Z",
+      "side": 1,
+      "message": "Note: Kill on 24.0 (or whenever 4.9 becomes unbeatable)",
+      "revId": "a523e8ffc6419cc36cbdd06103c7478aa5d22d26",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
