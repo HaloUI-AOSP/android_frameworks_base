@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93654484_1f24ed36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T12:16:45Z",
+      "side": 1,
+      "message": "This doesn\u0027t work anymore, since sysui navbar is gone.",
+      "revId": "fd27d7ec71c09fb1c2e57fe5cdaedf1fb81ed80d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
