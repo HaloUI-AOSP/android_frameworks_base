@@ -16,6 +16,24 @@
       "message": "Luca, wanna convert UdfpsSurfaceView.java to .kt?",
       "revId": "405e1599036f592e32f42ec6741fad730e4e1d8e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad60c531_67ab820a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-27T17:53:24Z",
+      "side": 1,
+      "message": "there\u0027s already java/kt mix there so not really, usually makes sense when there\u0027s no java left by google",
+      "parentUuid": "0ee99652_c3249d9f",
+      "revId": "405e1599036f592e32f42ec6741fad730e4e1d8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
