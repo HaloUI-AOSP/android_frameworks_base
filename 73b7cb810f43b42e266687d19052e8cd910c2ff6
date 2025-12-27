@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cd3ca2_fb685a8a",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/controls/ui/controller/MediaControlPanel.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T22:29:11Z",
+      "side": 1,
+      "message": "```suggestion\n                R.bool.config_turbulenceNoise);\n```",
+      "range": {
+        "startLine": 1258,
+        "startChar": 16,
+        "endLine": 1258,
+        "endChar": 70
+      },
+      "revId": "73b7cb810f43b42e266687d19052e8cd910c2ff6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
