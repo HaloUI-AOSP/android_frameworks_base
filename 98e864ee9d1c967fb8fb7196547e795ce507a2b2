@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6d22950_ec9b85c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-12-27T17:12:18Z",
+      "side": 1,
+      "message": "These devices boot this version and it works w/ the janky back port.\n\nWith the full 4.9 back port bruno linked, they\u0027ll likely live another version",
+      "revId": "98e864ee9d1c967fb8fb7196547e795ce507a2b2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
