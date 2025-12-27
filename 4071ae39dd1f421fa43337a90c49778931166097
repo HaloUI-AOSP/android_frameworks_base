@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c813a28_8c02ae9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T10:04:21Z",
+      "side": 1,
+      "message": "Tested by remapping pro1x camera button to KEY_HOME.",
+      "revId": "4071ae39dd1f421fa43337a90c49778931166097",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
