@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da0cfee6_b1630677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T15:42:48Z",
+      "side": 1,
+      "message": "TV Settings doesn\u0027t build without this and the chain is already in...",
+      "revId": "967e37c1a5737bbb3b50f6b114704a156e5d5e7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
