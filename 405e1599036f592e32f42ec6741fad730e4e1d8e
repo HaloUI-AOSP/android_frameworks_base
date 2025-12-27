@@ -59,6 +59,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1440329_4411a6ce",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T21:56:33Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "c95eaf5e_c9bbfe58",
+      "range": {
+        "startLine": 860,
+        "startChar": 8,
+        "endLine": 866,
+        "endChar": 9
+      },
+      "revId": "405e1599036f592e32f42ec6741fad730e4e1d8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "716ba8ac_aed821e5",
@@ -72,6 +96,30 @@
       "writtenOn": "2025-12-27T20:51:56Z",
       "side": 1,
       "message": "```suggestion\n        if (isOptical() \u0026\u0026 view instanceof UdfpsTouchOverlay udfpsView) {\n            if (mIgnoreRefreshRate) {\n                dispatchOnUiReady(requestId);\n            } else {\n                udfpsView.configureDisplay(() -\u003e dispatchOnUiReady(requestId));\n            }\n        }\n```",
+      "range": {
+        "startLine": 1068,
+        "startChar": 8,
+        "endLine": 1074,
+        "endChar": 9
+      },
+      "revId": "405e1599036f592e32f42ec6741fad730e4e1d8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9300fe16_89a40361",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1074,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T21:56:33Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "716ba8ac_aed821e5",
       "range": {
         "startLine": 1068,
         "startChar": 8,
