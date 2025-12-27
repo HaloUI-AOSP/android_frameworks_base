@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db071b9_d0fb1968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-27T16:12:56Z",
+      "side": 1,
+      "message": "Can be chained with the rest of the screenshot changes during next rebase.",
+      "revId": "c95e83fdf6812c4e96cede61d8bae7f5fc544bc3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
