@@ -140,14 +140,7 @@ constructor(
 
                 // State flow for clock position and denylist
                 val clockSelection = MutableStateFlow(
-                    ClockSelection(
-                        position = LineageSettings.System.getIntForUser(
-                            context.contentResolver,
-                            LineageSettings.System.STATUS_BAR_CLOCK,
-                            CLOCK_POSITION_LEFT,
-                            UserHandle.USER_CURRENT
-                        ),
-                    )
+                    ClockSelection(position = readClockPosition(context))
                 )
 
                 val statusBarClockUri: Uri =
@@ -160,14 +153,8 @@ constructor(
                         override fun onChange(selfChange: Boolean, uri: Uri?) {
                             when (uri) {
                                 statusBarClockUri -> {
-                                    val pos =
-                                        LineageSettings.System.getIntForUser(
-                                            context.contentResolver,
-                                            LineageSettings.System.STATUS_BAR_CLOCK,
-                                            CLOCK_POSITION_LEFT,
-                                            UserHandle.USER_CURRENT
-                                        )
-                                    clockSelection.value = clockSelection.value.copy(position = pos)
+                                    clockSelection.value =
+                                        clockSelection.value.copy(position = readClockPosition(context))
                                 }
                             }
                         }
@@ -189,6 +176,21 @@ constructor(
                         context.contentResolver.unregisterContentObserver(clockSettingsObserver)
                     }
                 }
+
+                // Re-read once the view is attached and after first layout.
+                view.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+                    override fun onViewAttachedToWindow(v: View) {
+                        v.removeOnAttachStateChangeListener(this)
+                        v.post {
+                            val pos = readClockPosition(context)
+                            clockSelection.value = clockSelection.value.copy(position = pos)
+                            v.requestLayout()
+                            v.invalidate()
+                        }
+                    }
+
+                    override fun onViewDetachedFromWindow(v: View) = Unit
+                })
 
                 val iconViewStore =
                     if (StatusBarConnectedDisplays.isEnabled) {
@@ -570,6 +572,15 @@ constructor(
                 }
             )
             .start()
+    }
+
+    private fun readClockPosition(context: Context): Int {
+        return LineageSettings.System.getIntForUser(
+            context.contentResolver,
+            LineageSettings.System.STATUS_BAR_CLOCK,
+            CLOCK_POSITION_LEFT,
+            UserHandle.USER_CURRENT
+        )
     }
 
     private fun View.adjustVisibility(model: VisibilityModel) {
