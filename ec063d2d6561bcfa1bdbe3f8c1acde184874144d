@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b89d74d_1ea381f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2025-12-27T17:13:00Z",
+      "side": 1,
+      "message": "This is valid regardless of Tegra 4.9, procon is annoyingly mapped otherwise",
+      "revId": "ec063d2d6561bcfa1bdbe3f8c1acde184874144d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
