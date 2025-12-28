@@ -46,6 +46,30 @@
       },
       "revId": "eda929866027e0ded171f8eb8a76868f7597c450",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f72b36_a68561a7",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/DeleteScreenshotReceiver.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-28T16:33:09Z",
+      "side": 1,
+      "message": "Hmmm... I added one already in the UdfpsHelper.",
+      "parentUuid": "bcdd60b8_c7db6553",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 33
+      },
+      "revId": "eda929866027e0ded171f8eb8a76868f7597c450",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
