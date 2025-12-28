@@ -94,6 +94,30 @@
       },
       "revId": "eda929866027e0ded171f8eb8a76868f7597c450",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda89b12_c0880c4d",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/DeleteScreenshotReceiver.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-28T18:03:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1720ba94_07bdbb37",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 33
+      },
+      "revId": "eda929866027e0ded171f8eb8a76868f7597c450",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
