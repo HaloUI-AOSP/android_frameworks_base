@@ -22,6 +22,30 @@
       },
       "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e33ed5_f7a1d737",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-28T10:36:49Z",
+      "side": 1,
+      "message": "Not sure if I follow you here. We\u0027re using MutableStateFlow.",
+      "parentUuid": "1aecabf1_91a54604",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
