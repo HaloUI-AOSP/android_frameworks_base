@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "502ace53_2121a4c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-28T11:26:23Z",
+      "side": 1,
+      "message": "clock_reactive_smartspace_layout is now enabled, this does nothing",
+      "revId": "c3f199d3cd13389dc1d85f6911c50d779ed3bf63",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
