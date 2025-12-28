@@ -70,6 +70,30 @@
       },
       "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "584e9bc7_78108a55",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-28T11:23:40Z",
+      "side": 1,
+      "message": "Alright, I am testing and will upload new patchset in a bit.",
+      "parentUuid": "90de5b05_dd3d6706",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
