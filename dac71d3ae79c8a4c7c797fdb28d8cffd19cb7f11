@@ -16,6 +16,24 @@
       "message": "This should be read from a string",
       "revId": "dac71d3ae79c8a4c7c797fdb28d8cffd19cb7f11",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6634a0c3_0f1602bb",
+        "filename": "packages/SystemUI/src/com/android/systemui/brightness/ui/compose/BrightnessSlider.kt",
+        "patchSetId": 18
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-28T15:42:10Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/466441",
+      "parentUuid": "af417eff_55ed87f1",
+      "revId": "dac71d3ae79c8a4c7c797fdb28d8cffd19cb7f11",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
