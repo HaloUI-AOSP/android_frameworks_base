@@ -16,6 +16,24 @@
       "message": "Doesn\u0027t work anymore, since battery is not implemented in Compose. To be revisited if wanted.",
       "revId": "4a1592642e3d2b0205bef73416a2fed355780783",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e74759e_27ae3f86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-28T01:19:28Z",
+      "side": 1,
+      "message": "I meant: \"is now implemented in Compose\".",
+      "parentUuid": "4a49f08d_49dba207",
+      "revId": "4a1592642e3d2b0205bef73416a2fed355780783",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
