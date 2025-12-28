@@ -46,6 +46,30 @@
       },
       "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90de5b05_dd3d6706",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 14
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-28T10:39:14Z",
+      "side": 1,
+      "message": "MutableStateFlow\u003cint\u003e vs MutableStateFlow\u003cClockSelection\u003e\n\nIt didn\u0027t seem to me the class was extended any further",
+      "parentUuid": "e8e33ed5_f7a1d737",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "4dbc2f3a4de9c8d3fdecbf9ad2520b8f20a599ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
