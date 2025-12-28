@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92171f74_dd890b68",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-28T16:01:49Z",
+      "side": 1,
+      "message": "It should be \"accessibility_adaptive_brightness\", to go along with \"accessibility_brightness\".",
+      "range": {
+        "startLine": 106,
+        "startChar": 18,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "dcb008860bdb58b6279e371c1e269c7ae9916f3d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
