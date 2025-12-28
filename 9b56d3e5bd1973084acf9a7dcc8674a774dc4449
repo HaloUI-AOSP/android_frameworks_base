@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "473b96a1_dbc875f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-28T21:42:27Z",
+      "side": 1,
+      "message": "The attribution change is weird, but I remember the story around it...",
+      "revId": "9b56d3e5bd1973084acf9a7dcc8674a774dc4449",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
