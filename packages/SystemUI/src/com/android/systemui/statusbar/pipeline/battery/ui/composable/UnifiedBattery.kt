@@ -32,6 +32,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.CompositingStrategy
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.inset
@@ -50,6 +51,7 @@ import androidx.compose.ui.util.fastFirstOrNull
 import com.android.systemui.common.ui.compose.load
 import com.android.systemui.compose.modifiers.sysuiResTag
 import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
+import com.android.systemui.statusbar.pipeline.battery.data.repository.BatteryRepository
 import com.android.systemui.statusbar.pipeline.battery.shared.ui.BatteryColors
 import com.android.systemui.statusbar.pipeline.battery.shared.ui.BatteryFrame
 import com.android.systemui.statusbar.pipeline.battery.shared.ui.BatteryGlyph
@@ -175,6 +177,7 @@ fun UnifiedBattery(
 
     BatteryLayout(
         attribution = viewModel.attribution,
+        iconStyleProvider = { viewModel.batteryIconStyle },
         levelProvider = { viewModel.level },
         isFullProvider = { viewModel.isFull },
         glyphsProvider = { viewModel.glyphList },
@@ -192,6 +195,7 @@ fun UnifiedBattery(
 @Composable
 fun BatteryLayout(
     attribution: BatteryGlyph?,
+    iconStyleProvider: () -> Int,
     levelProvider: () -> Int?,
     isFullProvider: () -> Boolean,
     glyphsProvider: () -> List<BatteryGlyph>,
@@ -201,30 +205,44 @@ fun BatteryLayout(
 ) {
     Layout(
         content = {
-            BatteryBody(
-                pathSpec = BatteryFrame.bodyPathSpec,
-                levelProvider = levelProvider,
-                glyphsProvider = glyphsProvider,
-                isFullProvider = isFullProvider,
-                colorsProvider = colorsProvider,
-                modifier = Modifier.layoutId(BatteryMeasurePolicy.LayoutId.Frame),
-                contentDescription = contentDescription,
-            )
-            if (attribution != null) {
-                BatteryAttribution(
+            val iconStyle = iconStyleProvider()
+
+            if (iconStyle == BatteryRepository.ICON_STYLE_CIRCLE ||
+                iconStyle == BatteryRepository.ICON_STYLE_CIRCLE_DOTTED) {
+                CircleBatteryBody(
                     attr = attribution,
+                    iconStyleProvider = iconStyleProvider,
+                    levelProvider = levelProvider,
                     colorsProvider = colorsProvider,
-                    modifier =
-                        Modifier.layoutId(
-                            BatteryMeasurePolicy.LayoutId.Attribution(wrapped = attribution)
-                        ),
+                    modifier = Modifier.layoutId(BatteryMeasurePolicy.LayoutId.FrameCircle),
+                    contentDescription = contentDescription,
                 )
             } else {
-                BatteryCap(
-                    colorsProvider = colorsProvider,
+                BatteryBody(
+                    pathSpec = BatteryFrame.bodyPathSpec,
+                    levelProvider = levelProvider,
+                    glyphsProvider = glyphsProvider,
                     isFullProvider = isFullProvider,
-                    modifier = Modifier.layoutId(BatteryMeasurePolicy.LayoutId.Cap),
+                    colorsProvider = colorsProvider,
+                    modifier = Modifier.layoutId(BatteryMeasurePolicy.LayoutId.Frame),
+                    contentDescription = contentDescription,
                 )
+                if (attribution != null) {
+                    BatteryAttribution(
+                        attr = attribution,
+                        colorsProvider = colorsProvider,
+                        modifier =
+                            Modifier.layoutId(
+                                BatteryMeasurePolicy.LayoutId.Attribution(wrapped = attribution)
+                            ),
+                    )
+                } else {
+                    BatteryCap(
+                        colorsProvider = colorsProvider,
+                        isFullProvider = isFullProvider,
+                        modifier = Modifier.layoutId(BatteryMeasurePolicy.LayoutId.Cap),
+                    )
+                }
             }
         },
         measurePolicy = BatteryMeasurePolicy(),
@@ -237,6 +255,8 @@ class BatteryMeasurePolicy : MeasurePolicy {
     sealed class LayoutId {
         data object Frame : LayoutId()
 
+        data object FrameCircle : LayoutId()
+
         data object Cap : LayoutId()
 
         // We don't have to depend on the whole [BatteryGlyph] here, we just need to know the
@@ -248,7 +268,9 @@ class BatteryMeasurePolicy : MeasurePolicy {
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val batteryFrame = measurables.fastFirst { it.layoutId == LayoutId.Frame }
+        val batteryFrame = measurables.fastFirst {
+            it.layoutId == LayoutId.Frame || it.layoutId == LayoutId.FrameCircle
+        }
 
         // We will scale the entire battery icon based on the given height
         val scale = constraints.maxHeight / BatteryFrame.innerHeight
@@ -258,8 +280,16 @@ class BatteryMeasurePolicy : MeasurePolicy {
             batteryFrame.measure(
                 constraints =
                     constraints.copy(
-                        minWidth = batterySize.width.roundToInt(),
-                        maxWidth = batterySize.width.roundToInt(),
+                        minWidth = if (batteryFrame.layoutId == LayoutId.FrameCircle) {
+                            batterySize.height.roundToInt()
+                        } else {
+                            batterySize.width.roundToInt()
+                        },
+                        maxWidth = if (batteryFrame.layoutId == LayoutId.FrameCircle) {
+                            batterySize.height.roundToInt()
+                        } else {
+                            batterySize.width.roundToInt()
+                        },
                         minHeight = batterySize.height.roundToInt(),
                         maxHeight = batterySize.height.roundToInt(),
                     )
@@ -317,6 +347,64 @@ class BatteryMeasurePolicy : MeasurePolicy {
                 val yOffset =
                     ((batteryFramePlaceable.height - capPlaceable.height) / 2f).roundToInt()
                 place(xOffset, yOffset)
+            }
+        }
+    }
+}
+
+@Composable
+fun CircleBatteryBody(
+    attr: BatteryGlyph?,
+    iconStyleProvider: () -> Int,
+    levelProvider: () -> Int?,
+    colorsProvider: () -> BatteryColors,
+    modifier: Modifier = Modifier,
+    contentDescription: String = "",
+) {
+    Canvas(modifier = modifier, contentDescription = contentDescription) {
+        val iconStyle = iconStyleProvider()
+        val level = levelProvider()
+        val colors = colorsProvider()
+
+        val strokeWidth = size.height / 6.5f
+        val radius = size.height / 2f - strokeWidth / 2f
+        val center = Offset(size.width / 2, size.height / 2)
+
+        // Draw thin gray ring first
+        drawCircle(colors.backgroundOnly, radius, center, style = Stroke(strokeWidth))
+
+        // Draw colored arc representing charge level
+        if (level != null && level > 0) {
+            drawArc(
+                colors.attribution,
+                270f,
+                3.6f * level,
+                useCenter = false,
+                topLeft = Offset(center.x - radius, center.y - radius),
+                size = Size(radius * 2, radius * 2),
+                style = Stroke(
+                    strokeWidth,
+                    pathEffect = if (iconStyle == BatteryRepository.ICON_STYLE_CIRCLE_DOTTED) {
+                        PathEffect.dashPathEffect(floatArrayOf(3f, 2f), 0f)
+                    } else {
+                        null
+                    }
+                ),
+            )
+        }
+
+        // Draw attribution
+        if (attr != null) {
+            inset(strokeWidth * 2f) {
+                scale(attr.scaleTo(size.width, size.height), Offset.Zero) {
+                    drawPath(
+                        path = attr.path,
+                        color = Color.Black,
+                        style = Stroke(2f),
+                        blendMode = BlendMode.Clear,
+                    )
+                    drawPath(attr.path, colors.attribution)
+                }
             }
         }
     }
