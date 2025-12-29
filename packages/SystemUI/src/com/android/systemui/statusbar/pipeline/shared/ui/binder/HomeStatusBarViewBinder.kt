@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.pipeline.shared.ui.binder
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.WindowConfiguration
 import android.content.ContentResolver
 import android.database.ContentObserver
 import android.net.Uri
@@ -35,6 +36,9 @@ import com.android.systemui.display.dagger.SystemUIDisplaySubcomponent.PerDispla
 import com.android.systemui.lifecycle.repeatWhenAttached
 import com.android.systemui.res.R
 import com.android.systemui.scene.shared.flag.SceneContainerFlag
+import com.android.systemui.shared.system.ActivityManagerWrapper
+import com.android.systemui.shared.system.TaskStackChangeListener
+import com.android.systemui.shared.system.TaskStackChangeListeners
 import com.android.systemui.statusbar.chips.mediaprojection.domain.model.MediaProjectionStopDialogModel
 import com.android.systemui.statusbar.chips.ui.binder.OngoingActivityChipBinder
 import com.android.systemui.statusbar.chips.ui.binder.OngoingActivityChipViewBinding
@@ -100,6 +104,7 @@ constructor(
     }
 
     private data class ClockState(
+        val autoHide: Boolean,
         val denyListed: Boolean,
         val hideForHun: Boolean,
         val position: Int,
@@ -140,6 +145,7 @@ constructor(
                 val clockState =
                     MutableStateFlow(
                         ClockState(
+                            autoHide = false,
                             denyListed = false,
                             hideForHun = false,
                             position = context.contentResolver.readClockPosition(),
@@ -147,6 +153,10 @@ constructor(
                         )
                     )
 
+                val clockAutoHideUri: Uri =
+                    LineageSettings.System.getUriFor(
+                        LineageSettings.System.STATUS_BAR_CLOCK_AUTO_HIDE
+                    )
                 val iconHideListUri: Uri =
                     Settings.Secure.getUriFor(StatusBarIconController.ICON_HIDE_LIST)
                 val statusBarClockUri: Uri =
@@ -157,6 +167,25 @@ constructor(
                         override fun onChange(selfChange: Boolean, uri: Uri?) {
                             clockState.update { current ->
                                 when (uri) {
+                                    clockAutoHideUri -> {
+                                        val enabled =
+                                            LineageSettings.System.getIntForUser(
+                                                context.contentResolver,
+                                                LineageSettings.System.STATUS_BAR_CLOCK_AUTO_HIDE,
+                                                0,
+                                                UserHandle.USER_CURRENT,
+                                            ) != 0
+
+                                        if (enabled) {
+                                            TaskStackChangeListeners.getInstance()
+                                                .registerTaskStackListener(taskStackListener)
+                                        } else {
+                                            TaskStackChangeListeners.getInstance()
+                                                .unregisterTaskStackListener(taskStackListener)
+                                        }
+
+                                        current.copy(autoHide = enabled && computeClockAutoHide())
+                                    }
                                     iconHideListUri ->
                                         current.copy(
                                             denyListed =
@@ -179,6 +208,23 @@ constructor(
                         }
                     }
 
+                val taskStackListener =
+                    object : TaskStackChangeListener {
+                        override fun onTaskStackChanged() {
+                            val autoHide = computeClockAutoHide()
+                            clockState.update { state ->
+                                if (state.autoHide == autoHide) state
+                                else state.copy(autoHide = autoHide)
+                            }
+                        }
+                    }
+
+                context.contentResolver.registerContentObserver(
+                    clockAutoHideUri,
+                    false,
+                    contentObserver,
+                    UserHandle.USER_ALL,
+                )
                 context.contentResolver.registerContentObserver(
                     iconHideListUri,
                     false,
@@ -192,6 +238,7 @@ constructor(
                     UserHandle.USER_ALL,
                 )
 
+                contentObserver.onChange(false, clockAutoHideUri)
                 contentObserver.onChange(false, iconHideListUri)
                 contentObserver.onChange(false, statusBarClockUri)
 
@@ -200,6 +247,8 @@ constructor(
                 job?.invokeOnCompletion {
                     runCatching {
                         context.contentResolver.unregisterContentObserver(contentObserver)
+                        TaskStackChangeListeners.getInstance()
+                            .unregisterTaskStackListener(taskStackListener)
                     }
                 }
 
@@ -410,6 +459,7 @@ constructor(
                                 if (
                                     state.visibilityModel.visibility == View.VISIBLE &&
                                         !hunBlocksClock &&
+                                        !state.autoHide &&
                                         !state.denyListed
                                 ) {
                                     state.visibilityModel
@@ -521,6 +571,15 @@ constructor(
             CLOCK_POSITION_LEFT,
             UserHandle.USER_CURRENT,
         )
+    }
+
+    private fun computeClockAutoHide(): Boolean {
+        val runningTask = ActivityManagerWrapper.getInstance().runningTask
+        val activityType =
+            runningTask?.configuration?.windowConfiguration?.activityType
+                ?: WindowConfiguration.ACTIVITY_TYPE_UNDEFINED
+
+        return activityType == WindowConfiguration.ACTIVITY_TYPE_HOME
     }
 
     private fun SystemEventAnimationState.isAnimatingChip() =
