@@ -16,6 +16,23 @@
       "message": "FYI you can have consistent code style by just running ktfmt, just make sure it doesn\u0027t change any existing google lines before committing.\n\neg.\n`java -jar ktfmt-0.60-with-dependencies.jar --kotlinlang-style packages/SystemUI/src/com/android/systemui/haptics/msdl/qs/TileHapticsViewModel.kt`",
       "revId": "637e0899e57e693a732a3ac002f0e95783af7f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c0f4373_c6af28ed",
+        "filename": "packages/SystemUI/src/com/android/systemui/haptics/msdl/qs/TileHapticsViewModel.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-29T11:08:12Z",
+      "side": 1,
+      "message": "msdl_feedback is enabled in BP3A, so the else part is not hit",
+      "revId": "637e0899e57e693a732a3ac002f0e95783af7f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
