@@ -16,6 +16,24 @@
       "message": "This won\u0027t work for upgrades and we don\u0027t want to touch the default SettingsProvider either. You can do it in lineage-sdk and you will have to add a migration step as well.",
       "revId": "a2c5419109da82e1322974690d05907956919891",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cabf1075_f060eac7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-29T19:45:55Z",
+      "side": 1,
+      "message": "Ah my bad, I always forget the def flag here is for new installs...\nWish it was simpler, let\u0027s do prop then lol",
+      "parentUuid": "a290752c_c119282d",
+      "revId": "a2c5419109da82e1322974690d05907956919891",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
