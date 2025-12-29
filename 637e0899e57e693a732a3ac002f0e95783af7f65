@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1451affd_4f72c0d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-29T11:06:09Z",
+      "side": 1,
+      "message": "FYI you can have consistent code style by just running ktfmt, just make sure it doesn\u0027t change any existing google lines before committing.\n\neg.\n`java -jar ktfmt-0.60-with-dependencies.jar --kotlinlang-style packages/SystemUI/src/com/android/systemui/haptics/msdl/qs/TileHapticsViewModel.kt`",
+      "revId": "637e0899e57e693a732a3ac002f0e95783af7f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
