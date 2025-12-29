@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9c9bbc7_b2e3846c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2025-12-29T14:27:35Z",
+      "side": 1,
+      "message": "1. Select Battery next to icon.\n2. Put device on charge OR switch on battery saver mode\n You will see charging bolt inside icon as well as on cap of landscape icon.",
+      "revId": "79d0ff779ee41daa12f605c7c8b7b5419aec9e6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
