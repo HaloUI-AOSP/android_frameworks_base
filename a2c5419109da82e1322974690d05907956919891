@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a290752c_c119282d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2025-12-29T19:23:33Z",
+      "side": 1,
+      "message": "This won\u0027t work for upgrades and we don\u0027t want to touch the default SettingsProvider either. You can do it in lineage-sdk and you will have to add a migration step as well.",
+      "revId": "a2c5419109da82e1322974690d05907956919891",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
