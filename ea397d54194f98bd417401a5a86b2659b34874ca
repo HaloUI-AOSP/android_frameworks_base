@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "247467bc_41745740",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T22:55:57Z",
+      "side": 1,
+      "message": "Something like this?\n\n```\n                            if (clockState.value.autoHide !\u003d autoHide) {\n                                clockState.update { it.copy(autoHide \u003d autoHide) }\n                            }\n```\n\nThat might cause a rare race condition when the TaskStackChangeListener fires and the ContentObserver updates autoHide at the same time (user changes the setting).",
+      "parentUuid": "4c5ce56f_c7bbef79",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "423e3b87_59213c63",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2025-12-30T18:54:45Z",
       "side": 1,
       "message": "Move this to a little fun() like the other reader?",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b62c7982_6883b67e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T22:55:57Z",
+      "side": 1,
+      "message": "I can do, if you really want, but the other reader was because the same code was repeated twice.",
+      "parentUuid": "423e3b87_59213c63",
       "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
