@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08f57dc_5ce01319",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T23:24:49Z",
+      "side": 1,
+      "message": "I guess we can ignore that.",
+      "parentUuid": "247467bc_41745740",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "423e3b87_59213c63",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "I can do, if you really want, but the other reader was because the same code was repeated twice.",
       "parentUuid": "423e3b87_59213c63",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3272f5_03b0548e",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T23:24:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b62c7982_6883b67e",
       "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
