@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c5ce56f_c7bbef79",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-30T18:54:45Z",
+      "side": 1,
+      "message": "I hope mutable state flow is smart enough to understand the state is the same and doesn\u0027t trigger anything\nMaybe you can use https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-mutable-state-flow/compare-and-set.html or Just get current state and check that if matches?",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "423e3b87_59213c63",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2025-12-30T18:54:45Z",
+      "side": 1,
+      "message": "Move this to a little fun() like the other reader?",
+      "revId": "ea397d54194f98bd417401a5a86b2659b34874ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f38a5507_f0470226",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt",
         "patchSetId": 5
