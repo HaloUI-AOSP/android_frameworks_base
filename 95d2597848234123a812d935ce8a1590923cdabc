@@ -16,6 +16,24 @@
       "message": "Works as expected on caprip.",
       "revId": "95d2597848234123a812d935ce8a1590923cdabc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94763699_4a4d07a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T00:10:37Z",
+      "side": 1,
+      "message": "Nop, it has some undesirable visilibility issues. Steps to reproduce:\n\n- Enable feature and set it to left position\n- Lock device and notice that network traffic overflows with other texts",
+      "parentUuid": "a221806a_b48f8475",
+      "revId": "95d2597848234123a812d935ce8a1590923cdabc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
