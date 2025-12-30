@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d68f3f_7d46f8b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-30T01:23:22Z",
+      "side": 1,
+      "message": "This is a cleaner implementation of the old port, which introduced clock visibility issues. Doesn\u0027t touch any AOSP code.",
+      "revId": "ce28d34319a9937dd8c24871195d18fcbb0c43c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
