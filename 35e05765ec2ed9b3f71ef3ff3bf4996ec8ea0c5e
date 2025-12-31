@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68231f9d_e1788846",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-31T11:54:52Z",
+      "side": 1,
+      "message": "The chip when connecting the cable is still showing the stock icon, even if circle is selected.",
+      "revId": "35e05765ec2ed9b3f71ef3ff3bf4996ec8ea0c5e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
