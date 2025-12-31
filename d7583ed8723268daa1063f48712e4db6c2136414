@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "345b56a8_e5cf2bce",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-31T17:23:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09541d00_7f76a0b0",
+      "range": {
+        "startLine": 146,
+        "startChar": 12,
+        "endLine": 147,
+        "endChar": 79
+      },
+      "revId": "d7583ed8723268daa1063f48712e4db6c2136414",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "038c69de_f9a5f3b4",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-12-30T16:01:58Z",
       "side": 1,
       "message": "```suggestion\n                    mAmPmStyle \u003d LineageSettings.System.getIntForUser(\n                            mContext.getContentResolver(),\n                            LineageSettings.System.STATUS_BAR_AM_PM, AM_PM_STYLE_GONE,\n                            UserHandle.USER_CURRENT);\n```",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 87
+      },
+      "revId": "d7583ed8723268daa1063f48712e4db6c2136414",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3432021_97d3b8fc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-12-31T17:23:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "038c69de_f9a5f3b4",
       "range": {
         "startLine": 151,
         "startChar": 0,
