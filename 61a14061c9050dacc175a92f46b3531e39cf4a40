@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3418de_739b683a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-04T14:42:07Z",
+      "side": 1,
+      "message": "15..16 fixes unwanted starting padding and may be replaced with https://gist.github.com/luk1337/67118b590d4856830750f6e710c755d9 if only someone figures out why it\u0027s not vertically centered.",
+      "revId": "61a14061c9050dacc175a92f46b3531e39cf4a40",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
