@@ -52,6 +52,24 @@
       "parentUuid": "e640f6a1_38ae30e3",
       "revId": "35e05765ec2ed9b3f71ef3ff3bf4996ec8ea0c5e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a3c4831_d3948833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-01-06T17:26:56Z",
+      "side": 1,
+      "message": "if someone figures out how to *not* reserve space above letters with this diff https://gist.github.com/luk1337/571ed7f214cc62b2c49d9be2023f40e6, they can apply https://gist.github.com/luk1337/5cbde483895c79af2bfa74f09006ab9b on top and chip will use correct icon.",
+      "parentUuid": "8db43f21_fce29b81",
+      "revId": "35e05765ec2ed9b3f71ef3ff3bf4996ec8ea0c5e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
