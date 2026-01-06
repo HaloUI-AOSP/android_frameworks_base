@@ -34,6 +34,24 @@
       "parentUuid": "68231f9d_e1788846",
       "revId": "35e05765ec2ed9b3f71ef3ff3bf4996ec8ea0c5e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db43f21_fce29b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-06T17:24:18Z",
+      "side": 1,
+      "message": "That\u0027s now how it looked on \u003c23.1 so I\u0027m not sure whether it should be on purpose",
+      "parentUuid": "e640f6a1_38ae30e3",
+      "revId": "35e05765ec2ed9b3f71ef3ff3bf4996ec8ea0c5e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
