@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98b89d8_ef04f9c9",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 12501,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-07T01:00:10Z",
+      "side": 1,
+      "message": "Hopefully the missing ; was a typo from old local patchset, as otherwise this would not compile.",
+      "range": {
+        "startLine": 12501,
+        "startChar": 69,
+        "endLine": 12501,
+        "endChar": 70
+      },
+      "revId": "b2baa33f0fc2923bbdaf69de2fe20d7e5ce50131",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
