@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b019ff5_3e401f91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-01-12T07:28:32Z",
+      "side": 1,
+      "message": "This is exactly what i commented on the original change which should instead be amended",
+      "revId": "4e818ca5ca4e20ab73a57c7f1f2011c7f01ae808",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
