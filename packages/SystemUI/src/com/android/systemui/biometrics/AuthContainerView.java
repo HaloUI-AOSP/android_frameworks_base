@@ -488,7 +488,7 @@ public class AuthContainerView extends LinearLayout
             ((CredentialView) mCredentialView).init(vm, this, mPanelController, false,
                     mBiometricCallback, mAuthContextPlugins);
             if (credentialType instanceof PromptKind.Pattern) {
-                LockPatternView lockPatternView = credentialView.findViewById(R.id.lockPattern);
+                LockPatternView lockPatternView = mCredentialView.findViewById(R.id.lockPattern);
                 lockPatternView.setLockPatternSize(
                         mLockPatternUtils.getLockPatternSize(mConfig.mUserId));
             }
