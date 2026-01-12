@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "467dabe4_59710e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-01-12T19:56:32Z",
+      "side": 1,
+      "message": "Joao: How do I recreate this? on wade I have all the toggles in \"Inputs\" toggled oon without this patch - and Audio control on the TV works.\n\nHow can I recreate?",
+      "revId": "b2baa33f0fc2923bbdaf69de2fe20d7e5ce50131",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e98b89d8_ef04f9c9",
