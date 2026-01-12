@@ -16,6 +16,24 @@
       "message": "I /think/ this needs to be mCredentialView instead of credentialView",
       "revId": "d0e203c59ac1a3c7505d841267d801c215c6f2bb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea55c2b1_f335c38f",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/AuthContainerView.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-12T15:53:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b97aab1c_9fc1469f",
+      "revId": "d0e203c59ac1a3c7505d841267d801c215c6f2bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
