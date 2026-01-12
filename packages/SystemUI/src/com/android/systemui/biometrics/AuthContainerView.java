@@ -458,7 +458,6 @@ public class AuthContainerView extends LinearLayout
     public boolean isAllowDeviceCredentials() {
         return Utils.isDeviceCredentialAllowed(mConfig.mPromptInfo);
     }
-
     /**
      * Adds the credential view. When going from biometric to credential view, the biometric
      * view starts the panel expansion animation. If the credential view is being shown first,
@@ -488,13 +487,16 @@ public class AuthContainerView extends LinearLayout
             ((CredentialView) mCredentialView).init(vm, this, mPanelController, false,
                     mBiometricCallback, mAuthContextPlugins);
             if (credentialType instanceof PromptKind.Pattern) {
-                LockPatternView lockPatternView = credentialView.findViewById(R.id.lockPattern);
+                LockPatternView lockPatternView = mCredentialView.findViewById(R.id.lockPattern);
                 lockPatternView.setLockPatternSize(
                         mLockPatternUtils.getLockPatternSize(mConfig.mUserId));
             }
             credentialView.addView(mCredentialView);
         } else {
             mCredentialView = factory.inflate(layoutResourceId, mLayout, false);
+            if (mCredentialView == null) {
+                throw new IllegalStateException("Failed to inflate credential view");
+            }
             // The background is used for detecting taps / cancelling authentication. Since the
             // credential view is full-screen and should not be canceled from background taps,
             // disable it.
