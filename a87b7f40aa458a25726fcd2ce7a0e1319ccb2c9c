@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b53958f_754db078",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-16T17:35:47Z",
+      "side": 1,
+      "message": "The only user of this has been network traffic, which is now partially broken on 23.1+. Maybe it should be folded into the network traffic commit and renamed once/if that is fixed.",
+      "revId": "a87b7f40aa458a25726fcd2ce7a0e1319ccb2c9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
