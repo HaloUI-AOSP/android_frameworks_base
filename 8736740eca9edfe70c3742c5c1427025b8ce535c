@@ -33,6 +33,41 @@
       "message": "next cycle, re-order to put it with the other ATV stuff",
       "revId": "8736740eca9edfe70c3742c5c1427025b8ce535c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb69f4fb_9775e6fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-01-16T03:26:15Z",
+      "side": 1,
+      "message": "No need for YOLO, I tested this on NV.",
+      "parentUuid": "b8b53120_4f964109",
+      "revId": "8736740eca9edfe70c3742c5c1427025b8ce535c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556d7704_e064a6ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-01-16T03:26:15Z",
+      "side": 1,
+      "message": "FWIW this is needed as long as tvsystemUI remains forked with Cosmin\u0027s 1 change.",
+      "revId": "8736740eca9edfe70c3742c5c1427025b8ce535c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
