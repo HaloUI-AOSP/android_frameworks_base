@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb873d32_e96c7ddf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2026-01-16T15:26:01Z",
+      "side": 1,
+      "message": "I think prop is better because you will also need it in Settings package. All sf relevant configs are done by props - so aligned there as well. If at all it needs to be overlay - suggest it could be in lineage-sdk and not SettingsProvider.",
+      "revId": "e75c8c84eac25d100d5aaf8461ba2bbd117d473c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
