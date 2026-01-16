@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "789c7749_0b1d3c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-01-16T03:24:27Z",
+      "side": 1,
+      "message": "pro1x/hardware keyboard devices still live on.",
+      "revId": "b037470a19d304fa0b2bd2e1eddd08eb69025a8b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
