@@ -88,6 +88,24 @@
       "parentUuid": "7b0fb3e0_46e3484a",
       "revId": "a2c5419109da82e1322974690d05907956919891",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb4bd69_1c798199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-16T17:54:36Z",
+      "side": 1,
+      "message": "Alternative: https://review.lineageos.org/c/LineageOS/android_lineage-sdk/+/468538",
+      "parentUuid": "75f7f231_e3f1eaee",
+      "revId": "a2c5419109da82e1322974690d05907956919891",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
