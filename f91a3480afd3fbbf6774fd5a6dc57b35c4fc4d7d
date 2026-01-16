@@ -16,6 +16,23 @@
       "message": "YOLO",
       "revId": "f91a3480afd3fbbf6774fd5a6dc57b35c4fc4d7d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "509104e9_9058a825",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-01-16T03:23:12Z",
+      "side": 1,
+      "message": "reminder: Drop in 24.0",
+      "revId": "f91a3480afd3fbbf6774fd5a6dc57b35c4fc4d7d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
