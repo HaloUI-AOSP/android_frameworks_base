@@ -33,6 +33,24 @@
       "message": "```suggestion\n            DisplayManager.EVENT_TYPE_DISPLAY_BRIGHTNESS,\n```",
       "revId": "267f7c01faa5ed4a54d4fde5436a161dc3ffae15",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f0ffa63_18de015f",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-01-18T20:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c66e10e_2c4146cf",
+      "revId": "267f7c01faa5ed4a54d4fde5436a161dc3ffae15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
