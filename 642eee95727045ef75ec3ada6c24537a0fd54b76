@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9989d545_dfd08520",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2026-01-18T20:11:22Z",
+      "side": 1,
+      "message": "Works on aosp as well as qcom wfd (tested on gta4l and alioth)",
+      "revId": "642eee95727045ef75ec3ada6c24537a0fd54b76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
