@@ -57,6 +57,10 @@ class DisabledWifiRepository @Inject constructor() : RealWifiRepository {
         // No-op
     }
 
+    override fun disableWifi() {
+        // No-op
+    }
+
     override fun pauseWifi() {
         // No-op
     }

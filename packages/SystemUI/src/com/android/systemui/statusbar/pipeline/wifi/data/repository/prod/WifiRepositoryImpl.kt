@@ -494,6 +494,10 @@ constructor(
         scanForWifi()
     }
 
+    override fun disableWifi() {
+        wifiManager.setWifiEnabled(false)
+    }
+
     private fun logOnWifiEntriesChanged(connectedEntry: WifiEntry?) {
         inputLogger.log(
             TAG,

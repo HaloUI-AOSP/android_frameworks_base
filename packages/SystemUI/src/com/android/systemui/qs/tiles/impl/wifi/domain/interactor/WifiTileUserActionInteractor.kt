@@ -49,16 +49,39 @@ constructor(
         with(input) {
             when (action) {
                 is QSTileUserAction.Click -> {
-                    handleClick(action.expandable)
+                    handleToggleClick(action.expandable)
                 }
                 is QSTileUserAction.LongClick -> {
                     handleLongClick(action.expandable)
                 }
                 is QSTileUserAction.ToggleClick -> {
-                    handleSecondaryClick(action.expandable)
+                    handleDialogClick(action.expandable)
                 }
             }
         }
+
+    suspend fun handleDialogClick(expandable: Expandable?) {
+        withContext(mainContext) {
+            internetDialogManager.create(
+                aboveStatusBar = true,
+                accessPointController.canConfigMobileData(),
+                accessPointController.canConfigWifi(),
+                expandable,
+            )
+        }
+    }
+
+    suspend fun handleToggleClick(expandable: Expandable?) {
+        withContext(mainContext) {
+            val enabled = wifiRepository.isWifiEnabled.value
+
+            if (enabled) {
+                wifiRepository.disableWifi()
+            } else {
+                wifiRepository.enableWifi()
+            }
+        }
+    }
 
     suspend fun handleClick(expandable: Expandable?) {
         withContext(mainContext) {
