@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ef9b37_68f71924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2026-01-19T09:13:10Z",
+      "side": 1,
+      "message": "Hi, with new changes - primary click (on the text in expanded mode) will open wifi menu? Is this intended?",
+      "revId": "492467c1261e3ecdd5f6d9bf1b12728d60f2acaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
