@@ -50,6 +50,23 @@
       "message": "This makes the internet tile behave exactly like the wifi tile, which means it doesn\u0027t have the data toggle and all existing and new installations won\u0027t have a data tile toggle by default either.",
       "revId": "d1ecd578c12963bf3d2eccd1ff1ecf39c93d00ea",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ce15fd_76b66264",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-01-19T03:25:31Z",
+      "side": 1,
+      "message": "Actually nvm, the previous comment is incorrect, however both wifi and internet tiles contain the exact same content which is not correct.",
+      "revId": "d1ecd578c12963bf3d2eccd1ff1ecf39c93d00ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
