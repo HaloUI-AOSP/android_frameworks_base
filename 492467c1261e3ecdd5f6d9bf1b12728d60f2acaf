@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f61650c_bf8431e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 35850
+      },
+      "writtenOn": "2026-01-19T13:14:23Z",
+      "side": 1,
+      "message": "```suggestion\n  change the popup dialog title from \"Internet\" to \"Wi-Fi\".\n```",
+      "revId": "492467c1261e3ecdd5f6d9bf1b12728d60f2acaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "33ef9b37_68f71924",
