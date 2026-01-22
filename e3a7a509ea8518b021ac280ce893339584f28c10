@@ -16,6 +16,23 @@
       "message": "This fixes the crash on the one device I recreate on",
       "revId": "e3a7a509ea8518b021ac280ce893339584f28c10",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e89faeaf_4cd89ed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-01-22T16:54:03Z",
+      "side": 1,
+      "message": "This patch also fixes an issue where YouTube PiP gets stuck or hangs when unlocking the device.",
+      "revId": "e3a7a509ea8518b021ac280ce893339584f28c10",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
