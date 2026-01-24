@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "811cf58d_f119c669",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 35850
+      },
+      "writtenOn": "2026-01-24T10:17:38Z",
+      "side": 1,
+      "message": "```suggestion\nbutton combo volume up and down to trigger mute. This mirros what NVIDIA\n```",
+      "revId": "e574cdcc812bef5efc29dc6602c7001f05c116d8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cec8ea16_db16c7aa",
