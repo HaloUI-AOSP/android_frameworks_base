@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3810a447_953befb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32550
+      },
+      "writtenOn": "2026-01-25T16:52:37Z",
+      "side": 1,
+      "message": "It seems lacks \"private static final boolean RESET_ALL_PACKAGE_SIGNATURES_ON_BOOT \u003d true;\", causing cannot find symbol error.",
+      "revId": "c3ff48e5891de6895c8aca2a43efd02a0a6eddb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
