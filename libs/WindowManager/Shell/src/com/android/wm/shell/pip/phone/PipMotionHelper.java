@@ -188,8 +188,6 @@ public class PipMotionHelper implements PipAppOpsListener.Callback,
         public void onPipTransitionCanceled(int direction) {}
     };
 
-    private Runnable mRemoveStaledPinnedTaskRunnable;
-
     public PipMotionHelper(Context context, @NonNull PipBoundsState pipBoundsState,
             PipTaskOrganizer pipTaskOrganizer, PhonePipMenuController menuController,
             PipSnapAlgorithm snapAlgorithm, PipTransitionController pipTransitionController,
@@ -201,14 +199,6 @@ public class PipMotionHelper implements PipAppOpsListener.Callback,
         mSnapAlgorithm = snapAlgorithm;
         mFloatingContentCoordinator = floatingContentCoordinator;
         pipTransitionController.registerPipTransitionCallback(mPipTransitionCallback);
-        mPipTransitionState.addOnPipTransitionStateChangedListener(
-                (oldState, newState) -> {
-                    if (mPipTransitionState.isEnteringPip()
-                            && mRemoveStaledPinnedTaskRunnable != null) {
-                        mMainExecutor.removeCallbacks(mRemoveStaledPinnedTaskRunnable);
-                        mRemoveStaledPinnedTaskRunnable = null;
-                    }
-                });
         mResizePipUpdateListener = (target, values) -> {
             if (mPipBoundsState.getMotionBoundsState().isInMotion()) {
                 mPipTaskOrganizer.scheduleUserResizePip(getBounds(),
