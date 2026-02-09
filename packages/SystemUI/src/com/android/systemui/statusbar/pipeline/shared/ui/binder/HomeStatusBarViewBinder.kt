@@ -124,6 +124,8 @@ constructor(
         val leftClock: Clock = view.requireViewById(R.id.clock)
         val centerClock: Clock = view.findViewById(R.id.clock_center)
         val rightClock: Clock = view.findViewById(R.id.clock_right)
+        val networkTrafficCenter = view.findViewById<View>(R.id.network_traffic_holder_center)
+        val networkTrafficStart = view.findViewById<View>(R.id.network_traffic_holder_start)
         val notificationIconsArea = view.requireViewById<View>(R.id.notificationIcons)
 
         // CollapsedStatusBarFragment doesn't need this
@@ -471,6 +473,8 @@ constructor(
 
                     launch {
                         viewModel.isNotificationIconContainerVisible.collect {
+                            networkTrafficCenter.adjustVisibility(it)
+                            networkTrafficStart.adjustVisibility(it)
                             notificationIconsArea.adjustVisibility(it)
                         }
                     }
