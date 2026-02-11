@@ -26,11 +26,14 @@ import android.os.ServiceSpecificException;
 import android.os.StrictMode;
 import android.security.keymaster.KeymasterDefs;
 import android.system.keystore2.Domain;
+import android.system.keystore2.IKeystoreSecurityLevel;
 import android.system.keystore2.IKeystoreService;
 import android.system.keystore2.KeyDescriptor;
 import android.system.keystore2.KeyEntryResponse;
 import android.system.keystore2.ResponseCode;
 import android.util.Log;
+
+import io.mesalabs.unica.KeyboxImitationHooks;
 
 import java.util.Calendar;
 
@@ -174,6 +177,9 @@ public class KeyStore2 {
     public KeyDescriptor[] list(int domain, long namespace) throws KeyStoreException {
         StrictMode.noteDiskRead();
 
+        KeyDescriptor[] hooked = KeyboxImitationHooks.onListEntries(domain);
+        if (hooked != null) return hooked;
+
         return handleRemoteExceptionWithRetry((service) -> service.listEntries(domain, namespace));
     }
 
@@ -183,6 +189,9 @@ public class KeyStore2 {
     public KeyDescriptor[] listBatch(int domain, long namespace, String startPastAlias)
             throws KeyStoreException {
         StrictMode.noteDiskRead();
+
+        KeyDescriptor[] hooked = KeyboxImitationHooks.onListEntriesBatched(domain, startPastAlias);
+        if (hooked != null) return hooked;
 
         return handleRemoteExceptionWithRetry(
                 (service) -> service.listEntriesBatched(domain, namespace, startPastAlias));
@@ -283,6 +292,9 @@ public class KeyStore2 {
             throws KeyStoreException {
         StrictMode.noteDiskRead();
 
+        KeyEntryResponse hooked = KeyboxImitationHooks.onGetKeyEntry(descriptor);
+        if (hooked != null) return hooked;
+
         return handleRemoteExceptionWithRetry((service) -> service.getKeyEntry(descriptor));
     }
 
@@ -296,11 +308,13 @@ public class KeyStore2 {
      */
     public KeyStoreSecurityLevel getSecurityLevel(int securityLevel)
             throws KeyStoreException {
-        return handleRemoteExceptionWithRetry((service) ->
-            new KeyStoreSecurityLevel(
-                    service.getSecurityLevel(securityLevel)
-            )
-        );
+        return handleRemoteExceptionWithRetry((service) -> {
+            IKeystoreSecurityLevel level = service.getSecurityLevel(securityLevel);
+
+            KeyboxImitationHooks.setSecurityLevel(level, securityLevel);
+
+            return new KeyStoreSecurityLevel(level);
+        });
     }
 
     /**
@@ -315,6 +329,8 @@ public class KeyStore2 {
     public void updateSubcomponents(@NonNull KeyDescriptor key, byte[] publicCert,
             byte[] publicCertChain) throws KeyStoreException {
         StrictMode.noteDiskWrite();
+
+        if (KeyboxImitationHooks.onUpdateSubcomponent(key, publicCert, publicCertChain)) return;
 
         handleRemoteExceptionWithRetry((service) -> {
             service.updateSubcomponent(key, publicCert, publicCertChain);
@@ -334,6 +350,8 @@ public class KeyStore2 {
         StrictMode.noteDiskWrite();
 
         handleRemoteExceptionWithRetry((service) -> {
+            if (KeyboxImitationHooks.onDeleteKey(descriptor)) return 0;
+
             service.deleteKey(descriptor);
             return 0;
         });
@@ -344,6 +362,9 @@ public class KeyStore2 {
      */
     public int getNumberOfEntries(int domain, long namespace) throws KeyStoreException {
         StrictMode.noteDiskRead();
+
+        int hooked = KeyboxImitationHooks.onGetNumberOfEntries(domain);
+        if (hooked != 0) return hooked;
 
         return handleRemoteExceptionWithRetry((service)
                 -> service.getNumberOfEntries(domain, namespace));
