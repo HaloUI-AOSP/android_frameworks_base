@@ -36,6 +36,8 @@ import android.util.Log;
 import java.util.Calendar;
 import java.util.Collection;
 
+import io.mesalabs.unica.KeyboxImitationHooks;
+
 /**
  * This is a shim around the security level specific interface of Keystore 2.0. Services with
  * this interface are instantiated per KeyMint backend, each having there own security level.
@@ -79,12 +81,23 @@ public class KeyStoreSecurityLevel {
         StrictMode.noteDiskWrite();
         while (true) {
             try {
+                KeyParameter[] parametersArray =
+                    args.toArray(new KeyParameter[args.size()]);
+
                 CreateOperationResponse createOperationResponse =
-                        mSecurityLevel.createOperation(
-                                keyDescriptor,
-                                args.toArray(new KeyParameter[args.size()]),
-                                false /* forced */
-                        );
+                    KeyboxImitationHooks.onCreateOperation(
+                            keyDescriptor,
+                            parametersArray);
+
+                if (createOperationResponse == null) {
+                    createOperationResponse =
+                            mSecurityLevel.createOperation(
+                                    keyDescriptor,
+                                    parametersArray,
+                                    false /* forced */
+                            );
+                }
+
                 Long challenge = null;
                 if (createOperationResponse.operationChallenge != null) {
                     challenge = createOperationResponse.operationChallenge.challenge;
@@ -146,8 +159,14 @@ public class KeyStoreSecurityLevel {
             throws KeyStoreException {
         StrictMode.noteDiskWrite();
 
+        KeyParameter[] parametersArray =
+            args.toArray(new KeyParameter[args.size()]);
+
+        KeyMetadata hooked = KeyboxImitationHooks.onGenerateKey(descriptor, attestationKey, parametersArray);
+        if (hooked != null) return hooked;
+
         return handleExceptions(() -> mSecurityLevel.generateKey(
-                descriptor, attestationKey, args.toArray(new KeyParameter[args.size()]),
+                descriptor, attestationKey, parametersArray,
                 flags, entropy));
     }
 
@@ -169,8 +188,14 @@ public class KeyStoreSecurityLevel {
             throws KeyStoreException {
         StrictMode.noteDiskWrite();
 
+        KeyParameter[] parametersArray =
+            args.toArray(new KeyParameter[args.size()]);
+
+        KeyMetadata hooked = KeyboxImitationHooks.onImportKey(descriptor, parametersArray, keyData);
+        if (hooked != null) return hooked;
+
         return handleExceptions(() -> mSecurityLevel.importKey(descriptor, attestationKey,
-                args.toArray(new KeyParameter[args.size()]), flags, keyData));
+                parametersArray, flags, keyData));
     }
 
     /**
@@ -191,7 +216,7 @@ public class KeyStoreSecurityLevel {
             @NonNull KeyDescriptor wrappingKeyDescriptor,
             @NonNull byte[] wrappedKey, byte[] maskingKey,
             Collection<KeyParameter> args, @NonNull AuthenticatorSpec[] authenticatorSpecs)
-            throws KeyStoreException {
+            throws KeyStoreException {  
         StrictMode.noteDiskWrite();
         KeyDescriptor keyDescriptor = new KeyDescriptor();
         keyDescriptor.alias = wrappedKeyDescriptor.alias;
@@ -199,9 +224,12 @@ public class KeyStoreSecurityLevel {
         keyDescriptor.blob = wrappedKey;
         keyDescriptor.domain = wrappedKeyDescriptor.domain;
 
+        KeyParameter[] parametersArray =
+            args.toArray(new KeyParameter[args.size()]);
+
         return handleExceptions(() -> mSecurityLevel.importWrappedKey(keyDescriptor,
                 wrappingKeyDescriptor, maskingKey,
-                args.toArray(new KeyParameter[args.size()]), authenticatorSpecs));
+                parametersArray, authenticatorSpecs));
     }
 
     protected static void interruptedPreservingSleep(long millis) {
