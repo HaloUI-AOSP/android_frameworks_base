@@ -22,6 +22,30 @@
       },
       "revId": "166979a7bdd46416d8fc06f8e138ed3e8c555230",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b9fb0b0_ed9be795",
+        "filename": "packages/SystemUI/src/com/android/systemui/shade/QQSGestureListener.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-02-11T19:17:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f01af4e_322c807f",
+      "range": {
+        "startLine": 73,
+        "startChar": 19,
+        "endLine": 78,
+        "endChar": 48
+      },
+      "revId": "166979a7bdd46416d8fc06f8e138ed3e8c555230",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
