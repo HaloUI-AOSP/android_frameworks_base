@@ -123,8 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layoutDirection="ltr"
-                        android:gravity="center"
-                        android:paddingStart="4dp">
+                        android:gravity="center">
 
                         <org.lineageos.internal.statusbar.NetworkTraffic
                             android:id="@+id/network_traffic_start"
@@ -192,8 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layoutDirection="ltr"
-                    android:gravity="center"
-                    android:paddingLeft="2dp">
+                    android:gravity="center">
 
                     <org.lineageos.internal.statusbar.NetworkTraffic
                         android:id="@+id/network_traffic_end"
