@@ -16,6 +16,24 @@
       "message": "Can you explain the changes from https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/473322/5..8",
       "revId": "120e21979346f7acd043919b03e4d825d27bb306",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf139a3_d7909b65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-02-12T19:40:33Z",
+      "side": 1,
+      "message": "the ntraffic eats statusbar space hiding icons such as network signal or 5G so added dimens to not let it pollute too much space",
+      "parentUuid": "17d92296_dc75e9b3",
+      "revId": "120e21979346f7acd043919b03e4d825d27bb306",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
