@@ -141,8 +141,16 @@ public class LineageStatusBarItemHolder extends RelativeLayout
         darkReceiver.onDarkChanged(mLastAreas, mLastDarkIntensity, mLastTint);
     }
 
+    public void removeDarkReceiver(LineageStatusBarItem.DarkReceiver darkReceiver) {
+        mDarkReceivers.remove(darkReceiver);
+    }
+
     public void addVisibilityReceiver(LineageStatusBarItem.VisibilityReceiver visibilityReceiver) {
         mVisibilityReceivers.add(visibilityReceiver);
         visibilityReceiver.onVisibilityChanged(mItemHolderIsVisible);
+    }
+
+    public void removeVisibilityReceiver(LineageStatusBarItem.VisibilityReceiver visibilityReceiver) {
+        mVisibilityReceivers.remove(visibilityReceiver);
     }
 }
