@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "916aef20_98e5a94a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2026-02-13T21:03:13Z",
+      "side": 1,
+      "message": "The classes PhoneStatusBarTransitions.java and CollapsedStatusBarFragment.java are no longer in use since QPR1.\n\nThe statusbar is now handled through\n * statusbar/pipeline/shared/ui/binder/HomeStatusBarViewBinder.kt\n * statusbar/pipeline/shared/ui/composable/StatusBarRoot.kt\n\nThe visibility of the NetworkTraffic views during lock screen should probably be handled there.",
+      "revId": "1623049f30367d49b66c9735732c4a918a4d137b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
