@@ -131,6 +131,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:maxLines="2"
+                            android:maxWidth="@dimen/status_bar_network_traffic_side_max_width"
                             android:gravity="center" />
 
                     </com.android.systemui.statusbar.LineageStatusBarItemHolder>
@@ -182,6 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:maxLines="2"
+                        android:maxWidth="@dimen/status_bar_network_traffic_side_max_width"
                         android:gravity="center" />
 
                 </com.android.systemui.statusbar.LineageStatusBarItemHolder>
@@ -231,6 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:maxLines="2"
+                android:maxWidth="@dimen/status_bar_network_traffic_center_max_width"
                 android:gravity="center" />
 
         </com.android.systemui.statusbar.LineageStatusBarItemHolder>

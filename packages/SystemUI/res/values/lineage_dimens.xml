@@ -18,4 +18,8 @@
 <resources>
     <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
     <dimen name="global_actions_avatar_size">24dp</dimen>
+
+    <!-- Network traffic -->
+    <dimen name="status_bar_network_traffic_side_max_width">64dp</dimen>
+    <dimen name="status_bar_network_traffic_center_max_width">88dp</dimen>
 </resources>
