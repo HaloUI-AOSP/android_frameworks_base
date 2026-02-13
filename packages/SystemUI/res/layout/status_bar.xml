@@ -130,9 +130,9 @@
                             android:id="@+id/network_traffic_start"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:maxWidth="@dimen/status_bar_network_traffic_side_max_width"
                             android:maxLines="2"
-                            android:gravity="center"
-                        />
+                            android:gravity="center" />
 
                     </com.android.systemui.statusbar.LineageStatusBarItemHolder>
 
@@ -159,6 +159,7 @@
                 android:id="@+id/network_traffic_center"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:maxWidth="@dimen/status_bar_network_traffic_center_max_width"
                 android:maxLines="2"
                 android:gravity="center" />
 
@@ -198,9 +199,9 @@
                         android:id="@+id/network_traffic_end"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:maxWidth="@dimen/status_bar_network_traffic_side_max_width"
                         android:maxLines="2"
-                        android:gravity="center"
-                    />
+                        android:gravity="center" />
 
                 </com.android.systemui.statusbar.LineageStatusBarItemHolder>
 
