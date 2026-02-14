@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f453a10_055e4dec",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-02-14T15:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9894e82_dde8e203",
+      "range": {
+        "startLine": 133,
+        "startChar": 36,
+        "endLine": 133,
+        "endChar": 44
+      },
+      "revId": "a0f14f8378489cc4daddbb1d8acb37172305ddb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bdf7094_0a778a45",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-02-14T13:52:24Z",
       "side": 1,
       "message": "this",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 32
+      },
+      "revId": "a0f14f8378489cc4daddbb1d8acb37172305ddb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "533c7aac_6568dc3b",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-02-14T15:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bdf7094_0a778a45",
       "range": {
         "startLine": 162,
         "startChar": 24,
@@ -70,6 +118,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17321539_c2739894",
+        "filename": "packages/SystemUI/res/layout/status_bar.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-02-14T15:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787bf5a3_a0b28212",
+      "range": {
+        "startLine": 202,
+        "startChar": 32,
+        "endLine": 202,
+        "endChar": 40
+      },
+      "revId": "a0f14f8378489cc4daddbb1d8acb37172305ddb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c71db70_613d3f33",
@@ -83,6 +155,30 @@
       "writtenOn": "2026-02-14T13:51:21Z",
       "side": 1,
       "message": "Move to packages/SystemUI/res/values/lineage_dimens.xml",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 74
+      },
+      "revId": "a0f14f8378489cc4daddbb1d8acb37172305ddb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1e2a6b1_9f5769ec",
+        "filename": "packages/SystemUI/res/values/dimens.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-02-14T15:00:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c71db70_613d3f33",
       "range": {
         "startLine": 150,
         "startChar": 0,
