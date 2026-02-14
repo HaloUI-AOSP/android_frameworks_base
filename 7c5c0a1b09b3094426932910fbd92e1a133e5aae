@@ -16,6 +16,24 @@
       "message": "What is this width-limit for?\nIf users want to save space, they can switch off units, arrows (good idea!), use auto-units and compact or disable it in times without traffic. No width-limit required.\n\nThe width-limit breaks the normal function, e.g. the user selects \"kbit/s\" and is connected to a fast network. In case of fast uploads the upper line will break into two while pushing the lower line out of sight.\n\nI would not recommend this patch.",
       "revId": "7c5c0a1b09b3094426932910fbd92e1a133e5aae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b3941a_1dfefd41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-02-14T19:52:20Z",
+      "side": 1,
+      "message": "I am also unsure about this change. That\u0027s why I asked to be split from the initial implementation.",
+      "parentUuid": "17c793bb_d7c8fa66",
+      "revId": "7c5c0a1b09b3094426932910fbd92e1a133e5aae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
