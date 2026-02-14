@@ -33,6 +33,24 @@
       "message": "msdl_feedback is enabled in BP3A, so the else part is not hit",
       "revId": "637e0899e57e693a732a3ac002f0e95783af7f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76904158_818fcddb",
+        "filename": "packages/SystemUI/src/com/android/systemui/haptics/msdl/qs/TileHapticsViewModel.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-02-14T15:03:01Z",
+      "side": 1,
+      "message": "Per this comment this change does nothing. 23.1 is EOL now so abandoning this.",
+      "parentUuid": "1c0f4373_c6af28ed",
+      "revId": "637e0899e57e693a732a3ac002f0e95783af7f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
