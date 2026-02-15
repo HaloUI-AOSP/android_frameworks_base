@@ -1640,7 +1640,7 @@ please see styles_device_defaults.xml.
 
     <!-- The style for normal action button on notification -->
     <style name="NotificationAction" parent="Widget.Material.Light.Button.Borderless.Small">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-title-small-emphasized</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">>@*android:string/config_titleSmallEmphasizedFontFamily</item>
 
         <item name="textColor" android:featureFlag="android.app.notifications_redesign_fonts">@color/materialColorPrimary</item>
         <item name="textColor" android:featureFlag="!android.app.notifications_redesign_fonts">@color/notification_action_button_text_color</item>
@@ -1650,7 +1650,7 @@ please see styles_device_defaults.xml.
 
     <!-- The style for emphasized action button on notification (used e.g. for calls): Colored bordered ink button -->
     <style name="NotificationEmphasizedAction" parent="Widget.Material.Button">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-title-medium-emphasized</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">>@*android:string/config_titleMediumEmphasizedFontFamily</item>
         <item name="background">@drawable/btn_notification_emphasized</item>
         <item name="stateListAnimator">@anim/flat_button_state_list_anim_material</item>
     </style>
@@ -1689,7 +1689,7 @@ please see styles_device_defaults.xml.
     <!-- @hide -->
     <style name="NotificationExpandedMetricValue" parent="NotificationMetricValue">
         <item name="textSize">28sp</item>
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-headline-medium-emphasized</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">>@*android:string/config_headlineMediumEmphasizedFontFamily</item>
     </style>
 
     <style name="AccessibilityDialog">

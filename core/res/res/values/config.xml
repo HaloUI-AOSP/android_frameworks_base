@@ -5402,6 +5402,23 @@
     <!-- Allows setting custom fontFeatureSettings on specific text. -->
     <string name="config_headlineFontFeatureSettings" translatable="false"></string>
 
+    <!-- Name of the font families used for emphasized styles -->
+    <string name="config_displayLargeEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_displayMediumEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_displaySmallEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_headlineLargeEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_headlineMediumEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_headlineSmallEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_titleLargeEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_titleMediumEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_titleSmallEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_bodyLargeEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_bodyMediumEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_bodySmallEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_labelLargeEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_labelMediumEmphasizedFontFamily" translatable="false"></string>
+    <string name="config_labelSmallEmphasizedFontFamily" translatable="false"></string>
+
     <!-- An array of packages that need to be treated as type system in battery settings -->
     <string-array translatable="false" name="config_batteryPackageTypeSystem">
         <item>com.android.providers.calendar</item>

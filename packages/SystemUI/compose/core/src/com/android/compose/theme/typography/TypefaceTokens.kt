@@ -36,26 +36,26 @@ internal class TypefaceTokens(typefaceNames: TypefaceNames) {
 
     // Google Sans Flex emphasized styles
     private val displayLargeEmphasizedFont =
-        DeviceFontFamilyName("variable-display-large-emphasized")
+        DeviceFontFamilyName(typefaceNames.displayLargeEmphasized)
     private val displayMediumEmphasizedFont =
-        DeviceFontFamilyName("variable-display-medium-emphasized")
+        DeviceFontFamilyName(typefaceNames.displayMediumEmphasized)
     private val displaySmallEmphasizedFont =
-        DeviceFontFamilyName("variable-display-small-emphasized")
+        DeviceFontFamilyName(typefaceNames.displaySmallEmphasized)
     private val headlineLargeEmphasizedFont =
-        DeviceFontFamilyName("variable-headline-large-emphasized")
+        DeviceFontFamilyName(typefaceNames.headlineLargeEmphasized)
     private val headlineMediumEmphasizedFont =
-        DeviceFontFamilyName("variable-headline-medium-emphasized")
+        DeviceFontFamilyName(typefaceNames.headlineMediumEmphasized)
     private val headlineSmallEmphasizedFont =
-        DeviceFontFamilyName("variable-headline-small-emphasized")
-    private val titleLargeEmphasizedFont = DeviceFontFamilyName("variable-title-large-emphasized")
-    private val titleMediumEmphasizedFont = DeviceFontFamilyName("variable-title-medium-emphasized")
-    private val titleSmallEmphasizedFont = DeviceFontFamilyName("variable-title-small-emphasized")
-    private val bodyLargeEmphasizedFont = DeviceFontFamilyName("variable-body-large-emphasized")
-    private val bodyMediumEmphasizedFont = DeviceFontFamilyName("variable-body-medium-emphasized")
-    private val bodySmallEmphasizedFont = DeviceFontFamilyName("variable-body-small-emphasized")
-    private val labelLargeEmphasizedFont = DeviceFontFamilyName("variable-label-large-emphasized")
-    private val labelMediumEmphasizedFont = DeviceFontFamilyName("variable-label-medium-emphasized")
-    private val labelSmallEmphasizedFont = DeviceFontFamilyName("variable-label-small-emphasized")
+        DeviceFontFamilyName(typefaceNames.headlineSmallEmphasized)
+    private val titleLargeEmphasizedFont = DeviceFontFamilyName(typefaceNames.titleLargeEmphasized)
+    private val titleMediumEmphasizedFont = DeviceFontFamilyName(typefaceNames.titleMediumEmphasized)
+    private val titleSmallEmphasizedFont = DeviceFontFamilyName(typefaceNames.titleSmallEmphasized)
+    private val bodyLargeEmphasizedFont = DeviceFontFamilyName(typefaceNames.bodyLargeEmphasized)
+    private val bodyMediumEmphasizedFont = DeviceFontFamilyName(typefaceNames.bodyMediumEmphasized)
+    private val bodySmallEmphasizedFont = DeviceFontFamilyName(typefaceNames.bodySmallEmphasized)
+    private val labelLargeEmphasizedFont = DeviceFontFamilyName(typefaceNames.labelLargeEmphasized)
+    private val labelMediumEmphasizedFont = DeviceFontFamilyName(typefaceNames.labelMediumEmphasized)
+    private val labelSmallEmphasizedFont = DeviceFontFamilyName(typefaceNames.labelSmallEmphasized)
 
     val brand =
         FontFamily(
@@ -89,10 +89,85 @@ internal data class TypefaceNames
 private constructor(
     val brand: String,
     val plain: String,
+    val displayLargeEmphasized: String,
+    val displayMediumEmphasized: String,
+    val displaySmallEmphasized: String,
+    val headlineLargeEmphasized: String,
+    val headlineMediumEmphasized: String,
+    val headlineSmallEmphasized: String,
+    val titleLargeEmphasized: String,
+    val titleMediumEmphasized: String,
+    val titleSmallEmphasized: String,
+    val bodyLargeEmphasized: String,
+    val bodyMediumEmphasized: String,
+    val bodySmallEmphasized: String,
+    val labelLargeEmphasized: String,
+    val labelMediumEmphasized: String,
+    val labelSmallEmphasized: String,
 ) {
     private enum class Config(val configName: String, val default: String) {
         Brand("config_headlineFontFamily", "sans-serif"),
         Plain("config_bodyFontFamily", "sans-serif"),
+        DisplayLargeEmphasized(
+            "config_displayLargeEmphasizedFontFamily",
+            "variable-display-large-emphasized",
+        ),
+        DisplayMediumEmphasized(
+            "config_displayMediumEmphasizedFontFamily",
+            "variable-display-medium-emphasized",
+        ),
+        DisplaySmallEmphasized(
+            "config_displaySmallEmphasizedFontFamily",
+            "variable-display-small-emphasized",
+        ),
+        HeadlineLargeEmphasized(
+            "config_headlineLargeEmphasizedFontFamily",
+            "variable-headline-large-emphasized",
+        ),
+        HeadlineMediumEmphasized(
+            "config_headlineMediumEmphasizedFontFamily",
+            "variable-headline-medium-emphasized",
+        ),
+        HeadlineSmallEmphasized(
+            "config_headlineSmallEmphasizedFontFamily",
+            "variable-headline-small-emphasized",
+        ),
+        TitleLargeEmphasized(
+            "config_titleLargeEmphasizedFontFamily",
+            "variable-title-large-emphasized",
+        ),
+        TitleMediumEmphasized(
+            "config_titleMediumEmphasizedFontFamily",
+            "variable-title-medium-emphasized",
+        ),
+        TitleSmallEmphasized(
+            "config_titleSmallEmphasizedFontFamily",
+            "variable-title-small-emphasized",
+        ),
+        BodyLargeEmphasized(
+            "config_bodyLargeEmphasizedFontFamily",
+            "variable-body-large-emphasized",
+        ),
+        BodyMediumEmphasized(
+            "config_bodyMediumEmphasizedFontFamily",
+            "variable-body-medium-emphasized",
+        ),
+        BodySmallEmphasized(
+            "config_bodySmallEmphasizedFontFamily",
+            "variable-body-small-emphasized",
+        ),
+        LabelLargeEmphasized(
+            "config_labelLargeEmphasizedFontFamily",
+            "variable-label-large-emphasized",
+        ),
+        LabelMediumEmphasized(
+            "config_labelMediumEmphasizedFontFamily",
+            "variable-label-medium-emphasized",
+        ),
+        LabelSmallEmphasized(
+            "config_labelSmallEmphasizedFontFamily",
+            "variable-label-small-emphasized",
+        ),
     }
 
     companion object {
@@ -100,6 +175,21 @@ private constructor(
             return TypefaceNames(
                 brand = getTypefaceName(context, Config.Brand),
                 plain = getTypefaceName(context, Config.Plain),
+                displayLargeEmphasized = getTypefaceName(context, Config.DisplayLargeEmphasized),
+                displayMediumEmphasized = getTypefaceName(context, Config.DisplayMediumEmphasized),
+                displaySmallEmphasized = getTypefaceName(context, Config.DisplaySmallEmphasized),
+                headlineLargeEmphasized = getTypefaceName(context, Config.HeadlineLargeEmphasized),
+                headlineMediumEmphasized = getTypefaceName(context, Config.HeadlineMediumEmphasized),
+                headlineSmallEmphasized = getTypefaceName(context, Config.HeadlineSmallEmphasized),
+                titleLargeEmphasized = getTypefaceName(context, Config.TitleLargeEmphasized),
+                titleMediumEmphasized = getTypefaceName(context, Config.TitleMediumEmphasized),
+                titleSmallEmphasized = getTypefaceName(context, Config.TitleSmallEmphasized),
+                bodyLargeEmphasized = getTypefaceName(context, Config.BodyLargeEmphasized),
+                bodyMediumEmphasized = getTypefaceName(context, Config.BodyMediumEmphasized),
+                bodySmallEmphasized = getTypefaceName(context, Config.BodySmallEmphasized),
+                labelLargeEmphasized = getTypefaceName(context, Config.LabelLargeEmphasized),
+                labelMediumEmphasized = getTypefaceName(context, Config.LabelMediumEmphasized),
+                labelSmallEmphasized = getTypefaceName(context, Config.LabelSmallEmphasized),
             )
         }
 

@@ -173,7 +173,7 @@
 
     <style name="TextAppearance.SettingsLib.DisplayLarge.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-display-large-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_displayLargeEmphasizedFontFamily</item>
         <item name="android:textSize">57sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">64sp</item>
@@ -183,7 +183,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.DisplayMedium.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-display-medium-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_displayMediumEmphasizedFontFamily</item>
         <item name="android:textSize">45sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">52sp</item>
@@ -193,7 +193,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.DisplaySmall.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-display-small-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_displaySmallEmphasizedFontFamily</item>
         <item name="android:textSize">36sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">44sp</item>
@@ -204,7 +204,7 @@
 
     <style name="TextAppearance.SettingsLib.HeadlineLarge.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-headline-large-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_headlineLargeEmphasizedFontFamily</item>
         <item name="android:textSize">32sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">40sp</item>
@@ -214,7 +214,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.HeadlineMedium.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-headline-medium-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_headlineMediumEmphasizedFontFamily</item>
         <item name="android:textSize">28sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">36sp</item>
@@ -224,7 +224,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.HeadlineSmall.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-headline-small-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_headlineSmallEmphasizedFontFamily</item>
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">32sp</item>
@@ -235,7 +235,7 @@
 
     <style name="TextAppearance.SettingsLib.TitleLarge.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
-        <item name="android:fontFamily">variable-title-large-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_titleLargeEmphasizedFontFamily</item>
         <item name="android:textSize">22sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">28sp</item>
@@ -245,7 +245,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.TitleMedium.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-title-medium-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_titleMediumEmphasizedFontFamily</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">24sp</item>
@@ -255,7 +255,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.TitleSmall.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-title-small-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_titleSmallEmphasizedFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -266,7 +266,7 @@
 
     <style name="TextAppearance.SettingsLib.LabelLarge.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-label-large-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_labelLargeEmphasizedFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -276,7 +276,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.LabelMedium.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-label-medium-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_labelMediumEmphasizedFontFamily</item>
         <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">0.00833333</item>
         <item name="android:lineHeight">16sp</item>
@@ -286,7 +286,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.LabelSmall.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-label-small-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_labelSmallEmphasizedFontFamily</item>
         <item name="android:textSize">11sp</item>
         <item name="android:letterSpacing">0.00909091</item>
         <item name="android:lineHeight">16sp</item>
@@ -297,7 +297,7 @@
 
     <style name="TextAppearance.SettingsLib.BodyLarge.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-body-large-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_bodyLargeEmphasizedFontFamily</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">24sp</item>
@@ -307,7 +307,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.BodyMedium.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-body-medium-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_bodyMediumEmphasizedFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -317,7 +317,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.BodySmall.Emphasized"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-body-small-emphasized</item>
+        <item name="android:fontFamily">@*android:string/config_bodySmallEmphasizedFontFamily</item>
         <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">16sp</item>

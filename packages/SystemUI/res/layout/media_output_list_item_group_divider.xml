@@ -44,7 +44,7 @@
             android:accessibilityHeading="true"
             android:ellipsize="end"
             android:maxLines="1"
-            android:fontFamily="variable-label-large-emphasized"
+            android:fontFamily="@*android:string/config_labelLargeEmphasizedFontFamily"
             android:gravity="center_vertical|start" />
 
         <FrameLayout

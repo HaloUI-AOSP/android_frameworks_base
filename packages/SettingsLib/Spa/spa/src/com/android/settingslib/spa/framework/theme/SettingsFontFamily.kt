@@ -58,24 +58,66 @@ private fun Context.getSettingsFontFamily() = object : SettingsFontFamily {
         configFontFamilyNormal = "config_bodyFontFamily",
         configFontFamilyMedium = "config_bodyFontFamilyMedium",
     )
-    override val displayLargeEmphasized = fontFamily("variable-display-large-emphasized")
-    override val displayMediumEmphasized = fontFamily("variable-display-medium-emphasized")
-    override val displaySmallEmphasized = fontFamily("variable-display-small-emphasized")
-    override val headlineLargeEmphasized = fontFamily("variable-headline-large-emphasized")
-    override val headlineMediumEmphasized = fontFamily("variable-headline-medium-emphasized")
-    override val headlineSmallEmphasized = fontFamily("variable-headline-small-emphasized")
-    override val titleLargeEmphasized = fontFamily("variable-title-large-emphasized")
-    override val titleMediumEmphasized = fontFamily("variable-title-medium-emphasized")
-    override val titleSmallEmphasized = fontFamily("variable-title-small-emphasized")
-    override val bodyLargeEmphasized = fontFamily("variable-body-large-emphasized")
-    override val bodyMediumEmphasized = fontFamily("variable-body-medium-emphasized")
-    override val bodySmallEmphasized = fontFamily("variable-body-small-emphasized")
-    override val labelLargeEmphasized = fontFamily("variable-label-large-emphasized")
-    override val labelMediumEmphasized = fontFamily("variable-label-medium-emphasized")
-    override val labelSmallEmphasized = fontFamily("variable-label-small-emphasized")
-
-    private fun fontFamily(name: String): FontFamily =
-        FontFamily(Font(DeviceFontFamilyName(name)))
+    override val displayLargeEmphasized = getEmphasizedFontFamily(
+        "config_displayLargeEmphasizedFontFamily",
+        "variable-display-large-emphasized",
+    )
+    override val displayMediumEmphasized = getEmphasizedFontFamily(
+        "config_displayMediumEmphasizedFontFamily",
+        "variable-display-medium-emphasized",
+    )
+    override val displaySmallEmphasized = getEmphasizedFontFamily(
+        "config_displaySmallEmphasizedFontFamily",
+        "variable-display-small-emphasized",
+    )
+    override val headlineLargeEmphasized = getEmphasizedFontFamily(
+        "config_headlineLargeEmphasizedFontFamily",
+        "variable-headline-large-emphasized",
+    )
+    override val headlineMediumEmphasized = getEmphasizedFontFamily(
+        "config_headlineMediumEmphasizedFontFamily",
+        "variable-headline-medium-emphasized",
+    )
+    override val headlineSmallEmphasized = getEmphasizedFontFamily(
+        "config_headlineSmallEmphasizedFontFamily",
+        "variable-headline-small-emphasized",
+    )
+    override val titleLargeEmphasized = getEmphasizedFontFamily(
+        "config_titleLargeEmphasizedFontFamily",
+        "variable-title-large-emphasized",
+    )
+    override val titleMediumEmphasized = getEmphasizedFontFamily(
+        "config_titleMediumEmphasizedFontFamily",
+        "variable-title-medium-emphasized",
+    )
+    override val titleSmallEmphasized = getEmphasizedFontFamily(
+        "config_titleSmallEmphasizedFontFamily",
+        "variable-title-small-emphasized",
+    )
+    override val bodyLargeEmphasized = getEmphasizedFontFamily(
+        "config_bodyLargeEmphasizedFontFamily",
+        "variable-body-large-emphasized",
+    )
+    override val bodyMediumEmphasized = getEmphasizedFontFamily(
+        "config_bodyMediumEmphasizedFontFamily",
+        "variable-body-medium-emphasized",
+    )
+    override val bodySmallEmphasized = getEmphasizedFontFamily(
+        "config_bodySmallEmphasizedFontFamily",
+        "variable-body-small-emphasized",
+    )
+    override val labelLargeEmphasized = getEmphasizedFontFamily(
+        "config_labelLargeEmphasizedFontFamily",
+        "variable-label-large-emphasized",
+    )
+    override val labelMediumEmphasized = getEmphasizedFontFamily(
+        "config_labelMediumEmphasizedFontFamily",
+        "variable-label-medium-emphasized",
+    )
+    override val labelSmallEmphasized = getEmphasizedFontFamily(
+        "config_labelSmallEmphasizedFontFamily",
+        "variable-label-small-emphasized",
+    )
 }
 
 private fun Context.getFontFamily(
@@ -89,6 +131,15 @@ private fun Context.getFontFamily(
         Font(DeviceFontFamilyName(fontFamilyNormal), FontWeight.Normal),
         Font(DeviceFontFamilyName(fontFamilyMedium), FontWeight.Medium),
     )
+}
+
+private fun Context.getEmphasizedFontFamily(
+    configName: String,
+    defaultName: String,
+): FontFamily {
+    val fontFamilyName = getAndroidConfig(configName)
+    if (fontFamilyName.isEmpty()) return FontFamily(Font(DeviceFontFamilyName(defaultName)))
+    return FontFamily(Font(DeviceFontFamilyName(fontFamilyName)))
 }
 
 private fun Context.getAndroidConfig(configName: String): String {
