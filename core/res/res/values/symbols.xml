@@ -4266,6 +4266,21 @@
   <java-symbol type="string" name="config_headlineFontFamilyMedium" />
   <java-symbol type="string" name="config_bodyFontFamily" />
 
+  <java-symbol type="string" name="config_displayLargeEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_displayMediumEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_displaySmallEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_headlineLargeEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_headlineMediumEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_headlineSmallEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_titleLargeEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_titleMediumEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_titleSmallEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_bodyLargeEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_bodyMediumEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_bodySmallEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_labelLargeEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_labelMediumEmphasizedFontFamily" />
+  <java-symbol type="string" name="config_labelSmallEmphasizedFontFamily" />
 
   <java-symbol type="integer" name="config_pressedStateDurationMillis" />
   <java-symbol type="integer" name="config_tapTimeoutMillis" />
