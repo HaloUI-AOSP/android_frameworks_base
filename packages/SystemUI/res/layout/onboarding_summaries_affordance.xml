@@ -63,7 +63,7 @@
 
             <TextView
                 android:id="@+id/message"
-                android:fontFamily="variable-label-large"
+                android:fontFamily="@*android:string/config_labelLargeBaselineFontFamily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:focusable="true"
@@ -86,7 +86,7 @@
           android:theme="@style/Theme.SystemUI.Dialog">
             <Button
                 android:id="@+id/btn_dismiss"
-                android:fontFamily="variable-title-small"
+                android:fontFamily="@*android:string/config_titleSmallBaselineFontFamily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -102,7 +102,7 @@
                 android:textColor="@androidprv:color/materialColorOnTertiaryFixedVariant" />
             <Button
                 android:id="@+id/btn_turn_on"
-                android:fontFamily="variable-title-small"
+                android:fontFamily="@*android:string/config_titleSmallBaselineFontFamily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="48dp"

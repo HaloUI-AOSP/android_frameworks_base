@@ -5402,6 +5402,23 @@
     <!-- Allows setting custom fontFeatureSettings on specific text. -->
     <string name="config_headlineFontFeatureSettings" translatable="false"></string>
 
+    <!-- Name of the font families used for baseline styles -->
+    <string name="config_displayLargeBaselineFontFamily" translatable="false"></string>
+    <string name="config_displayMediumBaselineFontFamily" translatable="false"></string>
+    <string name="config_displaySmallBaselineFontFamily" translatable="false"></string>
+    <string name="config_headlineLargeBaselineFontFamily" translatable="false"></string>
+    <string name="config_headlineMediumBaselineFontFamily" translatable="false"></string>
+    <string name="config_headlineSmallBaselineFontFamily" translatable="false"></string>
+    <string name="config_titleLargeBaselineFontFamily" translatable="false"></string>
+    <string name="config_titleMediumBaselineFontFamily" translatable="false"></string>
+    <string name="config_titleSmallBaselineFontFamily" translatable="false"></string>
+    <string name="config_bodyLargeBaselineFontFamily" translatable="false"></string>
+    <string name="config_bodyMediumBaselineFontFamily" translatable="false"></string>
+    <string name="config_bodySmallBaselineFontFamily" translatable="false"></string>
+    <string name="config_labelLargeBaselineFontFamily" translatable="false"></string>
+    <string name="config_labelMediumBaselineFontFamily" translatable="false"></string>
+    <string name="config_labelSmallBaselineFontFamily" translatable="false"></string>
+
     <!-- Name of the font families used for emphasized styles -->
     <string name="config_displayLargeEmphasizedFontFamily" translatable="false"></string>
     <string name="config_displayMediumEmphasizedFontFamily" translatable="false"></string>

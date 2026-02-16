@@ -4268,6 +4268,22 @@
   <java-symbol type="string" name="config_bodyFontFamilyMedium" />
   <java-symbol type="string" name="config_lightFontFamily" />
 
+  <java-symbol type="string" name="config_displayLargeBaselineFontFamily" />
+  <java-symbol type="string" name="config_displayMediumBaselineFontFamily" />
+  <java-symbol type="string" name="config_displaySmallBaselineFontFamily" />
+  <java-symbol type="string" name="config_headlineLargeBaselineFontFamily" />
+  <java-symbol type="string" name="config_headlineMediumBaselineFontFamily" />
+  <java-symbol type="string" name="config_headlineSmallBaselineFontFamily" />
+  <java-symbol type="string" name="config_titleLargeBaselineFontFamily" />
+  <java-symbol type="string" name="config_titleMediumBaselineFontFamily" />
+  <java-symbol type="string" name="config_titleSmallBaselineFontFamily" />
+  <java-symbol type="string" name="config_bodyLargeBaselineFontFamily" />
+  <java-symbol type="string" name="config_bodyMediumBaselineFontFamily" />
+  <java-symbol type="string" name="config_bodySmallBaselineFontFamily" />
+  <java-symbol type="string" name="config_labelLargeBaselineFontFamily" />
+  <java-symbol type="string" name="config_labelMediumBaselineFontFamily" />
+  <java-symbol type="string" name="config_labelSmallBaselineFontFamily" />
+
   <java-symbol type="string" name="config_displayLargeEmphasizedFontFamily" />
   <java-symbol type="string" name="config_displayMediumEmphasizedFontFamily" />
   <java-symbol type="string" name="config_displaySmallEmphasizedFontFamily" />

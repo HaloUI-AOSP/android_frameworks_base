@@ -69,7 +69,7 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textColor="@androidprv:color/materialColorOnSurface"
-                    android:fontFamily="variable-title-medium"
+                    android:fontFamily="@*android:string/config_titleMediumBaselineFontFamily"
                     android:textSize="16sp"
                 />
                 <TextView

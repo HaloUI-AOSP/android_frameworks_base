@@ -285,7 +285,7 @@ easier.
         <item name="fontFamily">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification" parent="TextAppearance.Material.Notification">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification.Title" parent="TextAppearance.Material.Notification.Title">
@@ -298,11 +298,11 @@ easier.
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification.Reply" parent="TextAppearance.Material.Notification.Reply">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification.Info" parent="TextAppearance.Material.Notification.Info">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-small</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodySmallBaselineFontFamily</item>
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification.Label">
@@ -311,7 +311,7 @@ easier.
         <item name="lineHeight">16sp</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Notification.Time" parent="TextAppearance.Material.Notification.Time">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-small</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodySmallBaselineFontFamily</item>
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Widget" parent="TextAppearance.Material.Widget">

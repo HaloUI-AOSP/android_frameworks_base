@@ -990,7 +990,7 @@ please see styles_device_defaults.xml.
     </style>
 
     <style name="TextAppearance.Toast">
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@*android:string/config_bodyFontFamily</item>
 
         <item name="textSize">14sp</item>
@@ -1665,7 +1665,7 @@ please see styles_device_defaults.xml.
         <item name="ellipsize">end</item>
         <item name="maxLines">1</item>
         <item name="textSize">14sp</item>
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
     </style>
 
     <!-- @hide -->
@@ -1673,14 +1673,14 @@ please see styles_device_defaults.xml.
         <item name="ellipsize">end</item>
         <item name="maxLines">1</item>
         <item name="textSize">14sp</item>
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
     </style>
 
     <!-- @hide -->
     <style name="NotificationMetricUnit" parent="Widget.DeviceDefault.Notification.Text">
         <item name="ellipsize">end</item>
         <item name="maxLines">1</item>
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
     </style>
 
     <!-- @hide -->
@@ -1689,7 +1689,7 @@ please see styles_device_defaults.xml.
     <!-- @hide -->
     <style name="NotificationExpandedMetricValue" parent="NotificationMetricValue">
         <item name="textSize">28sp</item>
-        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">>@*android:string/config_headlineMediumEmphasizedFontFamily</item>
+        <item name="fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_headlineMediumEmphasizedFontFamily</item>
     </style>
 
     <style name="AccessibilityDialog">

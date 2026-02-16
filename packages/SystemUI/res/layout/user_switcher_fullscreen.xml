@@ -64,7 +64,7 @@
 
     <TextView
         android:id="@+id/cancel"
-        android:fontFamily="variable-title-small"
+        android:fontFamily="@*android:string/config_titleSmallBaselineFontFamily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -82,7 +82,7 @@
 
     <TextView
         android:id="@+id/add"
-        android:fontFamily="variable-title-small"
+        android:fontFamily="@*android:string/config_titleSmallBaselineFontFamily"
         android:background="@drawable/user_switcher_fullscreen_button_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

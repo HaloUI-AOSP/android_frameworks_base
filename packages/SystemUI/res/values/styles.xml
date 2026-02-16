@@ -810,7 +810,7 @@
         <item name="android:textSize" android:featureFlag="android.app.notifications_redesign_fonts">14sp</item>
         <item name="android:textSize" android:featureFlag="!android.app.notifications_redesign_fonts">@dimen/notification_importance_channel_group_text</item>
 
-        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@*android:string/config_headlineFontFamily</item>
 
         <item name="android:textColor" android:featureFlag="android.app.notifications_redesign_fonts">@androidprv:color/materialColorOnSurface</item>
@@ -821,7 +821,7 @@
         <item name="android:textSize" android:featureFlag="android.app.notifications_redesign_fonts">14sp</item>
         <item name="android:textSize" android:featureFlag="!android.app.notifications_redesign_fonts">@dimen/notification_importance_channel_group_text</item>
 
-        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@*android:string/config_headlineFontFamily</item>
 
         <item name="android:textColor" android:featureFlag="android.app.notifications_redesign_fonts">@androidprv:color/materialColorOnSurface</item>
@@ -832,7 +832,7 @@
         <item name="android:textSize" android:featureFlag="android.app.notifications_redesign_fonts">14sp</item>
         <item name="android:textSize" android:featureFlag="!android.app.notifications_redesign_fonts">@dimen/notification_importance_header_text</item>
 
-        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@*android:string/config_headlineFontFamily</item>
 
         <item name="android:textColor">@androidprv:color/materialColorOnSurface</item>
@@ -842,7 +842,7 @@
         <item name="android:textSize" android:featureFlag="android.app.notifications_redesign_fonts">14sp</item>
         <item name="android:textSize" android:featureFlag="!android.app.notifications_redesign_fonts">@dimen/notification_importance_description_text</item>
 
-        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">variable-body-medium</item>
+        <item name="android:fontFamily" android:featureFlag="android.app.notifications_redesign_fonts">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:fontFamily" android:featureFlag="!android.app.notifications_redesign_fonts">@*android:string/config_bodyFontFamily</item>
 
         <item name="android:textColor" android:featureFlag="android.app.notifications_redesign_fonts">@androidprv:color/materialColorOnSurface</item>
@@ -922,7 +922,7 @@
     <style name="TextAppearance.NotificationSmartReply">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@androidprv:color/materialColorOnSurface</item>
-        <item name="android:fontFamily">variable-label-medium</item>
+        <item name="android:fontFamily">@*android:string/config_labelMediumBaselineFontFamily</item>
     </style>
 
     <style name="TextAppearance.HeadsUpStatusBarText"

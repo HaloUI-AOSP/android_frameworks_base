@@ -18,7 +18,7 @@
 <resources>
     <style name="TextAppearance.SettingsLib.DisplayLarge"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-display-large</item>
+        <item name="android:fontFamily">@*android:string/config_displayLargeBaselineFontFamily</item>
         <item name="android:textSize">57sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">64sp</item>
@@ -28,7 +28,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.DisplayMedium"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-display-medium</item>
+        <item name="android:fontFamily">@*android:string/config_displayMediumBaselineFontFamily</item>
         <item name="android:textSize">45sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">52sp</item>
@@ -38,7 +38,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.DisplaySmall"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-display-small</item>
+        <item name="android:fontFamily">@*android:string/config_displaySmallBaselineFontFamily</item>
         <item name="android:textSize">36sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">44sp</item>
@@ -49,7 +49,7 @@
 
     <style name="TextAppearance.SettingsLib.HeadlineLarge"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-headline-large</item>
+        <item name="android:fontFamily">@*android:string/config_headlineLargeBaselineFontFamily</item>
         <item name="android:textSize">32sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">40sp</item>
@@ -59,7 +59,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.HeadlineMedium"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-headline-medium</item>
+        <item name="android:fontFamily">@*android:string/config_headlineMediumBaselineFontFamily</item>
         <item name="android:textSize">28sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">36sp</item>
@@ -69,7 +69,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.HeadlineSmall"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-headline-small</item>
+        <item name="android:fontFamily">@*android:string/config_headlineSmallBaselineFontFamily</item>
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">32sp</item>
@@ -80,7 +80,7 @@
 
     <style name="TextAppearance.SettingsLib.TitleLarge"
         parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-title-large</item>
+        <item name="android:fontFamily">@*android:string/config_titleLargeBaselineFontFamily</item>
         <item name="android:textSize">22sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">28sp</item>
@@ -90,7 +90,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.TitleMedium"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-title-medium</item>
+        <item name="android:fontFamily">@*android:string/config_titleMediumBaselineFontFamily</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">24sp</item>
@@ -100,7 +100,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.TitleSmall"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-title-small</item>
+        <item name="android:fontFamily">@*android:string/config_titleSmallBaselineFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -111,7 +111,7 @@
 
     <style name="TextAppearance.SettingsLib.LabelLarge"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-label-large</item>
+        <item name="android:fontFamily">@*android:string/config_labelLargeBaselineFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -121,7 +121,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.LabelMedium"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-label-medium</item>
+        <item name="android:fontFamily">@*android:string/config_labelMediumBaselineFontFamily</item>
         <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">0.00833333</item>
         <item name="android:lineHeight">16sp</item>
@@ -131,7 +131,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.LabelSmall"
         parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-label-small</item>
+        <item name="android:fontFamily">@*android:string/config_labelSmallBaselineFontFamily</item>
         <item name="android:textSize">11sp</item>
         <item name="android:letterSpacing">0.00909091</item>
         <item name="android:lineHeight">16sp</item>
@@ -142,7 +142,7 @@
 
     <style name="TextAppearance.SettingsLib.BodyLarge"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-body-large</item>
+        <item name="android:fontFamily">@*android:string/config_bodyLargeBaselineFontFamily</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">24sp</item>
@@ -152,7 +152,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.BodyMedium"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-body-medium</item>
+        <item name="android:fontFamily">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -162,7 +162,7 @@
     </style>
     <style name="TextAppearance.SettingsLib.BodySmall"
         parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-body-small</item>
+        <item name="android:fontFamily">@*android:string/config_bodySmallBaselineFontFamily</item>
         <item name="android:textSize">12sp</item>
         <item name="android:letterSpacing">0.00833333</item>
         <item name="android:lineHeight">16sp</item>

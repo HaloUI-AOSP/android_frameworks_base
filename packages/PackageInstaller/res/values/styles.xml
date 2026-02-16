@@ -82,7 +82,7 @@
     </style>
 
     <style name="TextAppearance.PackageInstaller.HeadlineSmall" parent="@android:style/TextAppearance.DeviceDefault.Headline">
-        <item name="android:fontFamily">variable-headline-small</item>
+        <item name="android:fontFamily">@*android:string/config_headlineSmallBaselineFontFamily</item>
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">32sp</item>
@@ -92,7 +92,7 @@
     </style>
 
     <style name="TextAppearance.PackageInstaller.LabelLarge" parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-label-large</item>
+        <item name="android:fontFamily">@*android:string/config_labelLargeBaselineFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -102,7 +102,7 @@
     </style>
 
     <style name="TextAppearance.PackageInstaller.BodyMedium" parent="@android:style/TextAppearance.DeviceDefault">
-        <item name="android:fontFamily">variable-body-medium</item>
+        <item name="android:fontFamily">@*android:string/config_bodyMediumBaselineFontFamily</item>
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">20sp</item>
@@ -112,7 +112,7 @@
     </style>
 
     <style name="TextAppearance.PackageInstaller.TitleMedium" parent="@android:style/TextAppearance.DeviceDefault.Medium">
-        <item name="android:fontFamily">variable-title-medium</item>
+        <item name="android:fontFamily">@*android:string/config_titleMediumBaselineFontFamily</item>
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0</item>
         <item name="android:lineHeight">24sp</item>
