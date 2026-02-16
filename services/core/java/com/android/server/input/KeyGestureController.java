@@ -250,6 +250,9 @@ final class KeyGestureController {
     // Volume Up and Down to mute on Android TV
     boolean mVolUpAndDownMute;
 
+    // Select and L1 or R1 for brightness on Android TV
+    boolean mSelectL1R1Brightness;
+
     // List of currently registered key gesture event listeners keyed by process pid
     @GuardedBy("mKeyGestureEventListenerRecords")
     private final SparseArray<KeyGestureEventListenerRecord>
@@ -332,6 +335,9 @@ final class KeyGestureController {
                 UserHandle.USER_CURRENT) == 1;
         mVolUpAndDownMute = LineageSettings.System.getIntForUser(resolver,
                 LineageSettings.System.VOLUME_UP_AND_DOWN_MUTE, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mSelectL1R1Brightness = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.SELECT_AND_L1_R1_BRIGHTNESS, 0,
                 UserHandle.USER_CURRENT) == 1;
     }
 
@@ -447,6 +453,64 @@ final class KeyGestureController {
                                     KeyGestureEvent.KEY_GESTURE_TYPE_ACCESSIBILITY_SHORTCUT_CHORD,
                                     KeyGestureEvent.ACTION_GESTURE_COMPLETE,
                                     KeyGestureEvent.FLAG_CANCELLED);
+                        }
+                    });
+        }
+
+        if (mHasFeatureLeanback) {
+            mKeyCombinationManager.addRule(
+                    new KeyCombinationManager.TwoKeysCombinationRule(KeyEvent.KEYCODE_BUTTON_SELECT,
+                            KeyEvent.KEYCODE_BUTTON_L1) {
+                        @Override
+                        public boolean preCondition() {
+                            return mSelectL1R1Brightness;
+                        }
+                        @Override
+                        public void execute() {
+                            InputManager im = mContext.getSystemService(InputManager.class);
+                            long now = SystemClock.uptimeMillis();
+                            final KeyEvent downEvent = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
+                                    KeyEvent.KEYCODE_BRIGHTNESS_DOWN, 0, 0,
+                                    KeyCharacterMap.VIRTUAL_KEYBOARD, 0, KeyEvent.FLAG_FROM_SYSTEM,
+                                    InputDevice.SOURCE_KEYBOARD);
+                            final KeyEvent upEvent = KeyEvent.changeAction(downEvent,
+                                    KeyEvent.ACTION_UP);
+
+                            im.injectInputEvent(downEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                            im.injectInputEvent(upEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                        }
+                        @Override
+                        public void cancel() {
+                        }
+                    });
+
+            mKeyCombinationManager.addRule(
+                    new KeyCombinationManager.TwoKeysCombinationRule(KeyEvent.KEYCODE_BUTTON_SELECT,
+                            KeyEvent.KEYCODE_BUTTON_R1) {
+                        @Override
+                        public boolean preCondition() {
+                            return mSelectL1R1Brightness;
+                        }
+                        @Override
+                        public void execute() {
+                            InputManager im = mContext.getSystemService(InputManager.class);
+                            long now = SystemClock.uptimeMillis();
+                            final KeyEvent downEvent = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
+                                    KeyEvent.KEYCODE_BRIGHTNESS_UP, 0, 0,
+                                    KeyCharacterMap.VIRTUAL_KEYBOARD, 0, KeyEvent.FLAG_FROM_SYSTEM,
+                                    InputDevice.SOURCE_KEYBOARD);
+                            final KeyEvent upEvent = KeyEvent.changeAction(downEvent,
+                                    KeyEvent.ACTION_UP);
+
+                            im.injectInputEvent(downEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                            im.injectInputEvent(upEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                        }
+                        @Override
+                        public void cancel() {
                         }
                     });
         }
