@@ -16,6 +16,24 @@
       "message": "Was this removed on purpose? It looks like a mismerge which was here since lineage-20 version of this patch. (Not uploading proposed fix because I\u0027m away from my computer for the time being)",
       "revId": "0d84febce54bc0b2c23d913fef55ebbf3fbbd572",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee943d3b_96314053",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 3198,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-02-25T19:59:15Z",
+      "side": 0,
+      "message": "Not sure, https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/460355 is also broken as of 23.1 and remains an issue.",
+      "parentUuid": "acaf6712_5c59768c",
+      "revId": "0d84febce54bc0b2c23d913fef55ebbf3fbbd572",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
