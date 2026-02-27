@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ca6c65_7f536ccc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2026-02-27T17:37:02Z",
+      "side": 1,
+      "message": "P.S. You don\u0027t need to turn on backup manager for LineageOS like the commit message says, because it\u0027s already on by default. You only do for AOSP.",
+      "revId": "2de88f495fc8761b75e9bff1fb6d2d1100ac19bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
