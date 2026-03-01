@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca24981_4f04d5e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36743
+      },
+      "writtenOn": "2026-03-01T05:31:31Z",
+      "side": 1,
+      "message": "The problem persists not in quick settings, it\u0027s spreading to non status bar areas only while receiving a notification.\nFor example, while I was typing here my friend messaged me and I was typing \u0027settings\u0027. The double \u0027tt\u0027 tap registered as a double tap on the status bar and went to sleep. It only happens while the retract notification animation plays.",
+      "revId": "89d94788a3cfc363e0dc5ffd05a8564823d2acf4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
