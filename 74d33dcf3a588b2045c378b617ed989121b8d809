@@ -22,6 +22,30 @@
       },
       "revId": "74d33dcf3a588b2045c378b617ed989121b8d809",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583e03d5_55d68549",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8345,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-03-08T18:46:54Z",
+      "side": 1,
+      "message": "I\u0027m unsure if there are other external devices that use SOURCE_TOUCHPAD, but if there are, this will filter them out, due to getTouchKeypadDeviceId checking if device is not external.",
+      "parentUuid": "2ddcdc46_034519fb",
+      "range": {
+        "startLine": 8345,
+        "startChar": 55,
+        "endLine": 8345,
+        "endChar": 77
+      },
+      "revId": "74d33dcf3a588b2045c378b617ed989121b8d809",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
