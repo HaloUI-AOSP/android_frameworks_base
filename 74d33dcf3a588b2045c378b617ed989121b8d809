@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ddcdc46_034519fb",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 8345,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-03-08T18:25:26Z",
+      "side": 1,
+      "message": "Do you really need to check this?",
+      "range": {
+        "startLine": 8345,
+        "startChar": 55,
+        "endLine": 8345,
+        "endChar": 77
+      },
+      "revId": "74d33dcf3a588b2045c378b617ed989121b8d809",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
