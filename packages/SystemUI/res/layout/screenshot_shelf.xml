@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/screenshot_preview"
             app:layout_constraintEnd_toEndOf="@id/screenshot_preview"
-            app:layout_constraintBottom_toTopOf="@id/actions_container_background"/>
+            app:layout_constraintBottom_toTopOf="@id/guideline"/>
         <ImageView
             android:id="@+id/screenshot_preview"
             android:layout_width="@dimen/overlay_x_scale"
@@ -86,17 +86,19 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:elevation="4dp"
-            android:background="@drawable/shelf_action_chip_container_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/guideline"
+            android:background="@drawable/overlay_border"
+            android:layout_marginStart="@dimen/overlay_action_container_minimum_edge_spacing"
+            app:layout_constraintStart_toEndOf="@id/screenshot_preview_border"
+            app:layout_constraintTop_toTopOf="@id/screenshot_preview_border"
+            app:layout_constraintBottom_toBottomOf="@id/screenshot_preview_border"
             >
-            <HorizontalScrollView
+            <ScrollView
                 android:id="@+id/actions_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/overlay_action_container_padding_vertical"
                 android:layout_marginHorizontal="@dimen/overlay_action_chip_margin_start"
-                android:background="@drawable/shelf_action_container_clipping_shape"
+                android:background="@drawable/overlay_border_shape"
                 android:clipToOutline="true"
                 android:scrollbars="none">
                 <LinearLayout
@@ -104,10 +106,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:showDividers="middle"
-                    android:divider="@drawable/shelf_action_chip_divider"
+                    android:divider="@drawable/shelf_action_chip_divider_vertical"
                     android:animateLayoutChanges="true"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
+                    android:orientation="vertical" />
+            </ScrollView>
         </FrameLayout>
         <ImageView
             android:id="@+id/screenshot_badge"
