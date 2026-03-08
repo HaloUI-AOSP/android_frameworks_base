@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec885d69_016a17b0",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9007,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-03-08T20:56:39Z",
+      "side": 1,
+      "message": "It\u0027s the sensitivity of the fling, which would go all over the place at x1. I will make it (1/1300) here. Value was probably extracted straight from a stock framework decomp, which is why it was left like that.",
+      "parentUuid": "e794c348_a2203798",
+      "range": {
+        "startLine": 9007,
+        "startChar": 0,
+        "endLine": 9007,
+        "endChar": 64
+      },
+      "revId": "c2666949d2f9da1e795d79b9d2da2f872fefbb07",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61cf34a0_3bcda3dd",
         "filename": "core/java/android/view/ViewRootImpl.java",
         "patchSetId": 2
