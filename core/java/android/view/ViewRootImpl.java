@@ -8317,6 +8317,8 @@ public final class ViewRootImpl implements ViewParent,
         private final SyntheticTouchNavigationHandler mTouchNavigation =
                 new SyntheticTouchNavigationHandler();
         private final SyntheticKeyboardHandler mKeyboard = new SyntheticKeyboardHandler();
+        private final SyntheticTouchKeypadHandler mTouchKeypad =
+                new SyntheticTouchKeypadHandler();
 
         public SyntheticInputStage() {
             super(null);
@@ -8337,6 +8339,11 @@ public final class ViewRootImpl implements ViewParent,
                     return FINISH_HANDLED;
                 } else if ((source & InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
                     mJoystick.process(event);
+                    return FINISH_HANDLED;
+                } else if ((source & InputDevice.SOURCE_TOUCHPAD)
+                        == InputDevice.SOURCE_TOUCHPAD
+                        && event.getDeviceId() == View.getTouchKeypadDeviceId()) {
+                    mTouchKeypad.process(event);
                     return FINISH_HANDLED;
                 } else if ((source & InputDevice.SOURCE_TOUCH_NAVIGATION)
                         == InputDevice.SOURCE_TOUCH_NAVIGATION) {
@@ -8362,6 +8369,10 @@ public final class ViewRootImpl implements ViewParent,
                         mTrackball.cancel();
                     } else if ((source & InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
                         mJoystick.cancel();
+                    } else if ((source & InputDevice.SOURCE_TOUCHPAD)
+                            == InputDevice.SOURCE_TOUCHPAD
+                            && event.getDeviceId() == View.getTouchKeypadDeviceId()) {
+                        mTouchKeypad.cancel(event);
                     } else if ((source & InputDevice.SOURCE_TOUCH_NAVIGATION)
                             == InputDevice.SOURCE_TOUCH_NAVIGATION) {
                         // Touch navigation events cannot be cancelled since they are dispatched
@@ -8989,6 +9000,304 @@ public final class ViewRootImpl implements ViewParent,
                     mCurrentDeviceId, /* scancode= */ 0, KeyEvent.FLAG_FALLBACK,
                     mCurrentSource));
         }
+    }
+
+    final class SyntheticTouchKeypadHandler extends Handler {
+        private static final String LOCAL_TAG = "SyntheticTouchKeypadHandler";
+        private static final boolean LOCAL_DEBUG = true;
+
+        private static final float FLING_FACTOR = 7.6923077E-4f;
+        private static final float FLING_TICK_DECAY = 0.995f;
+        private static final float MM_PER_INCH = 25.4f;
+        private static final float SCROLL_FACTOR = 0.01f;
+
+        private int mDeviceId = -1;
+
+        private int mNoHitYThreshold = 100;
+        private int mNoHitMaxTime = 70;
+        private int mNoHitFlingVelocity = 1000;
+
+        private int mActivePointerId = -1;
+        private VelocityTracker mVelocityTracker;
+        private VelocityTracker mNoHitTracker;
+        private long mNoHitLastTime;
+        private InputDevice.MotionRange mRangeX;
+        private InputDevice.MotionRange mRangeY;
+        private long mStartTime;
+        private float mStartX;
+        private float mStartY;
+        private float mLastX;
+        private float mLastY;
+        private boolean mConsumedMovement;
+        private float mSlopDistance;
+        private float mLastUpTime;
+
+        private MotionEvent.PointerCoords[] mPointerCoords = new MotionEvent.PointerCoords[1];
+        private MotionEvent.PointerProperties[] mPointerProperties =
+                                                new MotionEvent.PointerProperties[1];
+
+        private boolean mFlinging;
+        private int mFlingMetaState;
+        private float mFlingVelocityX;
+        private float mFlingVelocityY;
+        private float mFlingMaxVelocity;
+        private long mFlingLastTime;
+
+        public SyntheticTouchKeypadHandler() {
+            super(true);
+
+            mPointerCoords[0] = new MotionEvent.PointerCoords();
+            mPointerProperties[0] = new MotionEvent.PointerProperties();
+            mPointerProperties[0].toolType = MotionEvent.TOOL_TYPE_MOUSE;
+            mPointerProperties[0].id = 0;
+        }
+
+        private boolean init(MotionEvent event) {
+            if (mDeviceId != -1)
+                return true;
+
+            InputDevice device = event.getDevice();
+            if (device == null)
+                return false;
+
+            InputDevice.MotionRange xRange = device.getMotionRange(0);
+            InputDevice.MotionRange yRange = device.getMotionRange(1);
+            if (xRange == null || yRange == null)
+                return false;
+
+            mRangeX = xRange;
+            mRangeY = yRange;
+            float xRes = xRange.getResolution();
+            float yRes = yRange.getResolution();
+            float displayRes = mDensity / MM_PER_INCH;
+
+            if (xRes <= 0.0f || yRes <= 0.0f) {
+                mSlopDistance = mViewConfiguration.getScaledTouchSlop();
+            } else {
+                float nominalRes = (xRes + yRes) * 0.5f;
+                mSlopDistance = (mViewConfiguration.getScaledTouchSlop() * nominalRes)
+                                    / displayRes;
+            }
+
+            mFlingMaxVelocity = mViewConfiguration.getScaledMaximumFlingVelocity();
+            mDeviceId = View.getTouchKeypadDeviceId();
+
+            return true;
+        }
+
+        public void process(MotionEvent event) {
+            if (!init(event))
+                return;
+
+            long time = event.getEventTime();
+            int action = event.getActionMasked();
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    boolean caughtFling = mFlinging;
+                    cancelFling();
+                    finishTracking();
+                    mActivePointerId = event.getPointerId(0);
+                    mVelocityTracker = VelocityTracker.obtain();
+                    mVelocityTracker.addMovement(event);
+                    mNoHitTracker = VelocityTracker.obtain();
+                    mNoHitTracker.addMovement(event);
+                    mStartX = event.getX();
+                    mStartY = event.getY();
+                    mStartTime = time;
+                    mLastX = mStartX;
+                    mLastY = mStartY;
+
+                    DisplayMetrics dm = mContext.getResources().getDisplayMetrics();
+                    float x = dm.widthPixels * 0.5f;
+                    float y = dm.heightPixels * 0.5f;
+
+                    switch (mDisplay.getRotation()) {
+                        case Surface.ROTATION_0:
+                        case Surface.ROTATION_180:
+                            Point realDisplaySize = new Point();
+                            mDisplay.getRealSize(realDisplaySize);
+                            x = (realDisplaySize.x *
+                                ((mLastX - mRangeX.getMin()) / mRangeX.getRange()))
+                                - mAttachInfo.mWindowLeft;
+                            if (x < 0.0f) {
+                                x = 0.0f;
+                            } else if (x >= dm.widthPixels) {
+                                x = dm.widthPixels - 1;
+                            }
+                            break;
+
+                        case Surface.ROTATION_90:
+                        default:
+                            break;
+                    }
+
+                    mPointerCoords[0].setAxisValue(MotionEvent.AXIS_X, x);
+                    mPointerCoords[0].setAxisValue(MotionEvent.AXIS_Y, y);
+                    mConsumedMovement = mConsumedMovement && time - mLastUpTime < 500.0f;
+                    mConsumedMovement |= caughtFling;
+                    return;
+
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_MOVE:
+                    if (mActivePointerId < 0)
+                        return;
+
+                    int index = event.findPointerIndex(mActivePointerId);
+                    if (index < 0) {
+                        cancelFling();
+                        finishTracking();
+                        return;
+                    }
+
+                    float x2 = event.getX(index);
+                    float y2 = event.getY(index);
+                    float dx = x2 - mLastX;
+                    float dy = y2 - mLastY;
+
+                    mVelocityTracker.addMovement(event);
+                    if (y2 >= mNoHitYThreshold && dy < 0.0f) {
+                        mNoHitTracker.addMovement(event);
+                        mNoHitLastTime = time;
+                    }
+
+                    consumeMovement(time, dx, dy, event.getMetaState());
+                    if (mConsumedMovement) {
+                        mLastX = x2;
+                        mLastY = y2;
+                    }
+
+                    if (action == MotionEvent.ACTION_UP) {
+                        mLastUpTime = time;
+                        mVelocityTracker.computeCurrentVelocity(1000, mFlingMaxVelocity);
+                        mFlingVelocityX = mVelocityTracker.getXVelocity(mActivePointerId);
+                        mFlingVelocityY = mVelocityTracker.getYVelocity(mActivePointerId);
+
+                        if (time - mNoHitLastTime < mNoHitMaxTime) {
+                            mNoHitTracker.computeCurrentVelocity(1000, mFlingMaxVelocity);
+                            float noHitXVel = mNoHitTracker.getXVelocity(mActivePointerId);
+                            float noHitYVel = mNoHitTracker.getYVelocity(mActivePointerId);
+                            if (noHitYVel < mNoHitFlingVelocity && noHitYVel < noHitXVel) {
+                                mFlingVelocityX = noHitXVel;
+                                mFlingVelocityY = noHitYVel;
+                            }
+                        }
+
+                        mFlingLastTime = SystemClock.uptimeMillis();
+                        mFlingMetaState = event.getMetaState();
+                        if (!startFling(time)) {
+                            cancelFling();
+                        }
+                        finishTracking();
+                    }
+
+                    return;
+
+                case MotionEvent.ACTION_CANCEL:
+                    cancel(event);
+                    return;
+
+                default:
+                    return;
+            }
+        }
+
+        private void finishTracking() {
+            if (mActivePointerId >= 0) {
+                mActivePointerId = -1;
+                mVelocityTracker.recycle();
+                mVelocityTracker = null;
+            }
+        }
+
+        private void consumeMovement(long time, float deltaX, float deltaY, int metaState) {
+            float absX = Math.abs(deltaX);
+            float absY = Math.abs(deltaY);
+
+            if (absX > absY) {
+                float signX = deltaX >= 0.0f ? 1.0f : -1.0f;
+                if (!mConsumedMovement && signX * deltaX > mSlopDistance) {
+                    deltaX -= mSlopDistance * signX;
+                    mConsumedMovement = true;
+                }
+
+                if (mConsumedMovement) {
+                    sendScroll(time, SCROLL_FACTOR * deltaX, 0.0f, metaState);
+                }
+            } else {
+                float signY = deltaY >= 0.0f ? 1.0f : -1.0f;
+                if (!mConsumedMovement && signY * deltaY > mSlopDistance) {
+                    deltaY -= mSlopDistance * signY;
+                    mConsumedMovement = true;
+                }
+
+                if (mConsumedMovement) {
+                    sendScroll(time, 0.0f, SCROLL_FACTOR * deltaY, metaState);
+                }
+            }
+        }
+
+        private void sendScroll(long time, float hScroll, float vScroll, int metaState) {
+            mPointerCoords[0].setAxisValue(MotionEvent.AXIS_HSCROLL, hScroll);
+            mPointerCoords[0].setAxisValue(MotionEvent.AXIS_VSCROLL, vScroll);
+            MotionEvent scrollEvent = MotionEvent.obtain(mStartTime, time,
+                                                         MotionEvent.ACTION_SCROLL, 1,
+                                                         mPointerProperties, mPointerCoords,
+                                                         metaState, 0, 1.0f, 1.0f, mDeviceId,
+                                                         0, 0, mDisplay.getDisplayId(), 0);
+            scrollEvent.setSource(InputDevice.SOURCE_MOUSE);
+            enqueueInputEvent(scrollEvent);
+        }
+
+        public void cancel(MotionEvent event) {
+            cancelFling();
+            finishTracking();
+        }
+
+        private boolean startFling(long time) {
+            mFlinging = postFling(time);
+            return mFlinging;
+        }
+
+        private boolean postFling(long time) {
+            float absVX = Math.abs(mFlingVelocityX);
+            float absVY = Math.abs(mFlingVelocityY);
+
+            float velocity = absVX > absVY ? absVX : absVY;
+            if (velocity > 1.0f) {
+                postAtTime(mFlingRunnable, 1 + time);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void cancelFling() {
+            if (mFlinging) {
+                removeCallbacks(mFlingRunnable);
+                mFlinging = false;
+            }
+
+            mFlingMetaState = 0;
+        }
+
+        private final Runnable mFlingRunnable = new Runnable() {
+            @Override
+            public void run() {
+                final long time = SystemClock.uptimeMillis();
+                long elapsedTime = time - mFlingLastTime;
+                mFlingLastTime = time;
+
+                float dx = mFlingVelocityX * FLING_FACTOR * elapsedTime;
+                float dy = mFlingVelocityY * FLING_FACTOR * elapsedTime;
+                consumeMovement(time, dx, dy, mFlingMetaState);
+
+                mFlingVelocityX *= FLING_TICK_DECAY;
+                mFlingVelocityY *= FLING_TICK_DECAY;
+                if (!postFling(time)) {
+                    cancelFling();
+                }
+            }
+        };
     }
 
     final class SyntheticKeyboardHandler {

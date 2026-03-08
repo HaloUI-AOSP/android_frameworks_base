@@ -941,6 +941,27 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     public static String sDebugViewAttributesApplicationPackage;
 
+    private static int sTouchKeypadDeviceId = -1;
+
+    /** @hide */
+    protected static int getTouchKeypadDeviceId() {
+        if (sTouchKeypadDeviceId == -1) {
+            int touchKeypadDeviceId = -2;
+            for (int id : InputDevice.getDeviceIds()) {
+                InputDevice device = InputDevice.getDevice(id);
+                if (device != null
+                        && (device.getSources() & InputDevice.SOURCE_TOUCHPAD)
+                                == InputDevice.SOURCE_TOUCHPAD
+                        && !device.isExternal()) {
+                    touchKeypadDeviceId = id;
+                    break;
+                }
+            }
+            sTouchKeypadDeviceId = touchKeypadDeviceId;
+        }
+        return sTouchKeypadDeviceId;
+    }
+
     /**
      * Used to mark a View that has no ID.
      */
