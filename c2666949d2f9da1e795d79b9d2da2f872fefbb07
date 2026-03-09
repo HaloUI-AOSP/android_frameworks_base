@@ -72,6 +72,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e249c1d_0ce8bc55",
+        "filename": "core/java/android/view/ViewRootImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 9003,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-03-09T16:18:39Z",
+      "side": 1,
+      "message": "Should be mostly done, went through and documented the parts that might have been confusing as well as removed some globals. If you still spot anything, feel free to highlight.",
+      "parentUuid": "aeb40064_ab578bac",
+      "revId": "c2666949d2f9da1e795d79b9d2da2f872fefbb07",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e794c348_a2203798",
