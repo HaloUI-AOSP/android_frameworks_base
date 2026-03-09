@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d827c099_132fb754",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotActionsProvider.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-03-09T15:26:48Z",
+      "side": 1,
+      "message": "Just remove instead of commenting out? Same for the other buttons",
+      "range": {
+        "startLine": 105,
+        "startChar": 21,
+        "endLine": 105,
+        "endChar": 86
+      },
+      "revId": "c42b627e03f3f6b187e6830229b1ca33b5dc5770",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
