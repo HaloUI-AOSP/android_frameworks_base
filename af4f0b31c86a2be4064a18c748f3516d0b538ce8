@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72976880_88830d2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2026-03-11T08:20:40Z",
+      "side": 1,
+      "message": "the limit_managed_services_count in flags.aconfig should be dropped as well?",
+      "revId": "af4f0b31c86a2be4064a18c748f3516d0b538ce8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
