@@ -2287,6 +2287,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case PLAY_PAUSE_MUSIC:
                 triggerVirtualKeypress(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
                 break;
+            case SCREENSHOT:
+                takeScreenshot(SCREENSHOT_KEY_OTHER);
+                notifyKeyGestureCompleted(event, KeyGestureEvent.KEY_GESTURE_TYPE_TAKE_SCREENSHOT);
+                break;
             default:
                 break;
         }
