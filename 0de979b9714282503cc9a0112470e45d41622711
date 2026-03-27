@@ -16,6 +16,24 @@
       "message": "```suggestion\nPhoneWindowManager: Allow to take screenshot using hw keys\n```",
       "revId": "0de979b9714282503cc9a0112470e45d41622711",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e512770_8eebb4db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 35436
+      },
+      "writtenOn": "2026-03-27T11:42:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1499a537_4f69ec89",
+      "revId": "0de979b9714282503cc9a0112470e45d41622711",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
