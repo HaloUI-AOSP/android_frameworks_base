@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1499a537_4f69ec89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-03-27T11:29:53Z",
+      "side": 1,
+      "message": "```suggestion\nPhoneWindowManager: Allow to take screenshot using hw keys\n```",
+      "revId": "0de979b9714282503cc9a0112470e45d41622711",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
