@@ -16,6 +16,24 @@
       "message": "What devices are affected right now?",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0453a51_3ed00135",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36863
+      },
+      "writtenOn": "2026-04-02T16:25:23Z",
+      "side": 1,
+      "message": "Currently I encountered this during the fix of UDFPS for OnePlus 13T(pagani).\n\nThe crash specifically occurs when relying on UdfpsSurfaceView for LHBM illumination while the device\u0027s Display HAL actually consumes the HBM request. \n\nIf `$(call soong_config_set_bool,qtidisplay,oplus_udfps,true)` is not set in device.mk, the physical sensor wouldn\u0027t be illuminated but SystemUI also won\u0027t crash, However, it appears once that flag is enabled to route the HBM request to the DRM node, pressing the fingerprint sensor executes the full overlay lifecycle, seems triggering the cross-package callback to GhbmIlluminationListener.",
+      "parentUuid": "ec248e71_4ae20562",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
