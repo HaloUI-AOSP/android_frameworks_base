@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0048e336_91449b1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20370
+      },
+      "writtenOn": "2026-04-16T08:35:45Z",
+      "side": 1,
+      "message": "Build is broken:\n```\nframeworks/base/services/core/java/com/android/server/wm/DisplayContent.java:5688: error: could not resolve InputMonitor\n    InputMonitor getInputMonitor() {\n    ^\nframeworks/base/services/core/java/com/android/server/wm/DisplayContent.java:651: error: could not resolve InputMonitor\n    private InputMonitor mInputMonitor;\n            ^\nframeworks/base/services/core/java/com/android/server/wm/InputMonitor.java:43: error: could not resolve InputEvent\n        void onInputEvent(InputEvent event);\n                          ^\nframeworks/base/services/core/java/com/android/server/wm/InputMonitor.java:37: error: could not resolve ArrayMap\n    private final ArrayMap\u003cString, InputConsumer\u003e mInputConsumers \u003d new ArrayMap\u003c\u003e();\n                  ^\nframeworks/base/services/core/java/com/android/server/wm/InputMonitor.java:37: error: could not resolve InputConsumer\n    private final ArrayMap\u003cString, InputConsumer\u003e mInputConsumers \u003d new ArrayMap\u003c\u003e();\n                                   ^\n```",
+      "revId": "c8e0ae0fa4728e98e660e5a57a6b3f4d79eced70",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
