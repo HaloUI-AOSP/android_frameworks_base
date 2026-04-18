@@ -16,6 +16,24 @@
       "message": "This should be squashed into the original commit, and update original commit-msg co-author list.",
       "revId": "85db97d7a6f6edf09d6c3aaeafae5cb1fa6c13e2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a22380_6fcb0aa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34207
+      },
+      "writtenOn": "2026-04-18T12:46:57Z",
+      "side": 1,
+      "message": "Squashing makes no sense as it would refer to a nonexistent commit. We can squash for the next cycle.",
+      "parentUuid": "9c460bbc_2a977813",
+      "revId": "85db97d7a6f6edf09d6c3aaeafae5cb1fa6c13e2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
