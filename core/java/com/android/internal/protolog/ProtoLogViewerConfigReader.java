@@ -249,7 +249,8 @@ public class ProtoLogViewerConfigReader {
             }
         }
 
-        throw new RuntimeException("Group " + group + " not found in viewer config");
+        android.util.Log.w("ProtoLog", "Group " + group + " not found in viewer config");
+        return -1;
     }
 
     private static class ParsedMessage {

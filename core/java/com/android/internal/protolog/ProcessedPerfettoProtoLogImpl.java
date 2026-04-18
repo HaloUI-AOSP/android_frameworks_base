@@ -167,7 +167,9 @@ public class ProcessedPerfettoProtoLogImpl extends PerfettoProtoLogImpl {
             // into memory, or the message hash is simply not available in the viewer config file.
             // We want to confirm that the message hash is not available in the viewer config file
             // before throwing an exception.
-            throw new RuntimeException(getReasonForFailureToGetMessageString(message));
+            android.util.Log.w("ProtoLog", "Failed to decode message hash ("
+                    + message.getMessageHash() + ") from " + mViewerConfigFilePath);
+            return "ProtoLog(hash=" + message.getMessageHash() + ")";
         }
 
         return messageString;
