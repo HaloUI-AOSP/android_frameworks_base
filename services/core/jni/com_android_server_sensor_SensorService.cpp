@@ -335,11 +335,13 @@ static jlong startSensorServiceNative(JNIEnv* env, jclass, jobject listener) {
 }
 
 static void registerProximityActiveListenerNative(JNIEnv* env, jclass, jlong ptr) {
+    if (ptr == 0) { ALOGW("registerProximityActiveListenerNative called with null ptr; dropping"); return; }
     auto* service = reinterpret_cast<NativeSensorService*>(ptr);
     service->registerProximityActiveListener();
 }
 
 static void unregisterProximityActiveListenerNative(JNIEnv* env, jclass, jlong ptr) {
+    if (ptr == 0) { ALOGW("unregisterProximityActiveListenerNative called with null ptr; dropping"); return; }
     auto* service = reinterpret_cast<NativeSensorService*>(ptr);
     service->unregisterProximityActiveListener();
 }
@@ -348,18 +350,21 @@ static jint registerRuntimeSensorNative(JNIEnv* env, jclass, jlong ptr, jint dev
                                         jstring name, jstring vendor, jfloat maximumRange,
                                         jfloat resolution, jfloat power, jint minDelay,
                                         jint maxDelay, jint flags, jobject callback) {
+    if (ptr == 0) { ALOGW("registerRuntimeSensorNative called with null ptr; dropping"); return -1; }
     auto* service = reinterpret_cast<NativeSensorService*>(ptr);
     return service->registerRuntimeSensor(env, deviceId, type, name, vendor, maximumRange,
                                           resolution, power, minDelay, maxDelay, flags, callback);
 }
 
 static void unregisterRuntimeSensorNative(JNIEnv* env, jclass, jlong ptr, jint handle) {
+    if (ptr == 0) { ALOGW("unregisterRuntimeSensorNative called with null ptr; dropping"); return; }
     auto* service = reinterpret_cast<NativeSensorService*>(ptr);
     service->unregisterRuntimeSensor(handle);
 }
 
 static jboolean sendRuntimeSensorEventNative(JNIEnv* env, jclass, jlong ptr, jint handle, jint type,
                                              jlong timestamp, jfloatArray values) {
+    if (ptr == 0) { ALOGW("sendRuntimeSensorEventNative called with null ptr; dropping"); return JNI_FALSE; }
     auto* service = reinterpret_cast<NativeSensorService*>(ptr);
     return service->sendRuntimeSensorEvent(env, handle, type, timestamp, values);
 }
