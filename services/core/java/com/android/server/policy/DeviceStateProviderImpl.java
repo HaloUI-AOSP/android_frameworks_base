@@ -508,10 +508,14 @@ public final class DeviceStateProviderImpl implements DeviceStateProvider,
             inputManager.registerLidSwitchCallback(this);
         }
 
-        final SensorManager sensorManager = mContext.getSystemService(SensorManager.class);
-        for (int i = 0; i < sensorsToListenTo.size(); i++) {
-            Sensor sensor = sensorsToListenTo.valueAt(i);
-            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+        // On non-foldable devices sensorsToListenTo is empty; acquiring SensorManager
+        // blocks in waitForSensorService during system_server startup causing pre_watchdog ANR.
+        if (!sensorsToListenTo.isEmpty()) {
+            final SensorManager sensorManager = mContext.getSystemService(SensorManager.class);
+            for (int i = 0; i < sensorsToListenTo.size(); i++) {
+                Sensor sensor = sensorsToListenTo.valueAt(i);
+                sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+            }
         }
     }
 
