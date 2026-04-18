@@ -90,8 +90,18 @@ public class SensorService extends SystemService {
     @Override
     public void onBootPhase(int phase) {
         if (phase == SystemService.PHASE_WAIT_FOR_SENSOR_SERVICE) {
-            ConcurrentUtils.waitForFutureNoInterrupt(mSensorServiceStart,
-                    START_NATIVE_SENSOR_SERVICE);
+            long start = android.os.SystemClock.uptimeMillis();
+            try {
+                mSensorServiceStart.get(10, java.util.concurrent.TimeUnit.SECONDS);
+            } catch (java.util.concurrent.TimeoutException e) {
+                android.util.Slog.w("SensorService",
+                        "Native sensorservice not ready after "
+                                + (android.os.SystemClock.uptimeMillis() - start)
+                                + "ms; continuing without blocking main thread");
+            } catch (Exception e) {
+                android.util.Slog.w("SensorService",
+                        "Wait for native sensorservice failed: " + e);
+            }
             synchronized (mLock) {
                 mSensorServiceStart = null;
             }
