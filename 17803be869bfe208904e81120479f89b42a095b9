@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa0bdda_e2a31068",
+        "filename": "core/java/com/android/internal/app/LocalePicker.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-04-20T14:55:59Z",
+      "side": 1,
+      "message": "just replace the \"isInDeveloperMode\" variable with \"false\" here. That way keeping the input arg at least makes sense, otherwise you should remove the input arg completely",
+      "revId": "17803be869bfe208904e81120479f89b42a095b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
