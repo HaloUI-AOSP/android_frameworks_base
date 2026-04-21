@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3f810f_9d296f9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36504
+      },
+      "writtenOn": "2026-04-21T00:47:56Z",
+      "side": 1,
+      "message": "Doesn\u0027t boot with this patch applied. Logcat: https://gist.github.com/Lost-Entrepreneur439/477ee98205101286f2d4c92225ea1063",
+      "revId": "c4829b2ae4b57277979686c32a58a8ee19b4c0e8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
