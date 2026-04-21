@@ -16,6 +16,23 @@
       "message": "Doesn\u0027t boot with this patch applied. Logcat: https://gist.github.com/Lost-Entrepreneur439/477ee98205101286f2d4c92225ea1063",
       "revId": "7ead994082bdc0adcbd399751cc09fe543cf5083",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc4524a_581f266b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36504
+      },
+      "writtenOn": "2026-04-21T00:47:40Z",
+      "side": 1,
+      "message": "mistake; 481166 was the problem",
+      "revId": "7ead994082bdc0adcbd399751cc09fe543cf5083",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
