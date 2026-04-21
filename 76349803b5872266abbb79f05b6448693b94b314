@@ -105,6 +105,24 @@
       "parentUuid": "28fb8519_ee2b0471",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "075612ce_6fcbdbfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36863
+      },
+      "writtenOn": "2026-04-21T09:58:44Z",
+      "side": 1,
+      "message": "Yeah sure, here\u0027s the log with context: https://pastebin.com/3tzhfp0W\n\n```log\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: Process: com.android.systemui, PID: 8510\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: java.lang.IllegalAccessError: Interface com.android.systemui.biometrics.UdfpsSurfaceView$GhbmIlluminationListener implemented by class com.android.systemui.biometrics.ui.view.UdfpsTouchOverlay$configureDisplay$1 is inaccessible (declaration of \u0027com.android.systemui.biometrics.ui.view.UdfpsTouchOverlay$configureDisplay$1\u0027 appears in /system_ext/priv-app/SystemUI/SystemUI.apk!classes4.dex)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat java.lang.reflect.Constructor.newInstance0(Native Method)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat java.lang.reflect.Constructor.newInstance(Constructor.java:343)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat android.view.LayoutInflater.createView(LayoutInflater.java:743)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:895)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:850)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat android.view.LayoutInflater.inflate(LayoutInflater.java:544)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat android.view.LayoutInflater.inflate(LayoutInflater.java:462)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsControllerOverlay.show(UdfpsControllerOverlay.kt:193)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsController.showUdfpsOverlay(UdfpsController.java:871)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsController.-$$Nest$mshowUdfpsOverlay(Unknown Source:0)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsController$UdfpsOverlayController.lambda$showUdfpsOverlay$1(UdfpsController.java:308)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsController$UdfpsOverlayController.$r8$lambda$l9XcDffgPtLa018UuYJfHae8H0k(Unknown Source:0)\n04-01 18:53:27.937  8510  8510 E AndroidRuntime: \tat com.android.systemui.biometrics.UdfpsController$UdfpsOverlayController$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)\n```",
+      "parentUuid": "366bbc08_0e8fb0be",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
