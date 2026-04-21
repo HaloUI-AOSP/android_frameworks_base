@@ -69,6 +69,24 @@
       "parentUuid": "a0453a51_3ed00135",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28fb8519_ee2b0471",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36863
+      },
+      "writtenOn": "2026-04-21T09:14:01Z",
+      "side": 1,
+      "message": "`GhbmIlluminationListener` is defined in the `com.android.systemui.biometrics` package, but it is being implemented by `UdfpsTouchOverlay`, which is now in the `com.android.systemui.biometrics.ui.view` subpackage",
+      "parentUuid": "398f6d64_a6ff2f50",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
