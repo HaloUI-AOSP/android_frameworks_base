@@ -123,6 +123,23 @@
       "parentUuid": "366bbc08_0e8fb0be",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a78ee4_f5c9ae10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32197
+      },
+      "writtenOn": "2026-04-29T05:55:20Z",
+      "side": 1,
+      "message": "I can confirm this has always been the solution to this crash for more than a year. It wasn’t encountered on LineageOS, though, so you might want to confirm whether it was caused by external components.",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
