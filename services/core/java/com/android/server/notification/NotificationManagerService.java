@@ -3069,7 +3069,8 @@ public class NotificationManagerService extends SystemService {
             mPreferencesHelper.updateFixedImportance(mUm.getUsers());
             mPreferencesHelper.migrateNotificationPermissions(mUm.getUsers());
         } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
-            if (mFlagResolver.isEnabled(NotificationFlags.DEBUG_SHORT_BITMAP_DURATION)) {
+            if (!"user".equals(Build.TYPE)
+                    && mFlagResolver.isEnabled(NotificationFlags.DEBUG_SHORT_BITMAP_DURATION)) {
                 new Thread(() -> {
                     while (true) {
                         try {
