@@ -4004,43 +4004,45 @@ final class ActivityManagerShellCommand extends ShellCommand {
 
     // TODO(b/203105544) STOPSHIP - For debugging only, to be removed before shipping.
     private int runSetBgAbusiveUids(PrintWriter pw) throws RemoteException {
-        final String arg = getNextArg();
-        final AppBatteryTracker batteryTracker =
-                mInternal.mAppRestrictionController.getAppStateTracker(AppBatteryTracker.class);
-        if (batteryTracker == null) {
-            getErrPrintWriter().println("Unable to get bg battery tracker");
-            return -1;
-        }
-        if (arg == null) {
-            batteryTracker.clearDebugUidPercentage();
-            return 0;
-        }
-        String[] pairs = arg.split(",");
-        int[] uids = new int[pairs.length];
-        double[][] values = new double[pairs.length][];
-        try {
-            for (int i = 0; i < pairs.length; i++) {
-                String[] pair = pairs[i].split("=");
-                if (pair.length != 2) {
-                    getErrPrintWriter().println("Malformed input");
-                    return -1;
-                }
-                uids[i] = Integer.parseInt(pair[0]);
-                final String[] vals = pair[1].split(":");
-                if (vals.length != BATTERY_USAGE_COUNT) {
-                    getErrPrintWriter().println("Malformed input");
-                    return -1;
-                }
-                values[i] = new double[vals.length];
-                for (int j = 0; j < vals.length; j++) {
-                    values[i][j] = Double.parseDouble(vals[j]);
-                }
+        if (!"user".equals(Build.TYPE)) {
+            final String arg = getNextArg();
+            final AppBatteryTracker batteryTracker =
+                    mInternal.mAppRestrictionController.getAppStateTracker(AppBatteryTracker.class);
+            if (batteryTracker == null) {
+                getErrPrintWriter().println("Unable to get bg battery tracker");
+                return -1;
             }
-        } catch (NumberFormatException e) {
-            getErrPrintWriter().println("Malformed input");
-            return -1;
+            if (arg == null) {
+                batteryTracker.clearDebugUidPercentage();
+                return 0;
+            }
+            String[] pairs = arg.split(",");
+            int[] uids = new int[pairs.length];
+            double[][] values = new double[pairs.length][];
+            try {
+                for (int i = 0; i < pairs.length; i++) {
+                    String[] pair = pairs[i].split("=");
+                    if (pair.length != 2) {
+                        getErrPrintWriter().println("Malformed input");
+                        return -1;
+                    }
+                    uids[i] = Integer.parseInt(pair[0]);
+                    final String[] vals = pair[1].split(":");
+                    if (vals.length != BATTERY_USAGE_COUNT) {
+                        getErrPrintWriter().println("Malformed input");
+                        return -1;
+                    }
+                    values[i] = new double[vals.length];
+                    for (int j = 0; j < vals.length; j++) {
+                        values[i][j] = Double.parseDouble(vals[j]);
+                    }
+                }
+            } catch (NumberFormatException e) {
+                getErrPrintWriter().println("Malformed input");
+                return -1;
+            }
+            batteryTracker.setDebugUidPercentage(uids, values);
         }
-        batteryTracker.setDebugUidPercentage(uids, values);
         return 0;
     }
 

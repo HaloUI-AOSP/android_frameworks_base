@@ -8930,7 +8930,9 @@ public class ActivityManagerService extends IActivityManager.Stub
             sTheRealBuildSerial = IDeviceIdentifiersPolicyService.Stub.asInterface(
                     ServiceManager.getService(Context.DEVICE_IDENTIFIERS_SERVICE))
                     .getSerial();
-        } catch (RemoteException e) {}
+        } catch (RemoteException e) {
+            Slog.w(TAG, "Failed to get device serial from identifiers policy service", e);
+        }
 
         t.traceBegin("killProcesses");
         ArrayList<ProcessRecord> procsToKill = null;

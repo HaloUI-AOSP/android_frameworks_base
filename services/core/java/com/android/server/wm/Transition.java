@@ -953,7 +953,9 @@ class Transition implements BLASTSyncEngine.TransactionReadyListener {
         mController.mAtm.mH.sendMessage(PooledLambda.obtainMessage(cb -> {
             try {
                 cb.sendResult(null);
-            } catch (RemoteException e) { }
+            } catch (RemoteException e) {
+                Slog.w(TAG, "Remote callback failed", e);
+            }
         }, callback));
     }
 

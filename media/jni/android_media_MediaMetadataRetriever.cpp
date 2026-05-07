@@ -386,10 +386,9 @@ static jobject android_media_MediaMetadataRetriever_getFrameAtTime(
     // Call native method to retrieve a video frame
     VideoFrame *videoFrame = NULL;
     sp<IMemory> frameMemory = retriever->getFrameAtTime(timeUs, option, colorFormat);
-    // TODO: Using unsecurePointer() has some associated security pitfalls
-    //       (see declaration for details).
-    //       Either document why it is safe in this case or address the
-    //       issue (e.g. by copying).
+    // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+    //       The IMemory backing could be modified between size validation and data use,
+    //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
     if (frameMemory != 0) {  // cast the shared structure to a VideoFrame object
         videoFrame = static_cast<VideoFrame *>(frameMemory->unsecurePointer());
     }
@@ -418,10 +417,9 @@ static jobject android_media_MediaMetadataRetriever_getImageAtIndex(
     VideoFrame *videoFrame = NULL;
     sp<IMemory> frameMemory = retriever->getImageAtIndex(index, colorFormat);
     if (frameMemory != 0) {  // cast the shared structure to a VideoFrame object
-        // TODO: Using unsecurePointer() has some associated security pitfalls
-        //       (see declaration for details).
-        //       Either document why it is safe in this case or address the
-        //       issue (e.g. by copying).
+        // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+        //       The IMemory backing could be modified between size validation and data use,
+        //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
         videoFrame = static_cast<VideoFrame *>(frameMemory->unsecurePointer());
     }
     if (videoFrame == NULL) {
@@ -452,10 +450,9 @@ static jobject android_media_MediaMetadataRetriever_getThumbnailImageAtIndex(
     sp<IMemory> frameMemory = retriever->getImageAtIndex(
             index, colorFormat, true /*metaOnly*/, true /*thumbnail*/);
     if (frameMemory != 0) {
-        // TODO: Using unsecurePointer() has some associated security pitfalls
-        //       (see declaration for details).
-        //       Either document why it is safe in this case or address the
-        //       issue (e.g. by copying).
+        // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+        //       The IMemory backing could be modified between size validation and data use,
+        //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
         videoFrame = static_cast<VideoFrame *>(frameMemory->unsecurePointer());
         int32_t thumbWidth = videoFrame->mWidth;
         int32_t thumbHeight = videoFrame->mHeight;
@@ -470,10 +467,9 @@ static jobject android_media_MediaMetadataRetriever_getThumbnailImageAtIndex(
             frameMemory = retriever->getImageAtIndex(
                     index, colorFormat, false /*metaOnly*/, true /*thumbnail*/);
             if (frameMemory != 0) {
-                // TODO: Using unsecurePointer() has some associated security pitfalls
-                //       (see declaration for details).
-                //       Either document why it is safe in this case or address the
-                //       issue (e.g. by copying).
+                // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+                //       The IMemory backing could be modified between size validation and data use,
+                //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
                 videoFrame = static_cast<VideoFrame *>(frameMemory->unsecurePointer());
             }
 
@@ -525,10 +521,9 @@ static jobject android_media_MediaMetadataRetriever_getFrameAtIndex(
             ALOGE("video frame at index %zu is a NULL pointer", frameIndex + i);
             break;
         }
-        // TODO: Using unsecurePointer() has some associated security pitfalls
-        //       (see declaration for details).
-        //       Either document why it is safe in this case or address the
-        //       issue (e.g. by copying).
+        // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+        //       The IMemory backing could be modified between size validation and data use,
+        //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
         VideoFrame *videoFrame = static_cast<VideoFrame *>(frame->unsecurePointer());
         jobject bitmapObj = getBitmapFromVideoFrame(env, videoFrame, -1, -1, colorFormat);
         env->CallBooleanMethod(arrayList, fields.arrayListAdd, bitmapObj);
@@ -562,10 +557,9 @@ static jbyteArray android_media_MediaMetadataRetriever_getEmbeddedPicture(
     // the method name to getEmbeddedPicture().
     sp<IMemory> albumArtMemory = retriever->extractAlbumArt();
     if (albumArtMemory != 0) {  // cast the shared structure to a MediaAlbumArt object
-        // TODO: Using unsecurePointer() has some associated security pitfalls
-        //       (see declaration for details).
-        //       Either document why it is safe in this case or address the
-        //       issue (e.g. by copying).
+        // TODO: Replace unsecurePointer() with a copy to prevent TOCTOU.
+        //       The IMemory backing could be modified between size validation and data use,
+        //       leading to buffer over-reads. Copy the data to a local buffer via IMemory::getMemory().
         mediaAlbumArt = static_cast<MediaAlbumArt *>(albumArtMemory->unsecurePointer());
     }
     if (mediaAlbumArt == NULL) {

@@ -240,7 +240,9 @@ public class Notifier {
         // Initialize interactive state for battery stats.
         try {
             mBatteryStats.noteInteractive(true);
-        } catch (RemoteException ex) { }
+        } catch (RemoteException ex) {
+            Slog.w(TAG, "Failed to notify battery stats interactive", ex);
+        }
         FrameworkStatsLog.write(FrameworkStatsLog.INTERACTIVE_STATE_CHANGED,
                 FrameworkStatsLog.INTERACTIVE_STATE_CHANGED__STATE__ON);
     }
@@ -522,7 +524,9 @@ public class Notifier {
             // Notify battery stats.
             try {
                 mBatteryStats.noteInteractive(interactive);
-            } catch (RemoteException ex) { }
+            } catch (RemoteException ex) {
+                Slog.w(TAG, "Failed to notify battery stats interactive change", ex);
+            }
             FrameworkStatsLog.write(FrameworkStatsLog.INTERACTIVE_STATE_CHANGED,
                     interactive ? FrameworkStatsLog.INTERACTIVE_STATE_CHANGED__STATE__ON :
                             FrameworkStatsLog.INTERACTIVE_STATE_CHANGED__STATE__OFF);

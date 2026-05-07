@@ -1286,11 +1286,14 @@ public class Vpn {
 
             // Revoke the connection or stop the VpnRunner.
             if (mConnection != null) {
+                final Parcel data = Parcel.obtain();
                 try {
                     mConnection.mService.transact(IBinder.LAST_CALL_TRANSACTION,
-                            Parcel.obtain(), null, IBinder.FLAG_ONEWAY);
+                            data, null, IBinder.FLAG_ONEWAY);
                 } catch (Exception e) {
                     // ignore
+                } finally {
+                    data.recycle();
                 }
                 mAppOpsManager.finishOp(
                         AppOpsManager.OPSTR_ESTABLISH_VPN_SERVICE, mOwnerUID, mPackage, null);
