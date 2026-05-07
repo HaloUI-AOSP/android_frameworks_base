@@ -55,7 +55,9 @@ public class UninstallFinish extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         int returnCode = intent.getIntExtra(PackageInstaller.EXTRA_STATUS, 0);
 
-        Log.i(LOG_TAG, "Uninstall finished extras=" + intent.getExtras());
+        if (Log.isLoggable(LOG_TAG, Log.VERBOSE)) {
+            Log.v(LOG_TAG, "Uninstall finished extras=" + intent.getExtras());
+        }
 
         if (returnCode == PackageInstaller.STATUS_PENDING_USER_ACTION) {
             context.startActivity(intent.getParcelableExtra(Intent.EXTRA_INTENT));
