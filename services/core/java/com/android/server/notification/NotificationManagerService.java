@@ -3069,7 +3069,8 @@ public class NotificationManagerService extends SystemService {
             mPreferencesHelper.updateFixedImportance(mUm.getUsers());
             mPreferencesHelper.migrateNotificationPermissions(mUm.getUsers());
         } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
-            if (mFlagResolver.isEnabled(NotificationFlags.DEBUG_SHORT_BITMAP_DURATION)) {
+            if (!"user".equals(Build.TYPE)
+                    && mFlagResolver.isEnabled(NotificationFlags.DEBUG_SHORT_BITMAP_DURATION)) {
                 new Thread(() -> {
                     while (true) {
                         try {
@@ -7208,20 +7209,10 @@ public class NotificationManagerService extends SystemService {
             pw.print(" (filtered to "); pw.print(filter); pw.print(")");
         }
         pw.println(':');
-        int N;
         final boolean zenOnly = filter.filtered && filter.zen;
 
         if (!zenOnly) {
-            synchronized (mToastQueue) {
-                N = mToastQueue.size();
-                if (N > 0) {
-                    pw.println("  Toast Queue:");
-                    for (int i=0; i<N; i++) {
-                        mToastQueue.get(i).dump(pw, "    ", filter);
-                    }
-                    pw.println("  ");
-                }
-            }
+            dumpToastQueue(pw, filter);
         }
 
         synchronized (mNotificationLock) {
@@ -7241,17 +7232,7 @@ public class NotificationManagerService extends SystemService {
                 mArchive.dumpImpl(pw, filter);
 
                 if (!zenOnly) {
-                    N = mEnqueuedNotifications.size();
-                    if (N > 0) {
-                        pw.println("  Enqueued Notification List:");
-                        for (int i = 0; i < N; i++) {
-                            final NotificationRecord nr = mEnqueuedNotifications.get(i);
-                            if (filter.filtered && !filter.matches(nr.getSbn())) continue;
-                            nr.dump(pw, "    ", getContext(), filter.redact);
-                        }
-                        pw.println("  ");
-                    }
-
+                    dumpEnqueuedNotifications(pw, filter);
                     mSnoozeHelper.dump(pw, filter);
                 }
             }
@@ -7265,26 +7246,7 @@ public class NotificationManagerService extends SystemService {
 
                 pw.println("\n  Notification listeners:");
                 mListeners.dump(pw, filter);
-                pw.print("    mListenerHints: "); pw.println(mListenerHints);
-                pw.print("    mListenersDisablingEffects: (");
-                N = mListenersDisablingEffects.size();
-                for (int i = 0; i < N; i++) {
-                    final int hint = mListenersDisablingEffects.keyAt(i);
-                    if (i > 0) pw.print(';');
-                    pw.print("hint[" + hint + "]:");
-
-                    final ArraySet<ComponentName> listeners = mListenersDisablingEffects.valueAt(i);
-                    final int listenerSize = listeners.size();
-
-                    for (int j = 0; j < listenerSize; j++) {
-                        if (j > 0) pw.print(',');
-                        final ComponentName listener = listeners.valueAt(j);
-                        if (listener != null) {
-                            pw.print(listener);
-                        }
-                    }
-                }
-                pw.println(')');
+                dumpListenerHintsAndDisablingEffects(pw);
                 pw.println("\n  Notification assistant services:");
                 mAssistants.dump(pw, filter);
             }
@@ -7301,15 +7263,7 @@ public class NotificationManagerService extends SystemService {
             pw.println("\n  Condition providers:");
             mConditionProviders.dump(pw, filter);
 
-            pw.println("\n  Group summaries:");
-            for (Entry<String, NotificationRecord> entry : mSummaryByGroupKey.entrySet()) {
-                NotificationRecord r = entry.getValue();
-                pw.println("    " + entry.getKey() + " -> " + r.getKey());
-                if (mNotificationsByKey.get(r.getKey()) != r) {
-                    pw.println("!!!!!!LEAK: Record not found in mNotificationsByKey.");
-                    r.dump(pw, "      ", getContext(), filter.redact);
-                }
-            }
+            dumpGroupSummaries(pw, filter);
 
             if (!zenOnly) {
                 pw.println("\n  Usage Stats:");
@@ -7318,6 +7272,73 @@ public class NotificationManagerService extends SystemService {
                 if (Flags.allNotifsNeedTtl()) {
                     pw.println("\n  TimeToLive alarms:");
                     mTtlHelper.dump(pw, "    ");
+                }
+            }
+        }
+    }
+
+    private void dumpToastQueue(PrintWriter pw, @NonNull DumpFilter filter) {
+        synchronized (mToastQueue) {
+            int N = mToastQueue.size();
+            if (N > 0) {
+                pw.println("  Toast Queue:");
+                for (int i = 0; i < N; i++) {
+                    mToastQueue.get(i).dump(pw, "    ", filter);
+                }
+                pw.println("  ");
+            }
+        }
+    }
+
+    private void dumpEnqueuedNotifications(PrintWriter pw, @NonNull DumpFilter filter) {
+        synchronized (mNotificationLock) {
+            int N = mEnqueuedNotifications.size();
+            if (N > 0) {
+                pw.println("  Enqueued Notification List:");
+                for (int i = 0; i < N; i++) {
+                    final NotificationRecord nr = mEnqueuedNotifications.get(i);
+                    if (filter.filtered && !filter.matches(nr.getSbn())) continue;
+                    nr.dump(pw, "    ", getContext(), filter.redact);
+                }
+                pw.println("  ");
+            }
+        }
+    }
+
+    private void dumpListenerHintsAndDisablingEffects(PrintWriter pw) {
+        synchronized (mNotificationLock) {
+            pw.print("    mListenerHints: "); pw.println(mListenerHints);
+            pw.print("    mListenersDisablingEffects: (");
+            int N = mListenersDisablingEffects.size();
+            for (int i = 0; i < N; i++) {
+                final int hint = mListenersDisablingEffects.keyAt(i);
+                if (i > 0) pw.print(';');
+                pw.print("hint[" + hint + "]:");
+
+                final ArraySet<ComponentName> listeners = mListenersDisablingEffects.valueAt(i);
+                final int listenerSize = listeners.size();
+
+                for (int j = 0; j < listenerSize; j++) {
+                    if (j > 0) pw.print(',');
+                    final ComponentName listener = listeners.valueAt(j);
+                    if (listener != null) {
+                        pw.print(listener);
+                    }
+                }
+            }
+            pw.println(')');
+        }
+    }
+
+    private void dumpGroupSummaries(PrintWriter pw, @NonNull DumpFilter filter) {
+        synchronized (mNotificationLock) {
+            pw.println("\n  Group summaries:");
+            for (Entry<String, NotificationRecord> entry : mSummaryByGroupKey.entrySet()) {
+                NotificationRecord r = entry.getValue();
+                pw.println("    " + entry.getKey() + " -> " + r.getKey());
+                if (mNotificationsByKey.get(r.getKey()) != r) {
+                    pw.println("!!!!!!LEAK: Record not found in mNotificationsByKey.");
+                    r.dump(pw, "      ", getContext(), filter.redact);
                 }
             }
         }

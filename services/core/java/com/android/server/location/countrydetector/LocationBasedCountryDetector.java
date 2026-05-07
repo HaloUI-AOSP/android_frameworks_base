@@ -98,7 +98,7 @@ public class LocationBasedCountryDetector extends CountryDetectorBase {
     protected void registerListener(String provider, LocationListener listener) {
         final long bid = Binder.clearCallingIdentity();
         try {
-            mLocationManager.requestLocationUpdates(provider, 0, 0, listener);
+            mLocationManager.requestLocationUpdates(provider, 5 * 60 * 1000, 0, listener);
         } finally {
             Binder.restoreCallingIdentity(bid);
         }
@@ -228,6 +228,10 @@ public class LocationBasedCountryDetector extends CountryDetectorBase {
         if (mTimer != null) {
             mTimer.cancel();
             mTimer = null;
+        }
+        if (mQueryThread != null) {
+            mQueryThread.interrupt();
+            mQueryThread = null;
         }
     }
 

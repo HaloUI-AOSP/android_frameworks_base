@@ -1497,6 +1497,9 @@ public class AdbDebuggingManager {
         }
 
         try {
+            // TODO: Replace MD5 with SHA-256 for fingerprint verification.
+            // MD5 collisions allow an attacker to craft a key with the same fingerprint
+            // as an authorized debugging host, enabling unauthorized ADB access.
             digester = MessageDigest.getInstance("MD5");
         } catch (Exception ex) {
             Slog.e(TAG, "Error getting digester", ex);

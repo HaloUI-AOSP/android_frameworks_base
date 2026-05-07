@@ -144,7 +144,9 @@ public class StagingManager {
         if (mFailureReasonFile.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(mFailureReasonFile))) {
                 mFailureReason = reader.readLine();
-            } catch (Exception ignore) { }
+            } catch (Exception e) {
+                Slog.w(TAG, "Failed to read failure reason file", e);
+            }
         }
     }
 
