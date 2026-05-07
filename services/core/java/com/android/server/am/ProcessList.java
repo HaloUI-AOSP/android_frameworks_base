@@ -1051,11 +1051,6 @@ public final class ProcessList {
         int minSize = 480 * 800;  //  384000
         int maxSize = 1280 * 800; // 1024000  230400 870400  .264
         float scaleDisp = ((float)(displayWidth * displayHeight) - minSize) / (maxSize - minSize);
-        if (false) {
-            Slog.i("XXXXXX", "scaleMem=" + scaleMem);
-            Slog.i("XXXXXX", "scaleDisp=" + scaleDisp + " dw=" + displayWidth
-                    + " dh=" + displayHeight);
-        }
 
         float scale = scaleMem > scaleDisp ? scaleMem : scaleDisp;
         if (scale < 0) scale = 0;
@@ -1064,9 +1059,6 @@ public final class ProcessList {
                 com.android.internal.R.integer.config_lowMemoryKillerMinFreeKbytesAdjust);
         int minfree_abs = Resources.getSystem().getInteger(
                 com.android.internal.R.integer.config_lowMemoryKillerMinFreeKbytesAbsolute);
-        if (false) {
-            Slog.i("XXXXXX", "minfree_adj=" + minfree_adj + " minfree_abs=" + minfree_abs);
-        }
 
         final boolean is64bit = Build.SUPPORTED_64_BIT_ABIS.length > 0;
 

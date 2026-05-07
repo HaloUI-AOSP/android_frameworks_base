@@ -612,15 +612,17 @@ public class DexManager {
                 }
             }
             return allCorrect;
-        } catch (IOException ignore) {
-            Slog.wtf(TAG, "Error when parsing APK " + fileName);
+        } catch (IOException e) {
+            Slog.wtf(TAG, "Error when parsing APK " + fileName, e);
             return false;
         } finally {
             try {
                 if (jarFile != null) {
                     jarFile.close();
                 }
-            } catch (IOException ignore) {}
+            } catch (IOException e) {
+                Slog.w(TAG, "Failed to close jar file " + fileName, e);
+            }
         }
     }
 

@@ -826,7 +826,9 @@ public final class NotificationAttentionHelper {
                     }
                     try {
                         Thread.sleep(waitMs);
-                    } catch (InterruptedException e) { }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
                     // Notifications might be canceled before it actually vibrates due to waitMs,
                     // so need to check that the notification is still valid for vibrate.
                     if (mNMP.getNotificationByKey(record.getKey()) != null) {
