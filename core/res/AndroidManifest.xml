@@ -8590,6 +8590,7 @@
         <activity android:name="android.accounts.ChooseTypeAndAccountActivity"
                 android:excludeFromRecents="true"
                 android:exported="true"
+                android:permission="android.permission.MANAGE_ACCOUNTS"
                 android:theme="@style/Theme.DeviceDefault.Light.Dialog"
                 android:label="@string/choose_account_label"
                 android:process=":ui"
@@ -8732,6 +8733,7 @@
 
         <receiver android:name="com.android.server.BootReceiver"
                 android:exported="true"
+                android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
                 android:systemUserOnly="true">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
