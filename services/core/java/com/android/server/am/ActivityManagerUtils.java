@@ -35,6 +35,8 @@ public class ActivityManagerUtils {
 
     private static Integer sAndroidIdHash;
 
+    private static final int MAX_HASH_CACHE_SIZE = 256;
+
     @GuardedBy("sHashCache")
     private static final ArrayMap<String, Integer> sHashCache = new ArrayMap<>();
 
@@ -80,6 +82,9 @@ public class ActivityManagerUtils {
             }
             final int hash = getUnsignedHashUnCached(s);
             sHashCache.put(s.intern(), hash);
+            if (sHashCache.size() > MAX_HASH_CACHE_SIZE) {
+                sHashCache.removeAt(0);
+            }
             return hash;
         }
     }
