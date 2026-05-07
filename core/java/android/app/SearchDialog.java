@@ -562,7 +562,7 @@ public class SearchDialog extends Dialog {
         if (intent == null) {
             return;
         }
-        Log.d(LOG_TAG, "launching " + intent);
+        if (DBG) Log.d(LOG_TAG, "launching " + intent);
         try {
             // If the intent was created from a suggestion, it will always have an explicit
             // component here.
