@@ -329,13 +329,13 @@ public class LockscreenCredential implements Parcelable, AutoCloseable {
     }
 
     /**
-     * Hash the given password for the password history, using the legacy algorithm.
+     * Legacy password hashing using SHA-1 concatenated with MD5.
+     * Both algorithms are cryptographically broken:
+     * - MD5 has practical collision attacks (chosen-prefix collisions demonstrated)
+     * - SHA-1 has practical chosen-prefix collision attacks (SHAttered, 2017)
      *
-     * @deprecated This algorithm is insecure because the password can be easily bruteforced, given
-     *             the hash and salt.  Use {@link #passwordToHistoryHash(byte[], byte[], byte[])}
-     *             instead, which incorporates an SP-derived secret into the hash.
-     *
-     * @return the legacy password hash
+     * @deprecated This must only be used for compatibility with pre-existing
+     *             lockscreen credentials. New credentials must use scrypt.
      */
     @Deprecated
     public static String legacyPasswordToHash(byte[] password, byte[] salt) {
