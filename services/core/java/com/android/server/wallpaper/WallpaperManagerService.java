@@ -548,6 +548,12 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
 
         @Override
         public void onDisplayChanged(int displayId) {
+            synchronized (mLock) {
+                if (DEBUG) {
+                    Slog.d(TAG, "Refreshing wallpaper display data for display " + displayId);
+                }
+                mWallpaperDisplayHelper.refreshDisplayData(displayId);
+            }
         }
     };
 
