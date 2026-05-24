@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d181a98b_186bed36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-05-24T12:14:34Z",
+      "side": 1,
+      "message": "Won\u0027t this cause the field to follow system theme even if the app enforces eg light theme?",
+      "revId": "7f93a68bf9d6fc19583695e2949d9c44032c609f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
