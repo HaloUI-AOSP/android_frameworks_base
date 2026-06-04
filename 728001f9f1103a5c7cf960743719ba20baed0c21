@@ -34,6 +34,24 @@
       "parentUuid": "f5590fb6_c971bbdb",
       "revId": "728001f9f1103a5c7cf960743719ba20baed0c21",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92fa893a_036b8c7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36555
+      },
+      "writtenOn": "2026-06-04T15:03:32Z",
+      "side": 1,
+      "message": "yeah i have tested this locally on a LineageOS based ROM. locked the rotation, cycled the screen off/on and it held the rotation perfectly without reverting, Also checked that apps forcing landscape still work fine, All good!",
+      "parentUuid": "de66d4fd_50b98315",
+      "revId": "728001f9f1103a5c7cf960743719ba20baed0c21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
