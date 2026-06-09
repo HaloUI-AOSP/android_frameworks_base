@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "296d4ab5_ac510287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2026-06-09T19:18:54Z",
+      "side": 1,
+      "message": "PS2 fixes the boot loop",
+      "revId": "dc6946aa0002ddfb46d1b8dd74a042d6655ea104",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
