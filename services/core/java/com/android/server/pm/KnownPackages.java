@@ -89,7 +89,7 @@ public final class KnownPackages {
     private final String mDefaultTextClassifierPackage;
     private final String mSystemTextClassifierPackageName;
     private final String mRequiredPermissionControllerPackage;
-    private final String mConfiguratorPackage;
+    private final String[] mConfiguratorPackages;
     private final String mIncidentReportApproverPackage;
     private final String mAmbientContextDetectionPackage;
     private final String mWearableSensingPackage;
@@ -104,7 +104,7 @@ public final class KnownPackages {
             String requiredUninstallerPackage, String setupWizardPackage,
             String[] requiredVerifierPackages, String defaultTextClassifierPackage,
             String systemTextClassifierPackageName, String requiredPermissionControllerPackage,
-            String configuratorPackage, String incidentReportApproverPackage,
+            String[] configuratorPackages, String incidentReportApproverPackage,
             String ambientContextDetectionPackage, String wearableSensingPackage,
             String appPredictionServicePackage, String companionPackageName,
             String retailDemoPackage, String overlayConfigSignaturePackage, String recentsPackage,
@@ -117,7 +117,7 @@ public final class KnownPackages {
         mDefaultTextClassifierPackage = defaultTextClassifierPackage;
         mSystemTextClassifierPackageName = systemTextClassifierPackageName;
         mRequiredPermissionControllerPackage = requiredPermissionControllerPackage;
-        mConfiguratorPackage = configuratorPackage;
+        mConfiguratorPackages = configuratorPackages;
         mIncidentReportApproverPackage = incidentReportApproverPackage;
         mAmbientContextDetectionPackage = ambientContextDetectionPackage;
         mWearableSensingPackage = wearableSensingPackage;
@@ -204,7 +204,7 @@ public final class KnownPackages {
             case PACKAGE_PERMISSION_CONTROLLER:
                 return snapshot.filterOnlySystemPackages(mRequiredPermissionControllerPackage);
             case PACKAGE_CONFIGURATOR:
-                return snapshot.filterOnlySystemPackages(mConfiguratorPackage);
+                return snapshot.filterOnlySystemPackages(mConfiguratorPackages);
             case PACKAGE_INCIDENT_REPORT_APPROVER:
                 return snapshot.filterOnlySystemPackages(mIncidentReportApproverPackage);
             case PACKAGE_AMBIENT_CONTEXT_DETECTION:

@@ -957,7 +957,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     final @Nullable String mStorageManagerPackage;
     final @Nullable String mDefaultTextClassifierPackage;
     final @Nullable String mSystemTextClassifierPackageName;
-    final @Nullable String mConfiguratorPackage;
+    final @Nullable String[] mConfiguratorPackages;
     final @Nullable String mAppPredictionServicePackage;
     final @Nullable String mIncidentReportApproverPackage;
     final @Nullable String mServicesExtensionPackageName;
@@ -1918,7 +1918,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         mRecentsPackage = testParams.recentsPackage;
         mAmbientContextDetectionPackage = testParams.ambientContextDetectionPackage;
         mWearableSensingPackage = testParams.wearableSensingPackage;
-        mConfiguratorPackage = testParams.configuratorPackage;
+        mConfiguratorPackages = new String[] { testParams.configuratorPackage };
         mAppPredictionServicePackage = testParams.appPredictionServicePackage;
         mIncidentReportApproverPackage = testParams.incidentReportApproverPackage;
         mServicesExtensionPackageName = testParams.servicesExtensionPackageName;
@@ -2318,8 +2318,12 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                     mContext.getString(R.string.config_servicesExtensionPackage));
             mSystemTextClassifierPackageName = ensureSystemPackageName(computer,
                     mContext.getString(R.string.config_defaultTextClassifierPackage));
-            mConfiguratorPackage = ensureSystemPackageName(computer,
-                    mContext.getString(R.string.config_deviceConfiguratorPackageName));
+            mConfiguratorPackages = new String[] {
+                    ensureSystemPackageName(computer,
+                            mContext.getString(R.string.config_deviceConfiguratorPackageName)),
+                    ensureSystemPackageName(computer,
+                            mContext.getString(org.lineageos.platform.internal.R.string.config_deviceConfiguratorPackageName)),
+            };
             mAppPredictionServicePackage = ensureSystemPackageName(computer,
                     getPackageFromComponentString(R.string.config_defaultAppPredictionService));
             mIncidentReportApproverPackage = ensureSystemPackageName(computer,
@@ -6744,7 +6748,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                     mDefaultTextClassifierPackage,
                     mSystemTextClassifierPackageName,
                     mRequiredPermissionControllerPackage,
-                    mConfiguratorPackage,
+                    mConfiguratorPackages,
                     mIncidentReportApproverPackage,
                     mAmbientContextDetectionPackage,
                     mWearableSensingPackage,
@@ -7929,7 +7933,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                 mDefaultTextClassifierPackage,
                 mSystemTextClassifierPackageName,
                 mRequiredPermissionControllerPackage,
-                mConfiguratorPackage,
+                mConfiguratorPackages,
                 mIncidentReportApproverPackage,
                 mAmbientContextDetectionPackage,
                 mWearableSensingPackage,
