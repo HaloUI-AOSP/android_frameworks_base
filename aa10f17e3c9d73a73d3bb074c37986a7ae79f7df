@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f6737a_15652b41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2026-06-12T10:20:55Z",
+      "side": 1,
+      "message": "Added a part to the commit message. Also, to iterate on what was said:\n\nYes it will, but without that it relies on the apps attributr whoch many dont set properly, resulting in broken popups. Also font follows system theme already, just bg doesnt, which is making this superior to no patch",
+      "revId": "aa10f17e3c9d73a73d3bb074c37986a7ae79f7df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
