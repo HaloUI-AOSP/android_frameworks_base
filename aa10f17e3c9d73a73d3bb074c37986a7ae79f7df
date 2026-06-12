@@ -16,6 +16,29 @@
       "message": "Added a part to the commit message. Also, to iterate on what was said:\n\nYes it will, but without that it relies on the apps attributr whoch many dont set properly, resulting in broken popups. Also font follows system theme already, just bg doesnt, which is making this superior to no patch",
       "revId": "aa10f17e3c9d73a73d3bb074c37986a7ae79f7df",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c959cb_8924c88d",
+        "filename": "core/java/android/widget/Editor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 4219,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-06-12T11:58:40Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 4219,
+        "startChar": 0,
+        "endLine": 4219,
+        "endChar": 24
+      },
+      "revId": "aa10f17e3c9d73a73d3bb074c37986a7ae79f7df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
