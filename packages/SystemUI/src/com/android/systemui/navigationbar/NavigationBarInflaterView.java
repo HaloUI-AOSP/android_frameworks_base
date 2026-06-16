@@ -54,6 +54,7 @@ import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.util.Objects;
+import java.util.concurrent.Executor;
 
 public class NavigationBarInflaterView extends FrameLayout
         implements NavigationModeController.ModeChangedListener, TunerService.Tunable {
@@ -114,15 +115,19 @@ public class NavigationBarInflaterView extends FrameLayout
     private boolean mAlternativeOrder;
 
     private OverviewProxyService mOverviewProxyService;
+    private Executor mBgExecutor;
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
 
     private boolean mInverseLayout;
     private boolean mIsHintEnabled;
+    private boolean mRequestedHintOverlayState;
+    private int mRequestedHintOverlayUserId = Integer.MIN_VALUE;
 
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         createInflaters();
         mOverviewProxyService = Dependency.get(OverviewProxyService.class);
+        mBgExecutor = Dependency.get(Dependency.BACKGROUND_EXECUTOR);
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(this);
     }
 
@@ -258,21 +263,37 @@ public class NavigationBarInflaterView extends FrameLayout
     }
 
     private void updateHint() {
-        final IOverlayManager iom = IOverlayManager.Stub.asInterface(
-                ServiceManager.getService(Context.OVERLAY_SERVICE));
         final boolean state = mNavBarMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabled;
         final int userId = ActivityManager.getCurrentUser();
-        try {
-            iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
-            if (state) {
-                // As overlays are also used to apply navigation mode, it is needed to set
-                // our customization overlay to highest priority to ensure it is applied.
-                iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
+
+        synchronized (this) {
+            if (mRequestedHintOverlayUserId == userId
+                    && mRequestedHintOverlayState == state) {
+                return;
             }
-        } catch (IllegalArgumentException | RemoteException e) {
-            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
-                    + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
+            mRequestedHintOverlayUserId = userId;
+            mRequestedHintOverlayState = state;
         }
+
+        mBgExecutor.execute(() -> {
+            final IOverlayManager iom = IOverlayManager.Stub.asInterface(
+                    ServiceManager.getService(Context.OVERLAY_SERVICE));
+            if (iom == null) {
+                Log.e(TAG, "Failed to get overlay manager");
+                return;
+            }
+            try {
+                iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
+                if (state) {
+                    // As overlays are also used to apply navigation mode, it is needed to set
+                    // our customization overlay to highest priority to ensure it is applied.
+                    iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
+                }
+            } catch (IllegalArgumentException | RemoteException e) {
+                Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                        + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
+            }
+        });
     }
 
     private void initiallyFill(ButtonDispatcher buttonDispatcher) {
