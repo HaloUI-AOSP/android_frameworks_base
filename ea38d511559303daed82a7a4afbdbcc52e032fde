@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6dd23fb_267db918",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 37317
+      },
+      "writtenOn": "2026-06-17T11:35:16Z",
+      "side": 1,
+      "message": "Tested on marble, charging info displays correctly on lockscreen. Works as expected.",
+      "revId": "ea38d511559303daed82a7a4afbdbcc52e032fde",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
