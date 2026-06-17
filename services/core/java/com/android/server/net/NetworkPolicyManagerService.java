@@ -2959,7 +2959,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         try {
             fis = mPolicyFile.openRead();
             readPolicyXml(fis, false, UserHandle.USER_ALL);
-f        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             // missing policy is okay, probably first boot
             upgradeDefaultBackgroundDataUL();
         } catch (Exception e) {
