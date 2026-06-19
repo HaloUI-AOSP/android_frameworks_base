@@ -5520,6 +5520,9 @@
     <!-- Default value set for battery percentage in status bar false = disabled, true = enabled -->
     <bool name="config_defaultBatteryPercentageSetting">false</bool>
 
+    <!-- Whether to show extended charging information on the lock screen. -->
+    <bool name="config_lockscreenBatteryInfo">false</bool>
+
     <!-- Model of potentially misprovisioned devices. If none is specified in an overlay, an
          empty string is passed in. -->
     <string name="config_misprovisionedDeviceModel" translatable="false"></string>
