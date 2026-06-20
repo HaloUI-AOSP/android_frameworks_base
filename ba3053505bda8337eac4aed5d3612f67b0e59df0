@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05e66212_d773def0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32837
+      },
+      "writtenOn": "2026-06-20T02:31:15Z",
+      "side": 1,
+      "message": "hello everyone, in the new version, the installation is done via an overlay, and I\u0027ve cleaned up a bit.",
+      "revId": "ba3053505bda8337eac4aed5d3612f67b0e59df0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
