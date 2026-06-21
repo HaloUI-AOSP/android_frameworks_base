@@ -887,13 +887,9 @@ public class EdgeBackGestureHandler {
             return;
         }
 
-        if (DesktopExperienceFlags.ENABLE_MULTIDISPLAY_TRACKPAD_BACK_GESTURE.isTrue()) {
-            for (DisplayBackGestureHandler displayBackGestureHandler :
-                    mDisplayBackGestureHandlers.values()) {
-                displayBackGestureHandler.setLongSwipeEnabled(mIsLongSwipeEnabled);
-            }
-        } else if (mEdgeBackPlugin != null) {
-            mEdgeBackPlugin.setLongSwipeEnabled(mIsLongSwipeEnabled);
+        for (DisplayBackGestureHandler displayBackGestureHandler :
+                mDisplayBackGestureHandlers.values()) {
+            displayBackGestureHandler.setLongSwipeEnabled(mIsLongSwipeEnabled);
         }
     }
 
