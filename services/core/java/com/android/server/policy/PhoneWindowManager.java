@@ -3039,12 +3039,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         @Override
-        boolean supportLongPress() {
+        public boolean supportLongPress() {
             return mAssistLongPressAction != Action.NOTHING;
         }
 
         @Override
-        void onKeyGesture(@NonNull SingleKeyGestureEvent event) {
+        public void onKeyGesture(@NonNull SingleKeyGestureEvent event) {
             if (event.getAction() != ACTION_COMPLETE) {
                 return;
             }
