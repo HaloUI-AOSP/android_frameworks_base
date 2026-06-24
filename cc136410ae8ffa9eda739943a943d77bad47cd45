@@ -16,6 +16,24 @@
       "message": "is there some reason you don\u0027t squash QS toggles?\nthey appear to all touch same files or create their own\nso not like conflicts are likely?",
       "revId": "cc136410ae8ffa9eda739943a943d77bad47cd45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de0604d_47d31ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-06-24T07:45:32Z",
+      "side": 1,
+      "message": "I think it\u0027s better to leave them separate.",
+      "parentUuid": "c941d522_9f7d8b18",
+      "revId": "cc136410ae8ffa9eda739943a943d77bad47cd45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
