@@ -16,6 +16,23 @@
       "message": "kill?",
       "revId": "f96d220677c4120a9d4bd237306adcec5f18575b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb732d86_7dd7558d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2026-06-24T07:04:10Z",
+      "side": 1,
+      "message": "This is unused for now. If anything in the future needs it, it can be brought back.",
+      "revId": "f96d220677c4120a9d4bd237306adcec5f18575b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
