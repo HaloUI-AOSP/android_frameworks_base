@@ -16,6 +16,23 @@
       "message": "kill?",
       "revId": "856b17372ee92313fd8593c190d905c5f1e210db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e9b9ef_d6f30790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2026-06-24T07:03:41Z",
+      "side": 1,
+      "message": "See profile change.",
+      "revId": "856b17372ee92313fd8593c190d905c5f1e210db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
