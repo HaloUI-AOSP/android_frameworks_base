@@ -16,6 +16,24 @@
       "message": "Waht if device doesn\u0027t have FlipFlap?",
       "revId": "5323a454c7251193f64022c0af3819cf7de2f474",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5234c5cd_cabd13a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36566
+      },
+      "writtenOn": "2026-07-08T07:36:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t affect devices without flipflap",
+      "parentUuid": "207664a2_1230f648",
+      "revId": "5323a454c7251193f64022c0af3819cf7de2f474",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": [
