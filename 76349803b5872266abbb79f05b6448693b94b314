@@ -140,6 +140,23 @@
       "message": "I can confirm this has always been the solution to this crash for more than a year. It wasn’t encountered on LineageOS, though, so you might want to confirm whether it was caused by external components.",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7df05f1d_a96ce828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36241
+      },
+      "writtenOn": "2026-07-09T01:15:12Z",
+      "side": 1,
+      "message": "I\u0027ve tried it, and it fixed the same crash issue. Yes, even though my device is an unofficial Lineage device.",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
