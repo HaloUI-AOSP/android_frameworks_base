@@ -157,6 +157,23 @@
       "message": "I\u0027ve tried it, and it fixed the same crash issue. Yes, even though my device is an unofficial Lineage device.",
       "revId": "76349803b5872266abbb79f05b6448693b94b314",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "999d5f05_abc8285d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33857
+      },
+      "writtenOn": "2026-07-11T14:19:55Z",
+      "side": 1,
+      "message": "Verified on OnePlus 6(enchilada) and OnePlus 6T(fajita). This will fix udfps.",
+      "revId": "76349803b5872266abbb79f05b6448693b94b314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
