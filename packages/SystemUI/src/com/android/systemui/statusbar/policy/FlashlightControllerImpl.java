@@ -21,6 +21,7 @@ import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
+import android.os.Handler;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.text.TextUtils;
@@ -60,8 +61,11 @@ public class FlashlightControllerImpl implements FlashlightController {
     private static final String ACTION_FLASHLIGHT_CHANGED =
         "com.android.settings.flashlight.action.FLASHLIGHT_CHANGED";
 
+    private static final long TORCH_REINIT_DELAY_MS = 1500;
+
     private final CameraManager mCameraManager;
     private final Executor mExecutor;
+    private final Handler mHandler;
     private final SecureSettings mSecureSettings;
     private final DumpManager mDumpManager;
     private final BroadcastSender mBroadcastSender;
@@ -75,6 +79,8 @@ public class FlashlightControllerImpl implements FlashlightController {
     private boolean mFlashlightEnabled;
     @GuardedBy("this")
     private boolean mTorchAvailable;
+    @GuardedBy("this")
+    private Boolean mPendingEnable = null;
 
     private final AtomicReference<String> mCameraId;
     private final AtomicBoolean mInitted = new AtomicBoolean(false);
@@ -84,12 +90,14 @@ public class FlashlightControllerImpl implements FlashlightController {
             DumpManager dumpManager,
             CameraManager cameraManager,
             @Background Executor bgExecutor,
+            @Background Handler bgHandler,
             SecureSettings secureSettings,
             BroadcastSender broadcastSender,
             PackageManager packageManager
     ) {
         mCameraManager = cameraManager;
         mExecutor = bgExecutor;
+        mHandler = bgHandler;
         mCameraId = new AtomicReference<>(null);
         mSecureSettings = secureSettings;
         mDumpManager = dumpManager;
@@ -128,15 +136,34 @@ public class FlashlightControllerImpl implements FlashlightController {
         }
         mExecutor.execute(() -> {
             if (mCameraId.get() == null) return;
+            boolean needsReinit = false;
             synchronized (this) {
                 if (mFlashlightEnabled != enabled) {
                     try {
                         mCameraManager.setTorchMode(mCameraId.get(), enabled);
                     } catch (CameraAccessException e) {
                         Log.e(TAG, "Couldn't set torch mode", e);
-                        dispatchError();
+                        Throwable cause = e.getCause();
+                        if (cause instanceof android.os.ServiceSpecificException) {
+                            // Transient error from camera HAL (e.g., EUSERS after boot).
+                            // Retry when torch becomes available via TorchCallback.
+                            mPendingEnable = enabled;
+                        } else {
+                            dispatchError();
+                        }
+                    } catch (IllegalArgumentException e) {
+                        // Camera ID temporarily invalid during HAL re-initialization.
+                        // Preserve pending intent and rediscover after HAL stabilizes.
+                        Log.e(TAG, "Couldn't set torch mode, camera ID invalid", e);
+                        mCameraId.set(null);
+                        mPendingEnable = enabled;
+                        needsReinit = true;
                     }
                 }
+            }
+            if (needsReinit) {
+                mCameraManager.unregisterTorchCallback(mTorchCallback);
+                mHandler.postDelayed(this::tryInitCamera, TORCH_REINIT_DELAY_MS);
             }
         });
     }
@@ -268,6 +295,16 @@ public class FlashlightControllerImpl implements FlashlightController {
             if (changed) {
                 if (DEBUG) Log.d(TAG, "dispatchAvailabilityChanged(" + available + ")");
                 dispatchAvailabilityChanged(available);
+            }
+            if (available) {
+                Boolean pending;
+                synchronized (FlashlightControllerImpl.this) {
+                    pending = mPendingEnable;
+                    mPendingEnable = null;
+                }
+                if (pending != null) {
+                    setFlashlight(pending);
+                }
             }
         }
 
