@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e08f5e0_47658290",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-07-18T04:35:56Z",
+      "side": 1,
+      "message": "Have a similar commit but with this and torch camera IDs being chosen together, but since i\u0027m unsure its a complete fix or not according to LineageOS standards, i\u0027m putting this here along with what i have did if its required later\n\nRef: https://github.com/StudioKeys-Dumps/frameworks_base-cnb/commit/84595e2098fe9582eeb7a024f88c3936a4166723",
+      "revId": "e75d6fbaf5cf15497d87fac7bd0a19fbf382922b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
