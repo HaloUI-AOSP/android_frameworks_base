@@ -52,6 +52,24 @@
       "parentUuid": "f7543155_7662e396",
       "revId": "3c6dbe0c091a7bae0b3b467caa30a09df1e454a0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4dfd2c1_4c03a5cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-07-21T05:31:23Z",
+      "side": 1,
+      "message": "Verified on ASUS ROG Phone 3 that the crash doesn\u0027t happen nor do the ones in comments",
+      "parentUuid": "fd7d2781_d13f5966",
+      "revId": "3c6dbe0c091a7bae0b3b467caa30a09df1e454a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
