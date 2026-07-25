@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba9bfc01_5ff0a4b6",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionContentManager.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-25T15:12:51Z",
+      "side": 0,
+      "message": "Unrelated",
+      "revId": "53c2dc9f760828aba79b525bc1b5a916552f28c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
