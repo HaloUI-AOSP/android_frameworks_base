@@ -16,6 +16,24 @@
       "message": "Unrelated",
       "revId": "1449ea1ea70b4dcea51671e3779ed3c3905a9ffd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea738483_90062b1b",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionContentManager.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-25T16:54:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95176eb6_a1029036",
+      "revId": "1449ea1ea70b4dcea51671e3779ed3c3905a9ffd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
