@@ -16,6 +16,24 @@
       "message": "This should be split to each of the original commits",
       "revId": "de26398cded2c85ec1df9df9423d268ecf87b4a5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec838b81_8e06586c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-25T14:14:58Z",
+      "side": 1,
+      "message": "Makes sense, I was wondering whether I should have done that when I was porting these changes. Also for fw/b changes, what do I use to format kotlin and java files respectively?",
+      "parentUuid": "789cc8dc_dd46d115",
+      "revId": "de26398cded2c85ec1df9df9423d268ecf87b4a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
