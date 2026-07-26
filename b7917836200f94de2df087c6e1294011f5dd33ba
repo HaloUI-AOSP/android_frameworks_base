@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d120c964_6732eca4",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/ui/viewmodel/ScreenCaptureRecordParametersViewModel.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-26T08:19:59Z",
+      "side": 1,
+      "message": "This belongs in the longer duration commit",
+      "revId": "b7917836200f94de2df087c6e1294011f5dd33ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a63a865_ffad4a07",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/ui/viewmodel/ScreenCaptureRecordParametersViewModel.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-26T08:19:59Z",
+      "side": 1,
+      "message": "Same as above",
+      "revId": "b7917836200f94de2df087c6e1294011f5dd33ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6db39ba_8d6d26b8",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/domain/interactor/ScreenRecordingServiceInteractor.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-26T08:19:59Z",
+      "side": 1,
+      "message": "Remove this",
+      "revId": "b7917836200f94de2df087c6e1294011f5dd33ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
