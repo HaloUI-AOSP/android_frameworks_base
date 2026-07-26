@@ -16,6 +16,24 @@
       "message": "Missing implementation for this?",
       "revId": "91db2716e7135d3fbe80e945c4cd0839fd84885c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b618b17d_2df8b526",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/data/repository/ScreenCaptureRecordParametersRepository.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:38Z",
+      "side": 1,
+      "message": "option does not seem exposed to user when i try to do a screen record",
+      "parentUuid": "1ad42a60_0dc2c731",
+      "revId": "91db2716e7135d3fbe80e945c4cd0839fd84885c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
