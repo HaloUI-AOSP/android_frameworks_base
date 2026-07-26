@@ -34,6 +34,24 @@
       "parentUuid": "1ad42a60_0dc2c731",
       "revId": "91db2716e7135d3fbe80e945c4cd0839fd84885c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dbb9631_801c2407",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/data/repository/ScreenCaptureRecordParametersRepository.kt",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-26T15:22:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b618b17d_2df8b526",
+      "revId": "91db2716e7135d3fbe80e945c4cd0839fd84885c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
