@@ -16,6 +16,24 @@
       "message": "Unrelated change",
       "revId": "5cb81f7f3c6897f776a78fe757f48760cd8fe43c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad2e993_addd36ff",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/service/IScreenRecordingService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:47:33Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c2934c0d_c6ec46df",
+      "revId": "5cb81f7f3c6897f776a78fe757f48760cd8fe43c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
