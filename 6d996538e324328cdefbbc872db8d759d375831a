@@ -16,6 +16,24 @@
       "message": "Missing newline before and after the function",
       "revId": "6d996538e324328cdefbbc872db8d759d375831a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3430d9be_60ba4999",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/RecordingService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:56:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db8f056_3fbce15d",
+      "revId": "6d996538e324328cdefbbc872db8d759d375831a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
