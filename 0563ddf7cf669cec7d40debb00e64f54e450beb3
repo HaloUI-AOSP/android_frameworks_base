@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a79cd91_3d929d4a",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/largescreen/ui/compose/CaptureSettingsMenu.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-07-26T08:25:28Z",
+      "side": 1,
+      "message": "Put this under the ifdef as well?",
+      "revId": "0563ddf7cf669cec7d40debb00e64f54e450beb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
