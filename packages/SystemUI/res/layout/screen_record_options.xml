@@ -86,6 +86,40 @@
             android:importantForAccessibility="yes" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/show_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/screenrecord_option_padding">
+        <ImageView
+            android:layout_width="@dimen/screenrecord_option_icon_size"
+            android:layout_height="@dimen/screenrecord_option_icon_size"
+            android:src="@drawable/vd_camera"
+            android:tint="@color/materialColorOnSurfaceVariant"
+            android:layout_marginEnd="@dimen/screenrecord_option_padding"
+            android:importantForAccessibility="no"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/screenrecord_show_taps_margin_end"
+            android:text="@string/screen_record_should_show_camera_label"
+            android:textAppearance="@style/TextAppearance.ScreenRecord.SwitchLabel"
+            android:contentDescription="@string/screen_record_should_show_camera_label"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:minWidth="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/screenrecord_camera_switch"
+            android:contentDescription="@string/screen_record_should_show_camera_label"
+            style="@style/ScreenRecord.Switch"
+            android:importantForAccessibility="yes" />
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/show_lowquality"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

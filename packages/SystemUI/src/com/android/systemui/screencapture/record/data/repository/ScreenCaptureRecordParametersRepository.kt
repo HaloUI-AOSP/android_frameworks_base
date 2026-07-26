@@ -51,7 +51,14 @@ constructor(@Application private val context: Context, private val userTracker: 
             Prefs.putInt(userContext, PREF_TAPS, if (value) 1 else 0)
         }
 
-    var shouldShowFrontCamera: Boolean by mutableStateOf(false)
+    private val shouldShowFrontCameraState =
+        mutableStateOf(Prefs.getInt(userContext, PREF_CAMERA, 0) == 1)
+    var shouldShowFrontCamera: Boolean
+        get() = shouldShowFrontCameraState.value
+        set(value) {
+            shouldShowFrontCameraState.value = value
+            Prefs.putInt(userContext, PREF_CAMERA, if (value) 1 else 0)
+        }
 
     private val lowQualityState = mutableStateOf(Prefs.getInt(userContext, PREF_LOW, 0) == 1)
     var lowQuality: Boolean
@@ -95,6 +102,7 @@ constructor(@Application private val context: Context, private val userTracker: 
 
     companion object {
         private const val PREF_TAPS = "screenrecord_show_taps"
+        private const val PREF_CAMERA = "screenrecord_show_front_camera"
         private const val PREF_LOW = "screenrecord_use_low_quality"
         private const val PREF_LONGER = "screenrecord_use_longer_timeout"
         private const val PREF_AUDIO = "screenrecord_use_audio"

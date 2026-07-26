@@ -110,6 +110,7 @@ class ScreenRecordPermissionContentManager(
     }
 
     private lateinit var tapsSwitch: Switch
+    private lateinit var cameraSwitch: Switch
     private lateinit var audioSwitch: Switch
     private lateinit var lowQualitySwitch: Switch
     private lateinit var longerDurationSwitch: Switch
@@ -164,6 +165,7 @@ class ScreenRecordPermissionContentManager(
     private fun initRecordOptionsView() {
         audioSwitch = containerView.requireViewById(R.id.screenrecord_audio_switch)
         tapsSwitch = containerView.requireViewById(R.id.screenrecord_taps_switch)
+        cameraSwitch = containerView.requireViewById(R.id.screenrecord_camera_switch)
         lowQualitySwitch = containerView.requireViewById(R.id.screenrecord_lowquality_switch)
         longerDurationSwitch =
             containerView.requireViewById(R.id.screenrecord_longer_timeout_switch)
@@ -177,6 +179,7 @@ class ScreenRecordPermissionContentManager(
         // within its target region, to meet accessibility requirements
         audioSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         tapsSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
+        cameraSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         lowQualitySwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         longerDurationSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         skipTimeSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
@@ -290,6 +293,7 @@ class ScreenRecordPermissionContentManager(
     private fun savePrefs() {
         val userContext = containerView.context
         Prefs.putInt(userContext, PREF_TAPS, if (tapsSwitch.isChecked) 1 else 0)
+        Prefs.putInt(userContext, PREF_CAMERA, if (cameraSwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_LOW, if (lowQualitySwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_LONGER, if (longerDurationSwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_AUDIO, if (audioSwitch.isChecked) 1 else 0)
@@ -301,6 +305,7 @@ class ScreenRecordPermissionContentManager(
     private fun loadPrefs() {
         val userContext = containerView.context
         tapsSwitch.isChecked = Prefs.getInt(userContext, PREF_TAPS, 0) == 1
+        cameraSwitch.isChecked = Prefs.getInt(userContext, PREF_CAMERA, 0) == 1
         lowQualitySwitch.isChecked = Prefs.getInt(userContext, PREF_LOW, 0) == 1
         longerDurationSwitch.isChecked = Prefs.getInt(userContext, PREF_LONGER, 0) == 1
         audioSwitch.isChecked = Prefs.getInt(userContext, PREF_AUDIO, 0) == 1
@@ -338,6 +343,7 @@ class ScreenRecordPermissionContentManager(
         private const val INTERVAL_MS: Long = 1000
 
         private const val PREF_TAPS = "screenrecord_show_taps"
+        private const val PREF_CAMERA = "screenrecord_show_front_camera"
         private const val PREF_LOW = "screenrecord_use_low_quality"
         private const val PREF_LONGER = "screenrecord_use_longer_timeout"
         private const val PREF_AUDIO = "screenrecord_use_audio"
