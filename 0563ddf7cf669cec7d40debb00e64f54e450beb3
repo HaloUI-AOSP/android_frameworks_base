@@ -16,6 +16,24 @@
       "message": "Put this under the ifdef as well?",
       "revId": "0563ddf7cf669cec7d40debb00e64f54e450beb3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6d2a9e_e50fcc68",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/largescreen/ui/compose/CaptureSettingsMenu.kt",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a79cd91_3d929d4a",
+      "revId": "0563ddf7cf669cec7d40debb00e64f54e450beb3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
