@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a23cda_ee8d9afd",
+        "filename": "packages/SystemUI/src/com/android/systemui/screencapture/record/ui/viewmodel/ScreenCaptureRecordParametersViewModel.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "539d8729_93d57da9",
+      "revId": "2d9f33334b5830ea6d3c07137dd47e06f23cb1a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "858f03ee_f3215382",
@@ -35,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0196f957_27d7de3a",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "858f03ee_f3215382",
+      "revId": "2d9f33334b5830ea6d3c07137dd47e06f23cb1a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fdfd787_abf3ace8",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-07-26T08:18:21Z",
       "side": 1,
       "message": "hevc shouldn\u0027t be in this commit 😕, same below",
+      "revId": "2d9f33334b5830ea6d3c07137dd47e06f23cb1a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a75b45bd_9f4cd74d",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/shared/model/ScreenRecordingParameters.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fdfd787_abf3ace8",
       "revId": "2d9f33334b5830ea6d3c07137dd47e06f23cb1a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }

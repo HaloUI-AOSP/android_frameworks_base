@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "654746d8_3d761d9e",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenMediaRecorder.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:19Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "45ce3522_7b970a05",
+      "revId": "b641742199be231fba81239216dab72d0ba3b70d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fbee997_b58b75c4",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-07-26T08:18:21Z",
       "side": 0,
       "message": "Unrelated, how did this end up here??",
+      "revId": "b641742199be231fba81239216dab72d0ba3b70d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da362341_74ad3c5e",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/domain/interactor/ScreenRecordingServiceInteractor.kt",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-07-26T10:51:19Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "3fbee997_b58b75c4",
       "revId": "b641742199be231fba81239216dab72d0ba3b70d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
