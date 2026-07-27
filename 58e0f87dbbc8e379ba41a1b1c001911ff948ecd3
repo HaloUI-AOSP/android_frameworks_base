@@ -16,6 +16,23 @@
       "message": "Tested on erhai, running 24.0.",
       "revId": "58e0f87dbbc8e379ba41a1b1c001911ff948ecd3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cca85f4_f4453a62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-07-27T21:38:51Z",
+      "side": 1,
+      "message": "i verified on same device but on 23.2",
+      "revId": "58e0f87dbbc8e379ba41a1b1c001911ff948ecd3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
