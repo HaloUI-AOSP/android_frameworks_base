@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d83d1d26_58572e65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-07-30T07:59:34Z",
+      "side": 1,
+      "message": "@danascape@gmail.com Tested on 24.0?\ncoz normally changes mirror up to newer branches as well",
+      "revId": "ce40555f1be19e49ea267fec26a89fcc8d4b754d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
