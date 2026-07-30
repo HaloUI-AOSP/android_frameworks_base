@@ -34,6 +34,24 @@
       "parentUuid": "72361a87_063286d5",
       "revId": "7f46e64700088952ebbae732c432fc6f11bd2a29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bafe3d5e_cfcc5c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36241
+      },
+      "writtenOn": "2026-07-30T02:21:29Z",
+      "side": 1,
+      "message": "There were no changes from the source side, it seems like there was an issue with my device tree yesterday. When I rebased, everything worked correctly without any changes from the source",
+      "parentUuid": "7f0aba59_0ea6fe68",
+      "revId": "7f46e64700088952ebbae732c432fc6f11bd2a29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
