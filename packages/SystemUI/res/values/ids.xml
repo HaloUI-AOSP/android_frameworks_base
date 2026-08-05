@@ -262,6 +262,9 @@
     -->
     <item type="id" name="tag_smartspace_view" />
 
+    <!-- Used to tag the status bar battery compose view so it can be found by the home status bar binder -->
+    <item type="id" name="tag_status_bar_battery" />
+
     <!-- ID of the Scene Container root Composable view -->
     <item type='id' name="scene_container_root_composable" />
 
