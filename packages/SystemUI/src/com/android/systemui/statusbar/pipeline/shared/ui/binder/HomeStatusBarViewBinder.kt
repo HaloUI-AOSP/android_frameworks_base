@@ -27,6 +27,7 @@ import android.os.Looper
 import android.os.UserHandle
 import android.provider.Settings
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -127,6 +128,8 @@ constructor(
         val networkTrafficCenterView = view.findViewById<View>(R.id.network_traffic_holder_center)
         val networkTrafficStartView = view.findViewById<View>(R.id.network_traffic_holder_start)
         val notificationIconsArea = view.requireViewById<View>(R.id.notificationIcons)
+        val batteryView: View? = view.findViewByTagId(R.id.tag_status_bar_battery)
+        val batterySlot = view.context.getString(com.android.internal.R.string.status_bar_battery)
 
         // CollapsedStatusBarFragment doesn't need this
         if (StatusBarRootModernization.isEnabled) {
@@ -196,18 +199,23 @@ constructor(
                                                 enabled && shouldClockAutoHideForCurrentTask()
                                         )
                                     }
-                                    iconHideListUri ->
-                                        current.copy(
-                                            denyListed =
-                                                StatusBarIconController.getIconHideList(
-                                                        context,
-                                                        Settings.Secure.getString(
-                                                            context.contentResolver,
-                                                            StatusBarIconController.ICON_HIDE_LIST,
-                                                        ),
-                                                    )
-                                                    .contains("clock")
-                                        )
+                                    iconHideListUri -> {
+                                        val iconHideList =
+                                            StatusBarIconController.getIconHideList(
+                                                context,
+                                                Settings.Secure.getString(
+                                                    context.contentResolver,
+                                                    StatusBarIconController.ICON_HIDE_LIST,
+                                                ),
+                                            )
+                                        batteryView?.visibility =
+                                            if (iconHideList.contains(batterySlot)) {
+                                                View.GONE
+                                            } else {
+                                                View.VISIBLE
+                                            }
+                                        current.copy(denyListed = iconHideList.contains("clock"))
+                                    }
                                     statusBarClockUri ->
                                         current.copy(
                                             position = context.contentResolver.readClockPosition()
@@ -647,6 +655,23 @@ constructor(
         }
         alpha = 0f
         visibility = state
+    }
+
+    /** Find the first descendant (or this view) tagged with the given keyed tag id. */
+    private fun View.findViewByTagId(tagId: Int): View? {
+        if (getTag(tagId) != null) {
+            return this
+        }
+        return (this as? ViewGroup)?.let { parent ->
+            var found: View? = null
+            for (i in 0 until parent.childCount) {
+                found = parent.getChildAt(i).findViewByTagId(tagId)
+                if (found != null) {
+                    break
+                }
+            }
+            found
+        }
     }
 
     // See CollapsedStatusBarFragment#hide.
