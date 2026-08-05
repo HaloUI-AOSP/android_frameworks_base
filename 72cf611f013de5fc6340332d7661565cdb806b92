@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd73b7d_0c6e2beb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-05T15:35:41Z",
+      "side": 1,
+      "message": "cleaned up; it partially works - doesn\u0027t work on lock screen like 22.2.",
+      "revId": "72cf611f013de5fc6340332d7661565cdb806b92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
