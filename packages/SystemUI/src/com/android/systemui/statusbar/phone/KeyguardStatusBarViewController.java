@@ -31,6 +31,7 @@ import android.hardware.biometrics.BiometricSourceType;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.util.ArraySet;
 import android.util.MathUtils;
 import android.view.DisplayCutout;
 import android.view.View;
@@ -169,6 +170,13 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
     private final KeyguardInteractor mKeyguardInteractor;
 
     @Nullable private ComposeView mBatteryComposeView;
+    private final ContentObserver mIconHideListObserver =
+            new ContentObserver(new Handler(Looper.getMainLooper())) {
+                @Override
+                public void onChange(boolean selfChange) {
+                    updateBatteryVisibility();
+                }
+            };
     private ViewGroup mSystemIconsContainer;
     private final StatusOverlayHoverListenerFactory mStatusOverlayHoverListenerFactory;
 
@@ -541,6 +549,10 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
             AlphaOptimizedLinearLayout systemIcons =
                     mSystemIconsContainer.findViewById(R.id.statusIcons);
             SystemStatusIconsLayoutHelper.configurePaddingForNewStatusBarIcons(systemIcons);
+            mSecureSettings.registerContentObserverForUserSync(
+                    Settings.Secure.getUriFor(StatusBarIconController.ICON_HIDE_LIST),
+                    false, mIconHideListObserver, UserHandle.USER_ALL);
+            mIconHideListObserver.onChange(false, null);
         }
     }
 
@@ -560,7 +572,17 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
                     DarkIconInteractor.toIsAreaDark(mView.darkChangeFlow()));
         }
 
+        batteryComposeView.setId(R.id.battery_composable_view);
         return batteryComposeView;
+    }
+
+    private void updateBatteryVisibility() {
+        if (mBatteryComposeView == null) return;
+        ArraySet<String> hideList = StatusBarIconController.getIconHideList(mContext,
+                Settings.Secure.getString(mContext.getContentResolver(),
+                        StatusBarIconController.ICON_HIDE_LIST));
+        mBatteryComposeView.setVisibility(hideList.contains("battery")
+                ? View.GONE : View.VISIBLE);
     }
 
     @Override
@@ -573,6 +595,7 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
         mKeyguardUpdateMonitor.removeCallback(mKeyguardUpdateMonitorCallback);
         mDisableStateTracker.stopTracking(mCommandQueue);
         mSecureSettings.unregisterContentObserverSync(mVolumeSettingObserver);
+        mSecureSettings.unregisterContentObserverSync(mIconHideListObserver);
         if (mTintedIconManager != null) {
             mStatusBarIconController.removeIconGroup(mTintedIconManager);
         }
