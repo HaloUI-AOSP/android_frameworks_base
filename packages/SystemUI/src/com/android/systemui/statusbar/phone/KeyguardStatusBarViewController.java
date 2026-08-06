@@ -28,13 +28,17 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.biometrics.BiometricSourceType;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
+import android.util.ArraySet;
 import android.util.MathUtils;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -169,6 +173,7 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
     private final KeyguardInteractor mKeyguardInteractor;
 
     @Nullable private ComposeView mBatteryComposeView;
+    @Nullable private ViewGroup mBatteryComposeContainer;
     private ViewGroup mSystemIconsContainer;
     private final StatusOverlayHoverListenerFactory mStatusOverlayHoverListenerFactory;
 
@@ -536,11 +541,20 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
             if (!SceneContainerFlag.isEnabled()) {
                 mBatteryComposeView = createAndBindComposeBattery();
             }
-            mSystemIconsContainer.addView(mBatteryComposeView, -1);
+            mBatteryComposeContainer = new FrameLayout(mContext);
+            mBatteryComposeContainer.addView(mBatteryComposeView,
+                    new FrameLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT));
+            mSystemIconsContainer.addView(mBatteryComposeContainer, -1);
             // Set the margins for the system icons appropriately
             AlphaOptimizedLinearLayout systemIcons =
                     mSystemIconsContainer.findViewById(R.id.statusIcons);
             SystemStatusIconsLayoutHelper.configurePaddingForNewStatusBarIcons(systemIcons);
+            mSecureSettings.registerContentObserverForUserSync(
+                    Settings.Secure.getUriFor(StatusBarIconController.ICON_HIDE_LIST),
+                    false, mIconHideListObserver, UserHandle.USER_ALL);
+            mIconHideListObserver.onChange(false, null);
         }
     }
 
@@ -572,14 +586,16 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
         mStatusBarStateController.removeCallback(mStatusBarStateListener);
         mKeyguardUpdateMonitor.removeCallback(mKeyguardUpdateMonitorCallback);
         mDisableStateTracker.stopTracking(mCommandQueue);
+        mSecureSettings.unregisterContentObserverSync(mIconHideListObserver);
         mSecureSettings.unregisterContentObserverSync(mVolumeSettingObserver);
         if (mTintedIconManager != null) {
             mStatusBarIconController.removeIconGroup(mTintedIconManager);
         }
         if (SceneContainerFlag.isEnabled()) {
             mKeyguardStateController.removeCallback(mKeyguardStateControllerCallback);
-            if (mBatteryComposeView != null) {
-                mSystemIconsContainer.removeView(mBatteryComposeView);
+            if (mBatteryComposeContainer != null) {
+                mBatteryComposeContainer.removeAllViews();
+                mSystemIconsContainer.removeView(mBatteryComposeContainer);
             }
         }
     }
@@ -799,6 +815,17 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
         }
     }
 
+    private void updateBatteryVisibility() {
+        View batteryView = mBatteryComposeContainer != null
+                ? mBatteryComposeContainer : mBatteryComposeView;
+        if (batteryView == null) return;
+        ArraySet<String> hideList = StatusBarIconController.getIconHideList(mContext,
+                Settings.Secure.getString(mContext.getContentResolver(),
+                        StatusBarIconController.ICON_HIDE_LIST));
+        batteryView.setVisibility(hideList.contains("battery")
+                ? View.GONE : View.VISIBLE);
+    }
+
     @VisibleForTesting
     void updateBlockedIcons() {
         List<String> newBlockList = StatusBarIconBlocklistKt
@@ -896,6 +923,14 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
     private boolean isMigrationEnabled() {
         return SceneContainerFlag.isEnabled();
     }
+
+    private final ContentObserver mIconHideListObserver =
+            new ContentObserver(new Handler(Looper.getMainLooper())) {
+                @Override
+                public void onChange(boolean selfChange) {
+                    updateBatteryVisibility();
+                }
+            };
 
     private final ContentObserver mVolumeSettingObserver = new ContentObserver(null) {
         @Override
