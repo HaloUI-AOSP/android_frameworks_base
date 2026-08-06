@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12235e3b_ec5374c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-06T19:00:31Z",
+      "side": 1,
+      "message": "since i\u0027m pretty positive you\u0027re just letting LLM make changes here, can you add assisted-by tag as described here? \n\nhttps://github.com/LineageOS/charter/blob/main/ai-coding-assistants.md",
+      "revId": "5a1a5ab8fd7a89ceaab4e59a5d534508206af567",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
