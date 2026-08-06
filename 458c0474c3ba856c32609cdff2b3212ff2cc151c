@@ -16,6 +16,23 @@
       "message": "still doesn\u0027t work, but i fixed the regression i introduced.",
       "revId": "458c0474c3ba856c32609cdff2b3212ff2cc151c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38018f92_fa5bfed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-08-06T10:34:47Z",
+      "side": 1,
+      "message": "There\u0027s https://review.lineageos.org/q/topic:%22battery-icon-block%22 but looks more invasive than I\u0027d like",
+      "revId": "458c0474c3ba856c32609cdff2b3212ff2cc151c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
