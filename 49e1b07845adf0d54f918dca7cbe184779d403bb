@@ -16,6 +16,24 @@
       "message": "It can be squashed.",
       "revId": "49e1b07845adf0d54f918dca7cbe184779d403bb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c8a7728_0ea0aad6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-07T20:31:59Z",
+      "side": 1,
+      "message": "into what",
+      "parentUuid": "7ad99148_0e8797e4",
+      "revId": "49e1b07845adf0d54f918dca7cbe184779d403bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
