@@ -34,6 +34,23 @@
       "parentUuid": "7ad99148_0e8797e4",
       "revId": "49e1b07845adf0d54f918dca7cbe184779d403bb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9719e52_0ffa0f15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2026-08-08T04:17:16Z",
+      "side": 1,
+      "message": "why not simpler and cleaner version - https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/471201",
+      "revId": "49e1b07845adf0d54f918dca7cbe184779d403bb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
