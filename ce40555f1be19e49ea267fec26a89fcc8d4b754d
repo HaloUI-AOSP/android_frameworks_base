@@ -34,6 +34,24 @@
       "parentUuid": "d83d1d26_58572e65",
       "revId": "ce40555f1be19e49ea267fec26a89fcc8d4b754d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "970b294d_e9df4feb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-08-09T14:13:59Z",
+      "side": 1,
+      "message": "@danascape@gmail.com push this up to 24.0 once this is merged after review, there are conflicts in some files, providing a link if u wanna cherry-pick later once this is up\n\nRef: https://github.com/BlissRoms-Beta/platform_frameworks_base/commit/aa2cc8464664da3fb51cf694c0a8260f18130bbd",
+      "parentUuid": "0ad6e4bf_400b6689",
+      "revId": "ce40555f1be19e49ea267fec26a89fcc8d4b754d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
