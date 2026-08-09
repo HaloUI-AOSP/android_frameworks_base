@@ -52,6 +52,24 @@
       "parentUuid": "0ad6e4bf_400b6689",
       "revId": "ce40555f1be19e49ea267fec26a89fcc8d4b754d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5b6b8b_0fc582f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28798
+      },
+      "writtenOn": "2026-08-09T14:15:16Z",
+      "side": 1,
+      "message": "Thankss, I will keep that in mind, most likely the patch will not be accepted, I\u0027d rather lock this behind an overlay optionally",
+      "parentUuid": "970b294d_e9df4feb",
+      "revId": "ce40555f1be19e49ea267fec26a89fcc8d4b754d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
