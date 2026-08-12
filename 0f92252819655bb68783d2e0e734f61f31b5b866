@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6adb00c6_1214693f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-08-12T14:36:04Z",
+      "side": 1,
+      "message": "Not sure if this should be upstreamed to AOSP or not",
+      "revId": "0f92252819655bb68783d2e0e734f61f31b5b866",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
