@@ -72,7 +72,18 @@ public final class SamsungHooks {
 
         if (packageName.startsWith(PACKAGE_SAMSUNG) || packageName.startsWith(PACKAGE_SEC)) {
             setBuildField("BRAND", "google");
-            setBuildField("MANUFACTURER", "google");
+            setBuildField("MANUFACTURER", "Google");
+        }
+
+        else if (packageName.equals("com.google.android.apps.photos")) {
+            setBuildField("BRAND", "google");
+            setBuildField("DEVICE", "marlin");
+            setBuildField("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+            setBuildField("HARDWARE", "marlin");
+            setBuildField("ID", "QP1A.191005.007.A3");
+            setBuildField("MANUFACTURER", "Google");
+            setBuildField("MODEL", "Pixel XL");
+            setBuildField("PRODUCT", "marlin");
         }
     }
 }

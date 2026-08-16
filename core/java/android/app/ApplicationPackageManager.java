@@ -839,6 +839,15 @@ public class ApplicationPackageManager extends PackageManager {
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
+        /* SPOOF */
+        if ((mContext.getPackageName().equals("com.google.android.apps.photos"))
+        && (name.equalsIgnoreCase("com.google.android.apps.photos.NEXUS_PRELOAD") ||
+            name.equalsIgnoreCase("com.google.android.apps.photos.GOOGLE_BUILD") ||
+            name.equalsIgnoreCase("com.google.android.apps.photos.GOOGLE_EXPERIENCE") ||
+            name.equalsIgnoreCase("com.google.android.apps.photos.PIXEL_EXPERIENCE"))) {
+                return true;
+        }
+
         // We check for system features in the following order:
         //    * Build time-defined system features (constant, very efficient)
         //    * SDK-defined system features (cached at process start, very efficient)
@@ -856,6 +865,7 @@ public class ApplicationPackageManager extends PackageManager {
                 return maybeHasSystemFeature;
             }
         }
+
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
 
