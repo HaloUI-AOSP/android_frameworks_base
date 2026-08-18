@@ -16,6 +16,23 @@
       "message": "Fixes invisible power menu selection on ayn -ack atv targets.",
       "revId": "094652839e07653d9c20e5cd0d68f46a8747b372",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd9ff1c7_5fe9300b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17162
+      },
+      "writtenOn": "2026-08-18T11:21:28Z",
+      "side": 1,
+      "message": "works for me too",
+      "revId": "094652839e07653d9c20e5cd0d68f46a8747b372",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
