@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41d2ac7_dbdd65fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-08-23T17:47:49Z",
+      "side": 1,
+      "message": "I\u0027ll +V when i know it works on 23.2 too, only tested on 24.0.",
+      "revId": "68ee585f54bc11b13a250f0365d12c0b9c2e5cf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
