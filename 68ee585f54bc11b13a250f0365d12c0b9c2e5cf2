@@ -16,6 +16,23 @@
       "message": "I\u0027ll +V when i know it works on 23.2 too, only tested on 24.0.",
       "revId": "68ee585f54bc11b13a250f0365d12c0b9c2e5cf2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b0f03e6_6af4cdf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 37803
+      },
+      "writtenOn": "2026-08-24T10:01:21Z",
+      "side": 1,
+      "message": "It works fine on 23.2",
+      "revId": "68ee585f54bc11b13a250f0365d12c0b9c2e5cf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
