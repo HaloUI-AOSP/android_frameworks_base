@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "662e176d_13f92464",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2026-08-25T05:11:50Z",
+      "side": 1,
+      "message": "Verified on Retroid Pocket Nova. Works as intended.",
+      "revId": "9ad0c6b5216732f2b8d9ec1c06c33e02aa848e8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
