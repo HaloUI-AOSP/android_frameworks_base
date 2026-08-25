@@ -53,7 +53,7 @@ class ExtendedRemoteDisplayHelper {
 
     // Method object for the API ExtendedRemoteDisplay.Listen
     // ExtendedRemoteDisplay.Listen has the same API signature as RemoteDisplay.Listen
-    // except for an additional argument to pass the Context.
+    // except for an additional arguments to pass the Context, deviceInfo, and deviceName.
     private static Method sExtRemoteDisplayListen;
 
     // Method Object for the API ExtendedRemoteDisplay.Dispose
@@ -84,7 +84,7 @@ class ExtendedRemoteDisplayHelper {
             Slog.i(TAG, "ExtendedRemoteDisplay: is available, finding methods");
 
             final Class listenArgs[] = { String.class, RemoteDisplay.Listener.class,
-                    Handler.class, Context.class };
+                    Handler.class, Context.class, int.class, String.class };
             try {
                 sExtRemoteDisplayListen =
                         sExtRemoteDisplayClass.getDeclaredMethod("listen", listenArgs);
@@ -128,7 +128,7 @@ class ExtendedRemoteDisplayHelper {
         if (sExtRemoteDisplayListen != null && sExtRemoteDisplayDispose != null) {
             try {
                 extRemoteDisplay = sExtRemoteDisplayListen.invoke(null,
-                        iface, listener, handler, context);
+                        iface, listener, handler, context, 0, "");
             } catch (InvocationTargetException e) {
                 Slog.e(TAG, "ExtendedRemoteDisplay.listen: InvocationTargetException");
                 Throwable cause = e.getCause();
