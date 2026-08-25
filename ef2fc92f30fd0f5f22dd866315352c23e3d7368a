@@ -16,6 +16,24 @@
       "message": "not sure if these are from motorola or qualcomm.",
       "revId": "ef2fc92f30fd0f5f22dd866315352c23e3d7368a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b82432f1_0410a34a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-08-25T14:51:56Z",
+      "side": 1,
+      "message": "Doesn\u0027t appear to be a qcom thing in 17 qssi",
+      "parentUuid": "ed28bc1a_eea96fee",
+      "revId": "ef2fc92f30fd0f5f22dd866315352c23e3d7368a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
