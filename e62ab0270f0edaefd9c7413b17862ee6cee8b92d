@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d47e11_f448d31f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20370
+      },
+      "writtenOn": "2026-08-29T07:05:06Z",
+      "side": 1,
+      "message": "long press of back key is broken on pdx257 although the settings is present:\n\n$ settings list --lineage system | grep key\nkey_back_long_press_action\u003d10",
+      "revId": "e62ab0270f0edaefd9c7413b17862ee6cee8b92d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
